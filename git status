@@ -1,0 +1,248 @@
+[33mcommit 931b013aed15bc44366125d34b21ca9e98ab0c31[m[33m ([m[1;36mHEAD -> [m[1;32mrefactorUI[m[33m, [m[1;31morigin/refactorUI[m[33m, [m[1;31morigin/master[m[33m, [m[1;31morigin/HEAD[m[33m)[m
+Merge: c5ebac9 dbfd2d7
+Author: George Sayapin <43910293+goscha01@users.noreply.github.com>
+Date:   Thu Apr 29 09:18:41 2021 -0400
+
+    Merge branch 'master' into refactorJS
+
+[33mcommit dbfd2d7ae9e51b198b04544cd85ed75559decdb3[m
+Author: Muhammad Usman <71489255+muhammadusman5@users.noreply.github.com>
+Date:   Mon Apr 26 13:24:25 2021 -0700
+
+    Update modals.js
+
+[33mcommit ef6b28f911de014155e6f4acfef01d07addadc87[m
+Author: Muhammad Usman <71489255+muhammadusman5@users.noreply.github.com>
+Date:   Mon Apr 26 07:49:47 2021 -0700
+
+    Update mailActivate.php
+
+[33mcommit c5ebac9d7a07b4c8a1afbca88ddef7932ba5ff07[m
+Author: Muhammad Usman <71489255+muhammadusman5@users.noreply.github.com>
+Date:   Sat Apr 24 15:13:57 2021 -0700
+
+    placeholder remove on click
+
+[33mcommit 289e2fdfeaf305af5eccb6e5e88ee7be7785f485[m
+Author: Muhammad Usman <71489255+muhammadusman5@users.noreply.github.com>
+Date:   Sat Apr 24 14:44:18 2021 -0700
+
+    dynamic url
+
+[33mcommit c00542793ca49d9c5feee6961682fd2d11ffbf83[m
+Author: Muhammad Usman <71489255+muhammadusman5@users.noreply.github.com>
+Date:   Sat Apr 24 14:32:36 2021 -0700
+
+    dynamic url
+
+[33mcommit 3df11babb00a509b82d8be7f28fb881ca35edb0f[m
+Author: Muhammad Usman <71489255+muhammadusman5@users.noreply.github.com>
+Date:   Fri Apr 23 10:17:45 2021 -0700
+
+    text and circle text disappear on click
+
+[33mcommit 6535b5593a30790efc213a5b23132d41244fef56[m
+Author: Muhammad Usman <71489255+muhammadusman5@users.noreply.github.com>
+Date:   Thu Apr 22 13:29:00 2021 -0700
+
+    Update suggestionmail.php
+
+[33mcommit 08aacccfcb56b3bfbb09d1710a8c996b9a58f9ad[m
+Author: Muhammad Usman <71489255+muhammadusman5@users.noreply.github.com>
+Date:   Thu Apr 22 10:19:41 2021 -0700
+
+    Update modals.js
+
+[33mcommit 036f0a6de831b53dfc5f01e6f6a727097b0d25b4[m
+Author: Muhammad Usman <71489255+muhammadusman5@users.noreply.github.com>
+Date:   Thu Apr 22 10:11:04 2021 -0700
+
+    restore suggestion mail
+
+[33mcommit a9ed40421c1274815f1873757ecac41469da91b7[m
+Author: Muhammad Usman <71489255+muhammadusman5@users.noreply.github.com>
+Date:   Thu Apr 22 08:17:46 2021 -0700
+
+    Update modals.js
+
+[33mcommit 43b2752546654d842017ce3e0df30045f0836642[m
+Author: Muhammad Usman <71489255+muhammadusman5@users.noreply.github.com>
+Date:   Thu Apr 22 08:12:25 2021 -0700
+
+    Update suggestionmail.php
+
+[33mcommit e8c9a80b41350caadd4582256616f4203a267ade[m
+Author: Muhammad Usman <71489255+muhammadusman5@users.noreply.github.com>
+Date:   Thu Apr 22 07:57:15 2021 -0700
+
+    Update suggestionmail.php
+
+[33mcommit c7cab3008bf5178d4a6f9d1fd3c08428875cc4d4[m
+Author: Muhammad Usman <71489255+muhammadusman5@users.noreply.github.com>
+Date:   Thu Apr 22 07:43:34 2021 -0700
+
+    Update modals.js
+
+[33mcommit ea21f4ea7c47b48c9e62d917908689da3764c4af[m
+Author: Muhammad Usman <71489255+muhammadusman5@users.noreply.github.com>
+Date:   Thu Apr 22 07:38:25 2021 -0700
+
+    Update modals.js
+
+[33mcommit 7deb589a656432cb33b4f6db7b38c3cd05f4fa61[m
+Author: Muhammad Usman <71489255+muhammadusman5@users.noreply.github.com>
+Date:   Thu Apr 22 07:32:53 2021 -0700
+
+    Update modals.js
+
+[33mcommit 088ceb84b31a2664a88a0dc42c33fa5b64aef29f[m
+Author: Muhammad Usman <71489255+muhammadusman5@users.noreply.github.com>
+Date:   Thu Apr 22 07:22:12 2021 -0700
+
+    test
+
+[33mcommit 9746e4cca72c98ebb328bb09f2fa07f00fa5b88a[m
+Author: Muhammad Usman <71489255+muhammadusman5@users.noreply.github.com>
+Date:   Thu Apr 22 07:15:22 2021 -0700
+
+    testing
+
+[33mcommit 980da4e048cec2889dcac2918f3aec43d26b4249[m
+Author: Muhammad Usman <71489255+muhammadusman5@users.noreply.github.com>
+Date:   Thu Apr 22 07:06:45 2021 -0700
+
+    testing
+
+[33mcommit b35a5f1c8d033baf3b2b03b639c6c8918cc26f17[m
+Author: Muhammad Usman <71489255+muhammadusman5@users.noreply.github.com>
+Date:   Thu Apr 22 06:13:33 2021 -0700
+
+    Create .htaccess
+
+[33mcommit 05002976572cb435e5dd37e3095fd55b954cdeff[m
+Author: Muhammad Usman <71489255+muhammadusman5@users.noreply.github.com>
+Date:   Thu Apr 22 05:00:53 2021 -0700
+
+    Update customCircularLibrary.js
+
+[33mcommit 466fc170feae1b05c7be35b6dd82af06afd58d2a[m
+Author: Muhammad Usman <71489255+muhammadusman5@users.noreply.github.com>
+Date:   Thu Apr 22 04:56:46 2021 -0700
+
+    Update customCircularLibrary.js
+
+[33mcommit 65e78706d4a953e2b38026edccb7d4b8b38707c1[m
+Author: Muhammad Usman <71489255+muhammadusman5@users.noreply.github.com>
+Date:   Thu Apr 22 04:41:15 2021 -0700
+
+    image size relative to center
+
+[33mcommit 31766eefed97042ced7abb4a6bc6ca95dcbd56ea[m
+Author: Muhammad Usman <71489255+muhammadusman5@users.noreply.github.com>
+Date:   Thu Apr 22 04:37:16 2021 -0700
+
+    image size relative to center
+
+[33mcommit 67e4e55fcb390299e827be2da260c3c603043990[m
+Author: Muhammad Usman <71489255+muhammadusman5@users.noreply.github.com>
+Date:   Thu Apr 22 02:33:02 2021 -0700
+
+    Update suggestionmail.php
+
+[33mcommit ac1311417fde0d5f71a3bf5368b8cb13fb5e4707[m
+Author: Muhammad Usman <71489255+muhammadusman5@users.noreply.github.com>
+Date:   Thu Apr 22 02:28:00 2021 -0700
+
+    testing
+
+[33mcommit 311f7ee4c2f31e805d11ffffd1f8fbf12049845f[m
+Author: Muhammad Usman <71489255+muhammadusman5@users.noreply.github.com>
+Date:   Wed Apr 21 08:09:35 2021 -0700
+
+    Update modals.js
+
+[33mcommit f141fec196b398279318125ede69440bf078e448[m
+Author: Muhammad Usman <71489255+muhammadusman5@users.noreply.github.com>
+Date:   Wed Apr 21 05:47:13 2021 -0700
+
+    Rename suggestionmail to suggestionmail.php
+
+[33mcommit 5c710e7b5b32fcb6e4fcd5dc07010db5c41d68ea[m
+Author: Muhammad Usman <71489255+muhammadusman5@users.noreply.github.com>
+Date:   Wed Apr 21 05:44:23 2021 -0700
+
+    Update suggestionmail
+
+[33mcommit 1b1762fde27bf19d9df7b603b4c814087aaad157[m
+Author: Muhammad Usman <71489255+muhammadusman5@users.noreply.github.com>
+Date:   Wed Apr 21 05:43:57 2021 -0700
+
+    create file
+
+[33mcommit 11e2546ceccec520160cb19ff6857c9cdb73a325[m
+Author: Muhammad Usman <71489255+muhammadusman5@users.noreply.github.com>
+Date:   Wed Apr 21 05:42:42 2021 -0700
+
+    change filename
+
+[33mcommit d62a6ac7e40ad4f114ef89bcff51e6dad410ee7a[m
+Author: Muhammad Usman <71489255+muhammadusman5@users.noreply.github.com>
+Date:   Wed Apr 21 05:36:21 2021 -0700
+
+    testing
+
+[33mcommit 899044b2c7fa2b5aa3d081bc6bf102117feaa655[m
+Author: Muhammad Usman <71489255+muhammadusman5@users.noreply.github.com>
+Date:   Wed Apr 21 04:43:51 2021 -0700
+
+    test
+
+[33mcommit c1be0f403bc654f0b3e4ec8aa2f24aaa49f63d8d[m
+Author: Muhammad Usman <71489255+muhammadusman5@users.noreply.github.com>
+Date:   Wed Apr 21 04:37:30 2021 -0700
+
+    change url path
+
+[33mcommit a2319cab9128307cf3baae0c5b6a124d28d9106d[m
+Author: Muhammad Usman <71489255+muhammadusman5@users.noreply.github.com>
+Date:   Wed Apr 21 04:34:29 2021 -0700
+
+    testing
+
+[33mcommit 34322cd77831a55783d47baa86239da8a692db92[m
+Author: Muhammad Usman <71489255+muhammadusman5@users.noreply.github.com>
+Date:   Wed Apr 21 03:55:39 2021 -0700
+
+    image size
+
+[33mcommit 2fb99ca4a5ea447e678a226cf609cd641da9d901[m
+Author: Muhammad Usman <71489255+muhammadusman5@users.noreply.github.com>
+Date:   Wed Apr 21 03:50:28 2021 -0700
+
+    image size update
+
+[33mcommit f443ee24e7821550b80d3b981eddc81d3626030b[m
+Author: Muhammad Usman <71489255+muhammadusman5@users.noreply.github.com>
+Date:   Wed Apr 21 01:56:05 2021 -0700
+
+    delete color elements also
+
+[33mcommit c2f8a1fa63055bf687041f9959ef7c4b8364632c[m
+Author: Muhammad Usman <71489255+muhammadusman5@users.noreply.github.com>
+Date:   Tue Apr 20 17:53:18 2021 -0700
+
+    remove function on submit button
+
+[33mcommit 55316e17448714d78b671393db71f38e53fabe97[m
+Author: Muhammad Usman <71489255+muhammadusman5@users.noreply.github.com>
+Date:   Tue Apr 20 17:35:13 2021 -0700
+
+    Update suggestion.php
+
+[33mcommit 65cd397dfb65bcf9bdfcfbb11639e5d7b6cf97d6[m
+Author: Muhammad Usman <71489255+muhammadusman5@users.noreply.github.com>
+Date:   Tue Apr 20 16:55:53 2021 -0700
+
+    new
+
+[33mcommit a17ac18b31388
