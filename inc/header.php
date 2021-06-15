@@ -43,6 +43,91 @@ if (isset($_SESSION['uid']) && $_SESSION['role'] == 'admin') {
     <script src="assets/js/select2.min.js"></script>
     <link href="assets/css/select2.min.css" rel="stylesheet" />
     <title>Stamp Maker</title>
+    <style type="text/css">
+/*.myclass1{
+    background-image: url(svg/back.svg); 
+}
+*/
+    .btn-default{border:1px solid gray;
+      margin:0px;
+      border-radius: 5px!important;
+      padding:2px;
+      box-shadow: 0 0 5px #bfbfbf;
+}
+.middiv{box-shadow: 0 0 10px #bfbfbf;
+    border-radius: 5%;
+    max-width: 500px;
+  max-height: 500px!important;
+
+}
+.myclass1{
+    box-shadow: 0 0 5px #bfbfbf;
+    padding:20px;
+    margin:20px;
+    /*margin-left:40px;*/*/
+  /*  margin-right:40px;*/
+    max-height:400px!important;
+    max-width:400px!important;
+}
+.myclass3{
+    box-shadow: 0 0 5px #bfbfbf;
+    padding:5px;
+}
+.mybtnimg{
+    height:30px;
+    width:30px;
+    margin:1px;
+}
+.btn-tex{
+  color:black; text-align:left;
+  font-size: 10px;
+}
+.bodybtn{
+    margin-top:-55px;
+}
+.language{
+    width:85px!important;
+    font-size: 12px;
+    margin:2px;
+}
+.language1{
+    width:85px!important;
+    font-size: 12px;
+    margin:2px;
+}
+.language2{
+    width:85px!important;
+    font-size: 12px;
+    margin:0px;
+    border:1px solid black;
+    height:20px!important;
+}
+.language2 .btn{
+    margin-top:-10px!important;
+    margin-bottom:2px;
+}
+.myspan{
+position:absolute!important;
+margin-top:-2px!important;
+}
+.colr{
+    height:10px!important;
+    margin-top:-15px!important;
+    position:relative!important;
+   /* border:1px solid red!important;*/
+}
+.mytable{
+    margin-left:25px!important;
+}
+.font-style{
+    margin-top:-15px;
+}
+
+
+
+    </style>
+
+
 </head>
 
 <body>
