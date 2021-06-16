@@ -85,7 +85,7 @@
 .slidecontainer input[type="range"] {
   -webkit-appearance: none;
   -moz-appearance: none;
-  width: 100%;
+  width: 80%;
   height: 1.5px;
   margin-bottom: 2em;
   background-color: #969799;
@@ -158,17 +158,6 @@ input[type="range"]::-ms-thumb {
   bottom: 10px;
   left: calc(50% - 89px);
 }
-.myclass{
-  width:100%;
-  border: none;
-  background-color: #f8f8f8;
-  box-shadow: 0 0 10px #bfbfbf;
-  padding: 2px;
-  margin:0px;
-  border-radius: 20px;
-  overflow-y: auto;
-  max-height:500px!important;
-}
 .properties-wrapper {
   border: none;
   background-color: #f8f8f8;
@@ -182,15 +171,6 @@ input[type="range"]::-ms-thumb {
 .properties-wrapper h5 {
   color: #0e4075;
   border-bottom: 2px solid #0e4075;
-}
-.labels-card {
-  border: none;
-  background-color: #f8f8f8;
-  box-shadow: 0 0 10px #bfbfbf;
-  height: 500px;
-  border-radius: 20px;
-  overflow-y: auto;
-  max-width:242px!important;
 }
 #properties{
   height: 500px;
@@ -309,8 +289,8 @@ input[type="range"]::-ms-thumb {
   border-color: #ff8800
 }
 .btn-outline-warning {
-  color: #ff8800;
-  border-color: #ff8800
+  color: white;
+  border-color: white;
 }
 
 .btn-outline-warning:hover {
@@ -326,7 +306,7 @@ input[type="range"]::-ms-thumb {
 .sp-replacer .sp-preview {
   border: none !important;
 }
-@media screen and (max-width: 768px) {
+/*@media screen and (max-width: 768px) {
   canvas {
     width: 200px;
   }
@@ -402,11 +382,11 @@ input[type="range"]::-ms-thumb {
   h1 {
     font-size: 2rem;
   }
-  /* .brand {
+   .brand {
     display: flex;
     justify-content: flex-end;
     align-items: center;
-  } */
+  } 
   .brand {
     text-align: left !important;
     justify-content: flex-start;
@@ -445,14 +425,14 @@ input[type="range"]::-ms-thumb {
   .slidecontainer input {
     margin: 0px;
   }
- /* .download-btn {
+  .download-btn {
     position: absolute;
     top: -87px;
     left: calc(50% - 68px);
-  }*/
-  /* .canvas {
+  }
+   .canvas {
     margin-top: 10px;
-  } */
+  } 
   .right-panel {
     margin-top: 20px;
   }
@@ -489,5 +469,5 @@ input[type="range"]::-ms-thumb {
   .instruction .btn {
     width: 10em !important;
   }
-}
+}*/
 

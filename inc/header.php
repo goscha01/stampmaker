@@ -44,20 +44,19 @@ if (isset($_SESSION['uid']) && $_SESSION['role'] == 'admin') {
     <link href="assets/css/select2.min.css" rel="stylesheet" />
     <title>Stamp Maker</title>
     <style type="text/css">
-/*.myclass1{
-    background-image: url(svg/back.svg); 
-}
-*/
+
     .btn-default{border:1px solid gray;
       margin:0px;
       border-radius: 5px!important;
       padding:2px;
       box-shadow: 0 0 5px #bfbfbf;
 }
-.middiv{box-shadow: 0 0 10px #bfbfbf;
+.middiv{
+    box-shadow: 0 0 10px #bfbfbf;
     border-radius: 5%;
-    max-width: 500px;
-  max-height: 500px!important;
+    width: 500px;
+    max-height: 500px!important;
+    margin-left:10px;
 
 }
 .myclass1{
@@ -69,13 +68,35 @@ if (isset($_SESSION['uid']) && $_SESSION['role'] == 'admin') {
     max-height:400px!important;
     max-width:400px!important;
 }
+.labels-card{
+  margin:0px;
+  padding: 0px
+  border: none;
+  background-color: #f8f8f8;
+  box-shadow: 0 0 10px #bfbfbf;
+  height: 500px;
+  border-radius: 20px;
+  overflow-y: auto;
+}
 .myclass3{
     box-shadow: 0 0 5px #bfbfbf;
-    padding:5px;
+    padding:1px!important;
+    width:100%!important;
+}
+.myclass{
+  width:100%;
+  border: none;
+  background-color: #f8f8f8;
+  box-shadow: 0 0 10px #bfbfbf;
+  padding: 2px;
+  margin:0px;
+  border-radius: 20px;
+  overflow-y: auto;
+  max-height:500px!important;
 }
 .mybtnimg{
-    height:30px;
-    width:30px;
+    height:35px;
+    width:35px;
     margin:1px;
 }
 .btn-tex{
@@ -84,27 +105,6 @@ if (isset($_SESSION['uid']) && $_SESSION['role'] == 'admin') {
 }
 .bodybtn{
     margin-top:-55px;
-}
-.language{
-    width:85px!important;
-    font-size: 12px;
-    margin:2px;
-}
-.language1{
-    width:85px!important;
-    font-size: 12px;
-    margin:2px;
-}
-.language2{
-    width:85px!important;
-    font-size: 12px;
-    margin:0px;
-    border:1px solid black;
-    height:20px!important;
-}
-.language2 .btn{
-    margin-top:-10px!important;
-    margin-bottom:2px;
 }
 .myspan{
 position:absolute!important;
@@ -122,7 +122,25 @@ margin-top:-2px!important;
 .font-style{
     margin-top:-15px;
 }
-
+#RoundColor-{
+    style="border:none!important;
+    width:20px;float:right!important;"
+}
+@media screen and (min-width: 1024px) {
+ .icons1{
+    margin-top:15px!important;
+    margin-left: 85px;
+}
+}
+@media screen and (max-width: 1024px) {
+ .icons1{
+    margin-top:15px!important;
+    margin-left: 25px;
+}
+}
+.px{
+    font-size: 14px;
+}
 
 
     </style>
