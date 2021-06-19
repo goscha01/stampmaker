@@ -4,8 +4,7 @@ session_start();
 include_once('inc/header.php');
 
 ?>
-<!-- <div id="measure"></div> -->
-<header class="header">
+<header class="container-fluid header">
     <div class="container-fluid" style="margin: 0px; padding: 0px;">
         <div class="row" style="margin: 0px; padding: 0px;">
              <div  class="col-md-2 col-2 text-center" style="align-items:center">
@@ -45,105 +44,87 @@ include_once('inc/header.php');
         </div>
     </div>
 </header>
-<div class="container-fluid mt-3">
-    <div class="row">
-        <div class="col-md-2 text-center m-1">
-            <img src="assets/img/banner.jpg" class="" alt="" style="width:150px; max-height:500px;" />
-        </div>
-         <div class="col-md-2 p-1" id="" style="border:none; ">
-            <!--Labels -->
-                    <div class="card labels-card m-0 p-1 ">
-                        <h5 class="text-center p-1 text-secondary" style="border-bottom:2px solid silver;">Layers</h5>
-                        <div class="card-body m-1 p-0" id="labels">
+<div class="container-fluid mt-2 p-0">
+    <div class="text-center" style="width:16%!important; height:;float:left!important;">
+        <img src="assets/img/banner.jpg" class="m-2" alt="" style="width:150px; height:500px;" />
+    </div>
+    <div class="" style="width:16%; height:;float:left">
+        <div class="card left-side m-2">
+            <h5 class="text-center p-1 text-secondary" style="border-bottom:2px solid silver;">Layers</h5>
+              <div class="card-body m-1 p-0" id="labels">
 
-                        </div>
-                    </div>
-            </div>
-             <div class="col-md-4 middiv" >
-                        <!-- Canvas -->
-                        <div class="canvas-col" >
-                          <center>
-                            <div id="stageparent" class="canvas-stageparent" style="border:none;">
-                                <div id="parent_sub">
-                                  <!-- <div id="container"></div> -->
-                                    <div class="" style="padding:0px;margin-top: -20px;">
-                                        <div class="row m-2">
-                                            <div class="col-md-3">
-                                                <button class="btn btn-sm btn-default icon-btn" id="addroundtext" title="Text Around The Circle">
-                                                <img class="mybtnimg" src="assets/img/IconRound.svg" alt="">
-                                                <span class="btn-tex">Round Text</span>
-                                                </button> 
-                                            </div>
-                                            <div class="col-md-3">
-                                                 <button class="btn btn-sm btn-default  icon-btn" id="addlinetext" title="Line Text">
-                                                     <img class="mybtnimg" src="assets/img/IconLine.svg" alt="">
-                                                    <span class="btn-tex">Line Text</span>
-                                                        </button> 
-                                            </div>
-                                            <div class="col-md-3">
-                                                <button class="btn btn-sm btn-default  icon-btn" id="addcircle" title="Circle">
-                                                <img class="mybtnimg" src="assets/img/IconShape.svg" alt="">
-                                                <span class="btn-tex">Add Circle</span>
-                                                </button> 
-                                            </div>
-                                            <div class="col-md-3">
-                                                <button class="btn btn-sm btn-default  icon-btn" id="addimage" title="Image">
-                                                <img class="mybtnimg" src="assets/img/IconSquare.svg" alt="">
-                                                <span class="btn-tex">Add Image</span>
-                                                </button>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="canvas myclass1 text-center">
-                                                    
-                                    </div>
-                                 </div><br><br>
-                                   <center class="">
-                                        <?php $session = (isset($_SESSION['uid'])) ? $_SESSION['sessionid'] : 'null'; ?>
-                                        <button class="btn btn-sm btn-warning shadow" style="color: white" id="downloads" onclick="down('<?php echo $session ?>')">Download</button>
-                                        <br> <br>
-                                 </center>
-                            </div>
-                          </center>
-                        </div>
-             </div>
-             <div class="col-md-2" id="properties">
-
-            </div>
-            <div class="col-md-1 text-center">
-            <img src="assets/img/banner.jpg" class="" alt="" style="width:150px; max-height:500px;" />
-        </div>
+              </div>
         </div>
     </div>
-    <br>
-<div class="container">
-    <div class="row">
-       
-         <div classs="col-md-6">
-            <img src="antique.jpg" class="img img-responsive float-right" alt="" 
-            style="width:360px; height:100px; margin-left:140px;"  />
-        </div>
-         <div classs="col-md-6">
-             <img src="antique.jpg" class="img img-responsive float-right" alt=""  
-             style="width:360px; height:100px; margin-left: 110px; ma" />
-         </div> 
-        
+    <div class="" style="width:36%; height:500px;float:left">
+     <div class="canvis-area m-2">
+           <div class="canvas-col" >
+              <center>
+                <div id="stageparent" class="canvas-stageparent" style="border:none;">
+                    <div id="parent_sub">
+                                  <!-- <div id="container"></div> -->
+                        <div class="" style="padding:0px;margin-top: -20px;">
+                            <div class="row m-2">
+                                <div class="col-md-3">
+                                    <img class="iconimg" id="addroundtext" src="img/icon.jpg" alt="" />
+                                                
+                                </div>
+                                <div class="col-md-3">
+                                    <img class="iconimg" id="addlinetext" src="img/icon2.jpg" alt="" /> 
+                                                 
+                                </div>
+                                <div class="col-md-3">
+                                    <img class="iconimg" id="addcircle" src="img/icon3.jpg" alt=""> 
+                                </div>
+                                <div class="col-md-3">
+                                    <img class="iconimg" id="addimage" src="img/icon7.jpg" alt="">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="canvas text-center" >
+                                                    
+                        </div>
+                    </div><br><br>
+                        <center class="">
+                            <?php $session = (isset($_SESSION['uid'])) ? $_SESSION['sessionid'] : 'null'; ?>
+                            <button class="btn btn-sm btn-warning shadow" style="color: white" id="downloads" onclick="down('<?php echo $session ?>')">Download
+                            </button>
+                            <br> <br>
+                        </center>
+                </div>
+               </center>
+           </div>
+     </div> 
+    </div>
+    <div class="" style="width:16%; height:;float:left">
+      <div class="m-2" id="properties">
+         
+      </div>
+    </div>
+    <div class="text-center" style="width:16%!important; height:;float:left!important;">
+        <img src="assets/img/banner.jpg" class="m-2" alt="" style="width:150px; height:500px;" />
     </div>
 </div>
-<div class="container-fluid">
+
+<div class="container-fluid mt-5">
     <div class="row">
-        <div classs="col-md-6">
-            <div class='demo bottomright seggestions-section' style="width: 255px !important;">
-                <div id='howto' onclick='toggleinstruction()'>
-                    <p class="px">Suggestions and concerns Click Here</p>
+        <div class="col-md-1 text-center"></div>
+        <div class="col-md-4 text-right ">
+            <img src="assets/img/banner.jpg" class="mt-5" alt="" style="width:80%; height:50px;" />
+        </div>
+        <div class="col-md-4 text-right " >
+            <img src="assets/img/banner.jpg" class="mt-5" alt="" style="width:80%; height:50px;" />
+        </div>
+
+        <div class="col-md-3 text-center ">
+            <div class='demo bottomright seggestions-section' style="width:22% !important;">
+                <div class=" p-1" id='howto' onclick='toggleinstruction()'>
+                    <p class="px" style="font-size: 15px!important;">Suggestions and concerns Click Here</p>
                 </div>
                 <div class='suggest' id='suggestIns'>
                         <div class="card">
                             <div class="card-body">
-
-                              
                                 <h5>Instructions</h5>
-                              
                                 Select <b>Circle</b> element to add a stamp circle<br>
                                 Edit the circle, change its radius and stroke width<br>
                                 Select <b>Round</b> Text element to add a text around the circle<br>
@@ -159,10 +140,9 @@ include_once('inc/header.php');
                         </div>
                  </div>
             </div>
-         </div>
+        </div>
     </div>
 </div>
- <!--    /////about model -->
 <div class="modal fade" id="aboutus">
     <div class="modal-dialog">
         <div class="modal-content">
@@ -191,18 +171,10 @@ include_once('inc/header.php');
                  
               </div>
         </div>
+       
     </div>
 </div>
-<script>
-    // $(document).click(function(){
-    // alert($("#colorpicker").spectrum("get").toHex());
-    // })
-</script>
-<!-- Modal Of Sign Up -->
-<?php include 'inc/signup_modal.php'; ?>
+    <?php include 'inc/signup_modal.php'; ?>
 <?php include 'inc/login_modal.php'; ?>
 
-</div>
-<!-- Footer -->
-<!-- Footer -->
 <?php include 'inc/suggestion.php'; ?>

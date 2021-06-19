@@ -103,44 +103,80 @@ if (isset($_SESSION['uid']) && $_SESSION['role'] == 'admin') {
   color:black; text-align:left;
   font-size: 10px;
 }
-.bodybtn{
-    margin-top:-55px;
+
+.header {
+    background-color: #00438a;
+    height: auto;
 }
-.myspan{
-position:absolute!important;
-margin-top:-2px!important;
+.left-side{
+    margin:0px;
+  padding: 0px
+  border: none;
+  background-color: #f8f8f8;
+  box-shadow: 0 0 10px #bfbfbf;
+  height: 500px;
+  border-radius: 20px;
+  overflow-y: auto;
 }
-.colr{
-    height:10px!important;
-    margin-top:-15px!important;
-    position:relative!important;
-   /* border:1px solid red!important;*/
+.canvis-area{
+    box-shadow: 0 0 10px #bfbfbf;
+    border-radius: 5%;
+    height:500px!important;
 }
-.mytable{
-    margin-left:25px!important;
+.iconimg{
+    border-radius: 10px;
 }
-.font-style{
-    margin-top:-15px;
+.canvas{
+     box-shadow: 0 0 5px #bfbfbf;
+    padding:20px;
+    margin-top:20px;
+    margin-left:10%;
+  margin-right:10%;
+   
 }
-#RoundColor-{
-    style="border:none!important;
-    width:20px;float:right!important;"
+.iconleft{
+    margin-right:-25px!important;
 }
-@media screen and (min-width: 1024px) {
- .icons1{
-    margin-top:15px!important;
-    margin-left: 85px;
-}
+.iconright{
+    margin-right:25px!important;
 }
 @media screen and (max-width: 1024px) {
- .icons1{
-    margin-top:15px!important;
-    margin-left: 25px;
+
 }
+@media only screen and (min-width: 802px) and (max-width: 1100px){
+ .iconleft{
+    margin-right:-23px!important;
 }
-.px{
-    font-size: 14px;
+.iconright{
+    margin-right:25px!important;    
 }
+.canvas{
+     box-shadow: 0 0 5px #bfbfbf;
+    padding:20px;
+    margin-top:20px;
+    margin-left:10%;
+  margin-right:10%;padding:10px;
+   
+}
+.i  
+}
+@media only screen and (min-width: 1103px) and (max-width: 1160px){
+ .iconleft{
+    margin-right:-35px!important;
+}
+.iconright{
+    margin-right:35px!important;
+}   
+}
+@media only screen and (min-width: 1161px) and (max-width: 1560px){
+ .iconleft{
+    margin-right:-45px!important;
+}
+.iconright{
+    margin-right:45px!important;
+}   
+}
+
 
 
     </style>
