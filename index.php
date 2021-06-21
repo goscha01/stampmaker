@@ -66,18 +66,18 @@ include_once('inc/header.php');
                         <div class="" style="padding:0px;margin-top: -20px;">
                             <div class="row m-2">
                                 <div class="col-md-3">
-                                    <img class="iconimg" id="addroundtext" src="img/icon.jpg" alt="" />
+                                    <img class="iconimg" id="addroundtext" src="img/icon.JPG" alt="" />
                                                 
                                 </div>
                                 <div class="col-md-3">
-                                    <img class="iconimg" id="addlinetext" src="img/icon2.jpg" alt="" /> 
+                                    <img class="iconimg" id="addlinetext" src="img/icon2.JPG" alt="" /> 
                                                  
                                 </div>
                                 <div class="col-md-3">
-                                    <img class="iconimg" id="addcircle" src="img/icon3.jpg" alt=""> 
+                                    <img class="iconimg" id="addcircle" src="img/icon3.JPG" alt=""> 
                                 </div>
                                 <div class="col-md-3">
-                                    <img class="iconimg" id="addimage" src="img/icon7.jpg" alt="">
+                                    <img class="iconimg" id="addimage" src="img/icon7.JPG" alt="">
                                 </div>
                             </div>
                         </div>
