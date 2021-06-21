@@ -110,10 +110,10 @@ include_once('inc/header.php');
     <div class="row">
         <div class="col-md-1 text-center"></div>
         <div class="col-md-4 text-right ">
-            <img src="assets/img/banner.jpg" class="mt-5" alt="" style="width:80%; height:50px;" />
+            <img src="assets/img/banner.jpg" class="mt-5" alt="" style="width:80%; height:55px;" />
         </div>
         <div class="col-md-4 text-right " >
-            <img src="assets/img/banner.jpg" class="mt-5" alt="" style="width:80%; height:50px;" />
+            <img src="assets/img/banner.jpg" class="mt-5" alt="" style="width:80%; height:55px;" />
         </div>
 
         <div class="col-md-3 text-center ">
