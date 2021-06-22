@@ -47,6 +47,9 @@ button.about_btn {
 .banner_1{
     margin-right: 60px;
 }
+.container-fluid.mt-5 {
+    max-width: 100% !important;
+}
 /*Button CSS*/
 button#downloads {
     background: #FF8800;
@@ -57,7 +60,7 @@ button#downloads {
     border: 1px solid #ff8000;
     box-shadow: 0 5px 10px #c7c7c7;
     position: relative;
-    top: 13px;
+    top: 35px;
 }
 /*Layers part*/
 .myclass3:first-child .upper_text{
