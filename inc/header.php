@@ -33,6 +33,9 @@ if (isset($_SESSION['uid']) && $_SESSION['role'] == 'admin') {
     <script type="text/javascript" src="assets/js/customCircularLibrary.js"></script>
     <!-- <link rel="stylesheet" type="text/css" href="assets/css/style.css"> -->
     <link rel="stylesheet" type="text/css" href="assets/css/stampMakerStyle.css">
+    <!-- custom css fiverr raihan start-->
+    <link rel="stylesheet" type="text/css" href="assets/css/custom.css">
+    <!-- custom css fiverr raihan end -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/spectrum/1.8.0/spectrum.min.js"></script>
     <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/spectrum/1.8.0/spectrum.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -63,14 +66,14 @@ if (isset($_SESSION['uid']) && $_SESSION['role'] == 'admin') {
     box-shadow: 0 0 5px #bfbfbf;
     padding:20px;
     margin:20px;
-    /*margin-left:40px;*/*/
+    /*margin-left:40px;*/
   /*  margin-right:40px;*/
     max-height:400px!important;
     max-width:400px!important;
 }
 .labels-card{
   margin:0px;
-  padding: 0px
+  padding: 0px;
   border: none;
   background-color: #f8f8f8;
   box-shadow: 0 0 10px #bfbfbf;
@@ -78,22 +81,8 @@ if (isset($_SESSION['uid']) && $_SESSION['role'] == 'admin') {
   border-radius: 20px;
   overflow-y: auto;
 }
-.myclass3{
-    box-shadow: 0 0 5px #bfbfbf;
-    padding:1px!important;
-    width:100%!important;
-}
-.myclass{
-  width:100%;
-  border: none;
-  background-color: #f8f8f8;
-  box-shadow: 0 0 10px #bfbfbf;
-  padding: 2px;
-  margin:0px;
-  border-radius: 20px;
-  overflow-y: auto;
-  max-height:500px!important;
-}
+
+
 .mybtnimg{
     height:35px;
     width:35px;
@@ -108,73 +97,51 @@ if (isset($_SESSION['uid']) && $_SESSION['role'] == 'admin') {
     background-color: #00438a;
     height: auto;
 }
-.left-side{
-    margin:0px;
-  padding: 0px
-  border: none;
-  background-color: #f8f8f8;
-  box-shadow: 0 0 10px #bfbfbf;
-  height: 500px;
-  border-radius: 20px;
-  overflow-y: auto;
-}
-.canvis-area{
-    box-shadow: 0 0 10px #bfbfbf;
-    border-radius: 5%;
-    height:500px!important;
-}
+
 .iconimg{
     border-radius: 10px;
 }
-.canvas{
-     box-shadow: 0 0 5px #bfbfbf;
-    padding:20px;
-    margin-top:20px;
-    margin-left:10%;
-  margin-right:10%;
-   
-}
-.iconleft{
+/* .iconleft{
     margin-right:-25px!important;
 }
 .iconright{
     margin-right:25px!important;
-}
+} */
 @media screen and (max-width: 1024px) {
 
 }
 @media only screen and (min-width: 802px) and (max-width: 1100px){
- .iconleft{
+ /* .iconleft{
     margin-right:-23px!important;
 }
 .iconright{
     margin-right:25px!important;    
-}
+} */
 .canvas{
-     box-shadow: 0 0 5px #bfbfbf;
+    box-shadow: 0 0 5px #bfbfbf;
     padding:20px;
     margin-top:20px;
     margin-left:10%;
-  margin-right:10%;padding:10px;
+    margin-right:10%;padding:10px;
    
 }
-.i  
+
 }
 @media only screen and (min-width: 1103px) and (max-width: 1160px){
- .iconleft{
+ /* .iconleft{
     margin-right:-35px!important;
 }
 .iconright{
     margin-right:35px!important;
-}   
+}    */
 }
 @media only screen and (min-width: 1161px) and (max-width: 1560px){
- .iconleft{
+ /* .iconleft{
     margin-right:-45px!important;
 }
 .iconright{
     margin-right:45px!important;
-}   
+}    */
 }
 
 
