@@ -56,8 +56,8 @@ function getCircularText(fColor, circlebunch, textbunch, linetextbunch, pictures
     var current_window = Math.round(($(window).width()/100)*60)
     current_window = Math.round((current_window/100)*40)-20
 
-    mainCanvas.width = current_window;
-    mainCanvas.height = 300;
+    mainCanvas.width = 250;
+    mainCanvas.height = 250;
     mainCanvas.setAttribute("id", "can");
     var centerX = mainCanvas.width / 2;
     var centerY = mainCanvas.height / 2;
@@ -196,7 +196,7 @@ function getCircularText(fColor, circlebunch, textbunch, linetextbunch, pictures
         if (((["left", "center"].indexOf(align) > -1) && inwardFacing) || (align == "right" && !inwardFacing)) text = text.split("").reverse().join("");
 
         // Setup letters and positioning
-        ctxRef.translate(current_window / 2, 300 / 2); // Move to center
+        ctxRef.translate(250 / 2, 250 / 2); // Move to center
         startAngle += (Math.PI * !inwardFacing); // Rotate 180 if outward
         ctxRef.textBaseline = 'middle'; // Ensure we draw in exact center
         ctxRef.textAlign = 'center'; // Ensure we draw in exact center
