@@ -20,6 +20,9 @@ h1.d-inline.site_title {
     padding: 5px;
     font-size: 18px;
 }
+.container-fluid {
+    max-width: 1440px;
+}
 .sign_up{
     background: #FF8800;
 }
