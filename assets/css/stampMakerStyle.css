@@ -165,9 +165,10 @@ input[type="range"]::-ms-thumb {
 }
 #howto {
   color: white;
-  background: #818181;
+  background: #00438A;
   padding: 6px;
   width: 100%;
+  cursor: pointer;
 }
 .instruction {
   position: absolute;
@@ -215,8 +216,7 @@ input[type="range"]::-ms-thumb {
   justify-content: space-around;
 }
 .bottomright {
-  width: 20.7em;
-  margin-top: 0px;
+  width: 300px;
   position: fixed;
   bottom: 0;
   right: 0;

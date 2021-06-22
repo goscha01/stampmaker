@@ -28,7 +28,18 @@ button.about_btn {
     color: #FF8800 !important;
     padding: 5px 25px !important;
 }
-
+.bottomright .px {
+    position: relative;
+    top: 9px;
+}
+.banner_row{
+    position: absolute;
+    width: 100%;
+    bottom: 0;
+}
+.banner_1{
+    margin-right: 60px;
+}
 /*Button CSS*/
 button#downloads {
     background: #FF8800;
