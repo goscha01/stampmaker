@@ -44,7 +44,7 @@ include_once('inc/header.php');
         </div>
     </div>
 </header>
-<div class="container-fluid mt-2 p-0">
+<div class="container-fluid mt-2 p-0 work_area">
     <div class="col-lg-2 text-center banner_left">
         <img src="assets/img/banner.jpg" class="m-2" alt="" style="width:150px; height:500px;" />
     </div>
