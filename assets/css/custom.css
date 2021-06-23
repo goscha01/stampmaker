@@ -31,8 +31,16 @@ button#login {
     padding: 5px;
     font-size: 18px;
 }
+<<<<<<< HEAD
 
 
+=======
+
+.container-fluid {
+    max-width: 1440px;
+}
+
+>>>>>>> 6f20ed1deef8309040131de307dc55697eae9991
 .sign_up,
 button#signup,
 button#login {
@@ -80,6 +88,7 @@ button#downloads,
     box-shadow: 0 5px 10px #c7c7c7;
     position: relative;
     top: 35px;
+<<<<<<< HEAD
 }
 .button_send_concern {
     top: 5px;
@@ -87,6 +96,15 @@ button#downloads,
     border-radius: 5px;
     margin: 0 auto;
 }
+=======
+}
+.button_send_concern {
+    top: 5px;
+    width: 100px;
+    border-radius: 5px;
+    margin: 0 auto;
+}
+>>>>>>> 6f20ed1deef8309040131de307dc55697eae9991
 
 /*Layers part*/
 .myclass3:first-child .upper_text {
@@ -280,9 +298,12 @@ canvas#can {
     top: 2px;
     left: 5px;
 }
+<<<<<<< HEAD
 .line_text .sp-dd {
     padding: 0 !important;
 }
+=======
+>>>>>>> 6f20ed1deef8309040131de307dc55697eae9991
 
 .text_design_color {
     padding-left: 5px;
@@ -297,6 +318,7 @@ canvas#can {
     left: 5px !important;
     top: 2px !important;
 }
+<<<<<<< HEAD
 .line_text .sp-preview {
     top: -2px;
 }
@@ -306,6 +328,9 @@ canvas#can {
 .slidecontainer.color-element .sp-dd{
     top: 0px !important;
 }
+=======
+
+>>>>>>> 6f20ed1deef8309040131de307dc55697eae9991
 .text_design_shadow {
     height: 30px !important;
     border-radius: 5px;
