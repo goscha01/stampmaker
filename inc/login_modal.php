@@ -12,6 +12,7 @@
                     <!-- <center>
                         <h3>Log In</h3><b id="info" style="color:red"></b><br>
                     </center> -->
+                    <b id="info" style="color:red"></b>
                     <div class="form_row">
                         <i class="fas fa-user"></i>
                     <input type="text" class="signup form-control" id="usernameLogin" value="<?php if (isset($_COOKIE["usernameLogin"])) {
