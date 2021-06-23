@@ -562,9 +562,9 @@ $(document).ready(function () {
   //   CheckValidation(!notTranslator, "#langS");
   //   CheckValidation(!notTranslator, "#langTarget");
   // });
-  $("#signUp").click(function () { });
+//   $("#signUp").click(function () { });
 
-});
+// });
 
 function CheckValidation(customLang, id) {
   if (customLang == true) {
