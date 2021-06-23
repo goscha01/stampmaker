@@ -154,7 +154,7 @@ include_once('inc/header.php');
             <img src="assets/img/banner.jpg" class="mt-5" alt="" style="width:360px; height:55px;" />
         </div>
         <div class="col-lg-3 col-md-1 text-center">
-            <div class='bottomright'>
+            <!-- <div class='bottomright'>
                 <div class=" p-1" id='howto' onclick='togglesuggestions()'>
                     <p class="px" style="font-size: 15px!important;">Suggestion and Concerns? Click Here</p>
                 </div>
@@ -166,7 +166,7 @@ include_once('inc/header.php');
                         </div>
                     </div>
                 </div>
-            </div>
+            </div> -->
 
         </div>
 
