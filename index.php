@@ -37,7 +37,7 @@ include_once('inc/header.php');
                         if (isset($_SESSION["uid"])) {
 
                             $d = $_SESSION["uid"];
-                            echo "<h6 style='margin-top:20px;'>Welcome, " . $d['username'] . "</h6><button class='btn btn-outline-warning' onclick='logout()' style='margin-top:20px;'>Log Out</button>";
+                            echo "<h6 style='margin-top:20px; fontcolor:white'>Welcome, " . $d['username'] . "</h6><button class='btn btn-outline-warning' onclick='logout()' style='margin-top:20px;'>Log Out</button>";
                             if ($d['role'] == "admin") {
                                 // echo "<button class='btn btn-outline-warning' onclick='Dashboard()' style='height:40px;margin:20px;'>Dashboard</button>";
                                 echo "<a class='btn btn-outline-white' href='admin' style='height:40px;margin:20px;'>Dashboard</a>";
@@ -55,7 +55,7 @@ include_once('inc/header.php');
 </header>
 <div class="container-fluid mt-2 p-0 work_area">
     <div class="col-lg-2 text-center banner_left">
-        <img src="assets/img/banner.jpg" class="m-2" alt="" style="width:150px; height:500px;" />
+        <img src="assets/img/banner_120.jpg" class="m-2" alt="" style="width:150px; height:500px;" />
     </div>
     <div class="col-lg-2 col-md-12 col-sm-12 layers_tab">
         <div class="card left-side m-2">
@@ -111,11 +111,21 @@ include_once('inc/header.php');
     </div>
     <div class="col-lg-2">
         <div class="m-2" id="properties">
+            <div id='Circle" + (Circles.length) + "' class='property myclass'>
+                <div class=''>
+                    <div class='text-center'>
+                        <div class='card properties-wrapper'>
+                            <h5 class='property-heading'>Properties</h5> 
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
 
         </div>
     </div>
     <div class="col-lg-2 col-md-12 col-sm-12 banner_right text-center">
-        <img src="assets/img/banner.jpg" class="m-2" alt="" style="width:150px; height:500px;" />
+        <img src="assets/img/banner_120.jpg" class="m-2" alt="" style="width:150px; height:500px;" />
     </div>
 </div>
 
@@ -148,10 +158,10 @@ include_once('inc/header.php');
         </div>
        
         <div class="col-md-3 banner_1" style="text-align: left;">
-            <img src="assets/img/banner.jpg" class="mt-5" alt="" style="width:360px; height:55px;" />
+            <img src="assets/img/banner_bottom.png" class="mt-5" alt="" style="width:360px; height:55px;" />
         </div>
         <div class="col-md-3 text-center banner_2">
-            <img src="assets/img/banner.jpg" class="mt-5" alt="" style="width:360px; height:55px;" />
+            <img src="assets/img/banner_bottom.png" class="mt-5" alt="" style="width:360px; height:55px;" />
         </div>
         <div class="col-lg-3 col-md-1 text-center">
             <!-- <div class='bottomright'>
