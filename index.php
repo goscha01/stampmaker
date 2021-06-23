@@ -37,7 +37,7 @@ include_once('inc/header.php');
                         if (isset($_SESSION["uid"])) {
 
                             $d = $_SESSION["uid"];
-                            echo "<h6 style='margin-top:20px; margin-left:10px; color:white'>Welcome, " . $d['username'] . "</h6><button class='btn btn-outline-warning' onclick='logout()' style='margin-top:20px;'>Log Out</button>";
+                            echo "<h6 style='margin-top:20px; margin-right:10px; color:white'>Welcome, " . $d['username'] . "</h6><button class='btn btn-outline-warning' onclick='logout()' style='margin-top:20px;'>Log Out</button>";
                             if ($d['role'] == "admin") {
                                 // echo "<button class='btn btn-outline-warning' onclick='Dashboard()' style='height:40px;margin:20px;'>Dashboard</button>";
                                 echo "<a class='btn btn-outline-white' href='admin' style='height:40px;margin:20px;'>Dashboard</a>";
