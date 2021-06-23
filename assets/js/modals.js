@@ -271,6 +271,12 @@ function toggleinstruction() {
 
 }
 
+function toggle_about() {
+
+  $("#about_div").slideToggle();
+
+}
+
 function suggestion() {
   var suggestText = $("#suggestText").val();
   var base_url_n = window.location.origin;
