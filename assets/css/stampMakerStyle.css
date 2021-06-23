@@ -216,21 +216,18 @@ input[type="range"]::-ms-thumb {
   justify-content: space-around;
 }
 .bottomright {
-  width: 290px !important;
+  width: 300px;
   position: fixed;
   bottom: 0;
   right: 0;
   z-index: 100;
-  max-width: 25%;
 }
 .bottomleft {
-  width: 290px !important;
+  width: 19.7em;
   margin-top: 0px;
   position: fixed;
   bottom: 0;
-  left: 0;
   z-index: 100;
-  max-width: 25%;
 }
 .color-picker {
   border: 1px solid #ddd;
