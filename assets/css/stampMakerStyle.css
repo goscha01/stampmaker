@@ -159,9 +159,10 @@ input[type="range"]::-ms-thumb {
 }
 #suggestionbox {
   color: white;
-  background: #818181;
-  padding: 6px;
+  background: #00438A;
+  padding: 15px 6px;
   width: 100%;
+  position: relative;
 }
 #howto {
   color: white;
@@ -216,12 +217,14 @@ input[type="range"]::-ms-thumb {
   justify-content: space-around;
 }
 .bottomright {
-  width: 290px !important;
+  width: 322px !important;
   position: fixed;
   bottom: 0;
   right: 0;
   z-index: 100;
   max-width: 25%;
+  height: 46px;
+  background: #00438A !important;
 }
 .bottomleft {
   width: 290px !important;
