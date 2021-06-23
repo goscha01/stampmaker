@@ -3,31 +3,38 @@
     <div class="modal-dialog modal-lg">
         <div class="modal-content">
             <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal">&times;</button>
+            <p>Log In</p>
+                <button type="button" class="close button_close" data-dismiss="modal">&times;</button>
 
             </div>
             <div class="modal-body">
                 <form action="javascript:login()" method="post" id="loginForm">
-                    <center>
+                    <!-- <center>
                         <h3>Log In</h3><b id="info" style="color:red"></b><br>
-                    </center>
+                    </center> -->
+                    <div class="form_row">
+                        <i class="fas fa-user"></i>
                     <input type="text" class="signup form-control" id="usernameLogin" value="<?php if (isset($_COOKIE["usernameLogin"])) {
                                                                                                     echo $_COOKIE["usernameLogin"];
                                                                                                 } ?>" placeholder="Username" required="">
-                    <br>
+                    </div>
+                    <div class="form_row">
+                        <i class="fas fa-key"></i>
                     <input type="password" class="signup form-control" id="passLogin" placeholder="Password" required="" value="<?php if (isset($_COOKIE["passLogin"])) {
                                                                                                                                     echo $_COOKIE["passLogin"];
                                                                                                                                 } ?>">
-                    <br>
-
+                    </div>
+                                                                                                                  <div class="login_terms_grid form_checkboxes">
                     <center>
-                        <h6 style="font-weight:normal;">Not registered yet.<a id="reg" onclick="notauser();">Click
-                                here</a></h6>
+                    <p style="font-weight:normal;text-align: left;font-weight:600">Not registered yet? Click<a id="reg" onclick="notauser();"style="color:#FF8800">
+                                here</a></p>
                     </center>
                     <div class="field-group">
-                        <div><input type="checkbox" name="remember" id="remember" <?php if (isset($_COOKIE["usernameLogin"])) { ?> checked <?php } ?> />
-                            <label for="remember-me">Remember me</label>
+                        <div>
+                        <label for="remember-me">Remember me</label><input type="checkbox" name="remember" id="remember" <?php if (isset($_COOKIE["usernameLogin"])) { ?> checked <?php } ?> />
+                            
                         </div>
+                    </div>
                     </div>
                     <center>
                         <button class="btn btn-md btn-success modals" id="login">Log In</button>

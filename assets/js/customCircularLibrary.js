@@ -53,16 +53,13 @@ function getCircularText(fColor, circlebunch, textbunch, linetextbunch, pictures
     //         ctxRef.drawImage(src, 100, 30);
     //     }
     //   });
-    var current_window = Math.round(($(window).width()/100)*60)
-    current_window = Math.round((current_window/100)*40)-20
 
     mainCanvas.width = 250;
     mainCanvas.height = 250;
     mainCanvas.setAttribute("id", "can");
     var centerX = mainCanvas.width / 2;
     var centerY = mainCanvas.height / 2;
-    console.log(centerX)
-    console.log(centerY)
+
     //Circles
     for (var i = 0; i < circlebunch.length; ++i) {
 
