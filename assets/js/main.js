@@ -552,19 +552,19 @@ $(document).ready(function () {
     CheckValidation(!customLang2, "#langTarget");
   });
 
-  // $("#notatranslator").click(function () {
-  //   notTranslator = !notTranslator;
-  //   $("#reason").slideToggle();
-  //   $("#langS").slideToggle();
-  //   $("#langTarget").slideToggle();
-  //   $("emp").slideToggle();
-  //   CheckValidation(notTranslator, "#reason");
-  //   CheckValidation(!notTranslator, "#langS");
-  //   CheckValidation(!notTranslator, "#langTarget");
-  // });
-//   $("#signUp").click(function () { });
+  $("#notatranslator").click(function () {
+    notTranslator = !notTranslator;
+    $("#reason").slideToggle();
+    $("#langS").slideToggle();
+    $("#langTarget").slideToggle();
+    $("emp").slideToggle();
+    CheckValidation(notTranslator, "#reason");
+    CheckValidation(!notTranslator, "#langS");
+    CheckValidation(!notTranslator, "#langTarget");
+  });
+  $("#signUp").click(function () { });
 
-// });
+});
 
 function CheckValidation(customLang, id) {
   if (customLang == true) {
