@@ -73,23 +73,23 @@ include_once('inc/header.php');
                         <div id="parent_sub">
                             <!-- <div id="container"></div> -->
                             <div class="" style="padding:0px;margin-top: -20px;">
-                                <div class="row m-2 selection_row" id="addroundtext">
-                                    <div class="col-md-3 selection_box">
+                                <div class="row m-2 selection_row" >
+                                    <div class="col-md-3 selection_box" id="addroundtext">
                                         <img class="iconimg" src="assets/img/IconRound.svg" alt="" />
                                         <span class="selection_text">Round<br>Text</span>
 
                                     </div>
-                                    <div class="col-md-3 selection_box" id="addlinetext">
-                                        <img class="iconimg" src="assets/img/IconLine.svg" alt="" />
+                                    <div class="col-md-3 selection_box"  id="addlinetext">
+                                        <img class="iconimg" src="assets/img/IconLine.svg" alt=""/>
                                         <span class="selection_text">Inline<br>Text</span>
 
                                     </div>
                                     <div class="col-md-3 selection_box" id="addcircle">
-                                        <img class="iconimg" src="assets/img/IconShape.svg" alt="">
+                                        <img class="iconimg" src="assets/img/IconShape.svg" alt="" >
                                         <span class="selection_text">Add<br>Shape</span>
                                     </div>
                                     <div class="col-md-3 selection_box" id="addimage">
-                                        <img class="iconimg" src="assets/img/IconSquare.svg" alt="">
+                                        <img class="iconimg" src="assets/img/IconSquare.svg" alt="" >
                                         <span class="selection_text">Add<br>Image</span>
                                     </div>
                                 </div>
