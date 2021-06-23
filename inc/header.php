@@ -45,6 +45,7 @@ if (isset($_SESSION['uid']) && $_SESSION['role'] == 'admin') {
     <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
     <script src="assets/js/select2.min.js"></script>
     <link href="assets/css/select2.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"/>
     <title>Stamp Maker</title>
     <style type="text/css">
 
