@@ -217,13 +217,15 @@ input[type="range"]::-ms-thumb {
   justify-content: space-around;
 }
 .bottomright {
-  width: 322px !important;
+  width: 245px !important;
   position: fixed;
   bottom: 0;
   right: 0;
   z-index: 100;
   max-width: 25%;
   background: #00438A !important;
+  font-size: 12px;
+  text-align: center;
 }
 .bottomleft {
   width: 240px !important;
