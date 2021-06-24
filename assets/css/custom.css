@@ -587,7 +587,7 @@ div#about_div .card {
 .bottomleft .px{
     font-size: 12px!important;
 }
-.banner_left,.banner_right{
+.banner_left img,.banner_right img{
     object-fit: cover;
 }
 
