@@ -204,7 +204,10 @@ span.selection_text {
     background: linear-gradient(180deg, #757574 -300%, #fff 8%);
     padding: 15px 10px;
 }
-
+span.range-slider__value {
+    margin-bottom: 20px;
+    display: inline-block;
+}
 canvas#can {
     display: block;
     margin: 0 auto;
