@@ -245,6 +245,7 @@ canvas#can {
     padding: 10px 0 0;
     border: none;
     border-radius: 20px;
+    background: transparent;
 }
 
 .text_design {
