@@ -226,7 +226,7 @@ input[type="range"]::-ms-thumb {
   background: #00438A !important;
 }
 .bottomleft {
-  width: 290px !important;
+  width: 240px !important;
   margin-top: 0px;
   position: fixed;
   bottom: 0;
