@@ -134,7 +134,7 @@ include_once('inc/header.php');
         <div class="col-lg-2 col-md-3 text-center ">
             <div class='demo bottomleft seggestions-section'>
                 <div class=" p-1" id='howto' onclick='toggleinstruction()'>
-                    <p class="px" style="font-size: 12px!important;">To view Instructions or 'How to'.Click Here</p>
+                    <p class="px" style="">To view Instructions or 'How to'.Click Here</p>
                 </div>
                 <div class='suggest' id='suggestIns'>
                     <div class="card">

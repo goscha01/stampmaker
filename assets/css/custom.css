@@ -584,6 +584,9 @@ div#about_div .card {
 .btn{
     box-shadow: none !important;
 }
+.bottomleft .px{
+    font-size: 12px!important;
+}
 
 @media only screen and (max-width:1366px) {
     .selection_box {
@@ -605,4 +608,17 @@ div#about_div .card {
     .text_design_shadow {
         font-size: 14px;
     }
+}
+@media only screen and (min-width:1600px){
+    .bottomleft .px{
+        font-size: 14px!important;
+    }
+    .bottomright {
+        width: 290px !important;
+        font-size: 14px;
+        text-align: center;
+      }
+      .bottomleft {
+        width: 290px !important;
+      }
 }
