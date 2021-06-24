@@ -158,10 +158,10 @@ include_once('inc/header.php');
         </div>
        
         <div class="col-md-3 banner_1" style="text-align: left;">
-            <img src="assets/img/banner_bottom.png" class="mt-5" alt="" style="width:360px; height:55px;" />
+            <img src="assets/img/banner_bottom.png" class="mt-5" alt="" style="width:100%; height:auto;" />
         </div>
         <div class="col-md-3 text-center banner_2">
-            <img src="assets/img/banner_bottom.png" class="mt-5" alt="" style="width:360px; height:55px;" />
+            <img src="assets/img/banner_bottom.png" class="mt-5" alt="" style="width:100%; height:auto;" />
         </div>
         <div class="col-lg-3 col-md-1 text-center">
             <!-- <div class='bottomright'>
