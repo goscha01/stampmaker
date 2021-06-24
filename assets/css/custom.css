@@ -587,6 +587,9 @@ div#about_div .card {
 .bottomleft .px{
     font-size: 12px!important;
 }
+.banner_left,.banner_right{
+    object-fit: cover;
+}
 
 @media only screen and (max-width:1366px) {
     .selection_box {
