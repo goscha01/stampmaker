@@ -22,8 +22,15 @@ if (isset($_SESSION['uid']) && $_SESSION['role'] == 'admin') {
 <head>
     <link rel="icon" type="image/png" href="logofav.png" sizes="32x32">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-171780865-1"></script>
-    <script src="assets/js/google_anylatic.js">
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-171780865-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-171780865-1');
+</script>
     </script>
     <script src="assets/js/jquery-3.5.1.js"></script>
     <link rel="stylesheet" href="assets/css/bootstrap.min.css">
