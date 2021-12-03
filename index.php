@@ -11,7 +11,7 @@ include_once('inc/header.php');
                 <button type="button" onclick='toggle_about()' class="about_btn btn btn-outline-warning text-white btn-sm mt-5 pl-3 pr-3" data-toggle="modal" data-target="#aboutus">About</button>
                 <div class='suggest' id='about_div' style="display:none">
                     <div class="card">
-                    <div class="about_title">About My Stamp Maker</div>
+                    <div class="about_title">About Stamp Maker</div>
                         <div class="card-body">
                             
                             Change Content
@@ -71,8 +71,7 @@ include_once('inc/header.php');
                 <center>
                     <div id="stageparent" class="canvas-stageparent" style="border:none;">
                         <div id="parent_sub">
-                            <!-- <div id="container"></div> -->
-                            <div class="" style="padding:0px;margin-top: -20px;">
+                              <div class="" style="padding:0px;margin-top: -20px;">
                                 <div class="row m-2 selection_row" >
                                     <div class="col-md-3 selection_box" id="addroundtext">
                                         <img class="iconimg" src="assets/img/IconRound.svg" alt="" />
@@ -164,55 +163,12 @@ include_once('inc/header.php');
             <img src="assets/img/banner_bottom.png" class="mt-5" alt="" style="width:100%; height:auto;" />
         </div>
         <div class="col-lg-2 col-md-1 text-center">
-            <!-- <div class='bottomright'>
-                <div class=" p-1" id='howto' onclick='togglesuggestions()'>
-                    <p class="px" style="font-size: 15px!important;">Suggestion and Concerns? Click Here</p>
-                </div>
-                <div class='suggest' id='suggest'>
-                    <div class="card">
-                        <div class="card-body">
-                            <textarea style="width: 100%;height:100px">Please write here</textarea>
-                            <div class="button_send_concern">Send</div>
-                        </div>
-                    </div>
-                </div>
-            </div> -->
 
         </div>
 
     </div>
 </div>
-<!-- <div class="modal fade" id="aboutus">
-    <div class="modal-dialog">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h3>About Us</h3>
-                <button type="button" id="closeform" class="close sticky-top" data-dismiss="modal"> &times;</button>
-            </div>
-            <div class="model-body">
-                <h5 class="text-center text-secondary">Instructions</h5>
-                <p class="m-2 p-3 text-secondary">
-                    Select <b>Circle</b> element to add a stamp circle<br>
-                    Edit the circle, change its radius and stroke width<br>
-                    Select <b>Round</b> Text element to add a text around the circle<br>
-                    Enter and edit the text, change spacing and rotate it clockwise<br>
-                    Select <b>Line</b> Text element to add a text in the center<br>
-                    Enter and edit the text, move or rotate it<br>
-                    Select <b>Image</b> element to add an image<br>
-                    Upload the image, change its size and position<br>
-                    Add any numbers of elements<br>
-                    Delete elements clicking on <b>delete x</b> <br>
-                    <b>Download</b> your stamp
-                </p>
-            </div>
-            <div class="model-footer">
-                <button type="button" class="btn btn-warning text-white btn-outline-danger" data-toggle="modal" data-target="#aboutus" style="margin:20px;">&nbsp Ok! &nbsp </button>
 
-            </div>
-        </div>
-
-    </div>
-</div> -->
 <?php include 'inc/signup_modal.php'; ?>
 <?php include 'inc/login_modal.php'; ?>
 
