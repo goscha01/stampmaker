@@ -11,7 +11,7 @@ include_once('inc/header.php');
                 <button type="button" onclick='toggle_about()' class="about_btn btn btn-outline-warning text-white btn-sm mt-5 pl-3 pr-3" data-toggle="modal" data-target="#aboutus">About</button>
                 <div class='suggest' id='about_div' style="display:none">
                     <div class="card">
-                    <div class="about_title">About Stamp Maker</div>
+                    <div class="about_title">About My Dev Stamp Maker</div>
                         <div class="card-body">
                             
                             Change Content
