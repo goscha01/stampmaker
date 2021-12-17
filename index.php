@@ -21,7 +21,7 @@ include_once('inc/header.php');
             </div>
             <div class="col-md-7 col-7 text-center text-white">
                 <img class="d-inline site_logo" src="assets/img/Logo.svg" width="120px" />
-                <h1 class="d-inline site_title" style="font-family:Arial;">My Stamp Maker</h1>
+                <h1 class="d-inline site_title" style="font-family:Arial;">My Stamp Maker Dev</h1>
                 <!-- <a href="pageMaker/index.html">Second Page</a> -->
 
             </div>
