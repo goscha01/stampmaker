@@ -1,5 +1,5 @@
-// base_url = window.location.origin + '/' + window.location.pathname.split('/')[1] + '/';
-base_url = 'http://3.211.145.162'
+base_url = window.location.origin + '/' + window.location.pathname.split('/')[1] + '/';
+// base_url = 'http://3.211.145.162'
 
 function ajaxCall() {
   var Txtemail = $("#email").val();

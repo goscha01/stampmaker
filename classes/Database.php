@@ -1,6 +1,6 @@
 <?php
 // include('..\..\Cred\db.config.php');
-include "dbConfig.php";
+include "../inc/dbConfig.php";
 class Database{
     
     // CHANGE THE DB INFO ACCORDING TO YOUR DATABASE
