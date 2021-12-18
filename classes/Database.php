@@ -1,9 +1,10 @@
 <?php
+include_once('..\..\Cred\db.config.php');
 class Database{
     
     // CHANGE THE DB INFO ACCORDING TO YOUR DATABASE
-    // private $db_host = 'stampmaker.ciyq4ufpar8z.us-east-1.rds.amazonaws.com'; //old DB
-    private $db_host = 'aa100xgok1nbrz5.ciyq4ufpar8z.us-east-1.rds.amazonaws.com'; //production DB 
+    private $db_host = 'stampmaker.ciyq4ufpar8z.us-east-1.rds.amazonaws.com'; //old DB
+    // private $db_host = 'aa100xgok1nbrz5.ciyq4ufpar8z.us-east-1.rds.amazonaws.com'; //production DB 
     private $db_name = 'stampmaker';
     private $db_username = 'admin';
     private $db_password = 'admin12345';
