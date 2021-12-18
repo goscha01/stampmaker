@@ -1,4 +1,5 @@
-base_url = window.location.origin + '/' + window.location.pathname.split('/')[1] + '/';
+// base_url = window.location.origin + '/' + window.location.pathname.split('/')[1] + '/';
+base_url = 'http://3.211.145.162'
 
 function ajaxCall() {
   var Txtemail = $("#email").val();
@@ -171,6 +172,9 @@ function login() {
   var txtusername = $("#usernameLogin").val();
   var txtpassword = $("#passLogin").val();
   var remember = $("#remember").is(":checked");
+  console.log(txtusername)
+  console.log(txtpassword)
+  console.log(remember)
   //validate login form
   if (txtusername.trim() == "") {
     $("#usernameLogin").css("border", "1px solid red");
@@ -184,7 +188,7 @@ function login() {
     $("#passLogin").css("border", "1px solid red");
     swal("Password Minimum 5 characher", "", "warning");
   } else
-
+  console.log( base_url)
     $.ajax({
       url: base_url + "/login.php", //the page containing php script
 
@@ -219,7 +223,7 @@ function login() {
 
       },
       error: function (jqXHR, textStatus, errorThrown) {
-
+   
         console.log(JSON.stringify(jqXHR));
         console.log("AJAX error: " + textStatus + ' : ' + errorThrown);
       }
