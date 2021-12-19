@@ -1,6 +1,6 @@
 <?php
 // include('..\..\Cred\db.config.php');
-require_once '..\inc\dbConfig.php';
+include ('dbConfig.php');
 
 
 
