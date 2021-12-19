@@ -1,6 +1,6 @@
 <?php
 // include('..\..\Cred\db.config.php');
-include ('dbConfig.php');
+require_once 'dbConfig.php';
 
 
 
@@ -15,11 +15,11 @@ class Database{
     // private $port = 'admin12345';
 
 
-    private $db_host = DBHOST;
-    private $db_name = DBNAME;
-    private $db_username = DBISER;
-    private $db_password = DBPWD;
-    private $port = DBPORT;
+    private $db_host = db_host;
+    private $db_name = db_name;
+    private $db_username = db_username;
+    private $db_password = db_password;
+    private $port = port;
 
     
     public function dbConnection(){
