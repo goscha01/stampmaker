@@ -25,8 +25,13 @@ class Database{
 
     
     public function dbConnection(){
-        
+        console.log($db_host)
+        console.log($db_name)
+        console.log($db_username)
+        console.log($db_password)
+        console.log($port)
         try{
+          
             $conn = new PDO('mysql:host='.$this->db_host.';port='.$this->port.';dbname='.$this->db_name,$this->db_username,$this->db_password);
             $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
             return $conn;
