@@ -15,11 +15,13 @@ class Database{
     // private $port = 'admin12345';
 
 
-    private $db_host = db_host;
-    private $db_name = db_name;
-    private $db_username = db_username;
-    private $db_password = db_password;
-    private $port = port;
+    private $db_host = $_SERVER['RDS_HOSTNAME'];
+    private $db_name = $_SERVER['RDS_DB_NAME'];
+    private $db_username = $_SERVER['RDS_USERNAME'];
+    private $db_password = $_SERVER['RDS_PASSWORD'];
+    private $port = $_SERVER['RDS_PORT'];
+
+     
 
     
     public function dbConnection(){
