@@ -1,6 +1,9 @@
 <?php
 // include('..\..\Cred\db.config.php');
 include ('dbConfig.php');
+
+
+
 class Database{
     
     // CHANGE THE DB INFO ACCORDING TO YOUR DATABASE
@@ -11,11 +14,12 @@ class Database{
     // private $db_password = 'admin12345';
     // private $port = 'admin12345';
 
-    private $db_host;
-    private $db_name;
-    private $db_username;
-    private $db_password;
-    private $port;
+
+    private $db_host = DBHOST;
+    private $db_name = DBNAME;
+    private $db_username = DBISER;
+    private $db_password = DBPWD;
+    private $port = DBPORT;
 
     
     public function dbConnection(){
