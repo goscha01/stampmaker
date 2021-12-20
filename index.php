@@ -1,56 +1,39 @@
 <?php
 session_start();
-
 include_once('inc/header.php');
-
 ?>
-<header class="container-fluid header">
-    <div class="container-fluid" style="margin: 0px; padding: 0px;">
-        <div class="row" style="margin: 0px; padding: 0px;">
-            <div class="col-md-2 col-2 text-center" style="align-items:center">
-                <button type="button" onclick='toggle_about()' class="about_btn btn btn-outline-warning text-white btn-sm mt-5 pl-3 pr-3" data-toggle="modal" data-target="#aboutus">About</button>
-                <div class='suggest' id='about_div' style="display:none">
-                    <div class="card">
-                    <div class="about_title">About Stamp Maker</div>
-                        <div class="card-body">
-                            
-                            Change Content
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-7 col-7 text-center text-white">
-                <img class="d-inline site_logo" src="assets/img/Logo.svg" width="120px" />
-                <h1 class="d-inline site_title" style="font-family:Arial;">My Stamp Maker</h1>
-                <!-- <a href="pageMaker/index.html">Second Page</a> -->
-
-            </div>
-            <div class="col-md-3 col-3" style="display: flex; align-items:center">
-                <div class="d-flex">
-                    <!-- <p class="mt-4">
-                        <a href="pageMaker/" class="text-white" style="text-decoration: none;">Create Page</a>
-                    </p> -->
-                    <?php
-                    getNav();
-                    function getNav()
-                    {
-                        if (isset($_SESSION["uid"])) {
-
-                            $d = $_SESSION["uid"];
-                            echo "<h6 style='margin-top:20px; margin-right:10px; color:white'>Welcome, <br>" . $d['username'] . "</h6><button class='btn btn-outline-warning' onclick='logout()' style='margin-top:20px;'>Log Out</button>";
-                            if ($d['role'] == "admin") {
-                                // echo "<button class='btn btn-outline-warning' onclick='Dashboard()' style='height:40px;margin:20px;'>Dashboard</button>";
-                                echo "<a class='btn btn-outline-white' href='admin' style='height:40px;margin:20px;'>Dashboard</a>";
-                            }
-                        } else {
-                            echo "<button type='button' class='sign_up btn btn-outline-warning text-white btn-sm m-2 pl-3 pr-3' data-toggle='modal' data-target='#myModal' style='margin-top:20px;'>Sign Up</button>
-                            <button type='button' class='login_btn btn btn-outline-warning text-white btn-sm m-2 pl-3 pr-3' data-toggle='modal' data-target='#myModalLogin' style='margin-top:20px;' onclick='reset()'>Log In</button>";
-                        }
-                    }
-                    ?>
+<header>
+    <div>
+        <button type="button" onclick='toggle_about()' class="about_btn btn" data-toggle="modal" data-target="#aboutus">About</button>
+        <div class='suggest' id='about_div' style="display:none">
+            <div class="card">
+                <div class="about_title">About Stamp Maker</div>
+                <div class="card-body">
+                    Welcome to MyStampMaker, an online tool that helps you create Custom Stamp Designs for FREE!
                 </div>
             </div>
         </div>
+    </div>
+    <img class="site_logo" src="assets/img/Logo.svg" />
+    <div class="nav_container">
+        
+        <?php
+                getNav();
+                function getNav()
+                {
+                    if (isset($_SESSION["uid"])) {
+
+                        $d = $_SESSION["uid"];
+                        echo "<h6 class='welcome_text'>Welcome, " . $d['username'] . "  </h6><button class='btn logout_btn' onclick='logout()'>Log Out</button>";
+                        if ($d['role'] == "admin") {
+                            echo "<a class='btn' href='admin'>Dashboard</a>";
+                        }
+                    } else {
+                        echo "<button type='button' class='sign_up btn' data-toggle='modal' data-target='#myModal'>Sign Up</button>
+                            <button type='button' class='login_btn btn' data-toggle='modal' data-target='#myModalLogin' onclick='reset()'>Log In</button>";
+                    }
+                }
+                ?>
     </div>
 </header>
 <div class="container-fluid mt-2 p-0 work_area">
@@ -71,24 +54,24 @@ include_once('inc/header.php');
                 <center>
                     <div id="stageparent" class="canvas-stageparent" style="border:none;">
                         <div id="parent_sub">
-                              <div class="" style="padding:0px;margin-top: -20px;">
-                                <div class="row m-2 selection_row" >
+                            <div class="" style="padding:0px;margin-top: -20px;">
+                                <div class="row m-2 selection_row">
                                     <div class="col-md-3 selection_box" id="addroundtext">
                                         <img class="iconimg" src="assets/img/IconRound.svg" alt="" />
                                         <span class="selection_text">Round<br>Text</span>
 
                                     </div>
-                                    <div class="col-md-3 selection_box"  id="addlinetext">
-                                        <img class="iconimg" src="assets/img/IconLine.svg" alt=""/>
+                                    <div class="col-md-3 selection_box" id="addlinetext">
+                                        <img class="iconimg" src="assets/img/IconLine.svg" alt="" />
                                         <span class="selection_text">Inline<br>Text</span>
 
                                     </div>
                                     <div class="col-md-3 selection_box" id="addcircle">
-                                        <img class="iconimg" src="assets/img/IconShape.svg" alt="" >
+                                        <img class="iconimg" src="assets/img/IconShape.svg" alt="">
                                         <span class="selection_text">Add<br>Shape</span>
                                     </div>
                                     <div class="col-md-3 selection_box" id="addimage">
-                                        <img class="iconimg" src="assets/img/IconSquare.svg" alt="" >
+                                        <img class="iconimg" src="assets/img/IconSquare.svg" alt="">
                                         <span class="selection_text">Add<br>Image</span>
                                     </div>
                                 </div>
@@ -114,12 +97,12 @@ include_once('inc/header.php');
                 <div class=''>
                     <div class='text-center'>
                         <div class='card properties-wrapper'>
-                            <h5 class='property-heading'>Properties</h5> 
+                            <h5 class='property-heading'>Properties</h5>
 
-                            </div>
                         </div>
                     </div>
                 </div>
+            </div>
 
         </div>
     </div>
@@ -155,7 +138,7 @@ include_once('inc/header.php');
                 </div>
             </div>
         </div>
-       
+
         <div class="col-md-4 banner_1" style="text-align: left;">
             <img src="assets/img/banner_bottom.png" class="mt-5" alt="" style="width:100%; height:auto;" />
         </div>

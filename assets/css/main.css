@@ -1,0 +1,55 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;700&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    font-family: 'Poppins', sans-serif;
+}
+
+header {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    background-color: #00438A;
+    padding: .5em 1em;
+    position: relative;
+    flex-wrap: wrap;
+}
+
+.btn {
+    font-size: .9em;
+    border: 2px solid #ff8800;
+    color: #fff !important;
+    border-radius: 0;
+    padding: .5em 1em !important;
+    transition: background-color 200ms, transform 500ms;
+}
+.btn:hover {
+    background-color: #ff8800 !important;
+    box-shadow: 0 25px 10px -17px rgba(0, 0, 0, .3) !important;    
+    transform: translateY(-10%);
+}
+.nav_container {
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    gap: .5em;
+    gap: clamp(.5em, 2em, 5em);
+}
+.welcome_text {
+    color: #fff;
+    border-bottom: 2px solid #ff8800;
+}
+.logout_btn {
+    position: absolute;
+    right: .5em;
+    right: clamp(.5em, 1.5em, 3em);
+}
+@media only screen and (max-width: 450px) {
+    .about_btn {
+        display: none;
+    }
+    header {
+        padding: .5em 0 !important;
+    }
+}

@@ -41,8 +41,6 @@ button#login {
 
 button.about_btn {
     border-color: #FF8800;
-    color: #FF8800 !important;
-    padding: 5px 25px !important;
 }
 
 .bottomright .px,
@@ -564,12 +562,11 @@ button#signup ,button#login{
     margin-top:30px
 }
 div#about_div {
-    position: absolute;
     z-index: 9;
-    width: 350px;
-    left: -15px;
-    margin-top: 20px;
-    border: 1px solid grey;
+    position: absolute;
+    width: 300px;
+    margin-top: 1em;
+    border: 1px solid #ff8800;
     
 }
 .about_title {

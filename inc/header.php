@@ -54,6 +54,7 @@ if (isset($_SESSION['uid']) && $_SESSION['role'] == 'admin') {
     <link href="assets/css/select2.min.css" rel="stylesheet" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"/>
     <title>Stamp Maker</title>
+    <link rel="stylesheet" href="assets/css/main.css">
     <style type="text/css">
 
     .btn-default{border:1px solid gray;
