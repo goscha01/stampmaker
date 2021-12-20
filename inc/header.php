@@ -38,11 +38,7 @@ if (isset($_SESSION['uid']) && $_SESSION['role'] == 'admin') {
     <script src="http://hongru.github.io/proj/canvas2image/canvas2image.js"></script>
 
     <script type="text/javascript" src="assets/js/customCircularLibrary.js"></script>
-    <!-- <link rel="stylesheet" type="text/css" href="assets/css/style.css"> -->
     <link rel="stylesheet" type="text/css" href="assets/css/stampMakerStyle.css">
-    <!-- custom css fiverr raihan start-->
-    <link rel="stylesheet" type="text/css" href="assets/css/custom.css">
-    <!-- custom css fiverr raihan end -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/spectrum/1.8.0/spectrum.min.js"></script>
     <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/spectrum/1.8.0/spectrum.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -110,22 +106,11 @@ if (isset($_SESSION['uid']) && $_SESSION['role'] == 'admin') {
 .iconimg{
     border-radius: 10px;
 }
-/* .iconleft{
-    margin-right:-25px!important;
-}
-.iconright{
-    margin-right:25px!important;
-} */
+
 @media screen and (max-width: 1024px) {
 
 }
 @media only screen and (min-width: 802px) and (max-width: 1100px){
- /* .iconleft{
-    margin-right:-23px!important;
-}
-.iconright{
-    margin-right:25px!important;    
-} */
 .canvas{
     box-shadow: 0 0 5px #bfbfbf;
     padding:20px;
@@ -134,23 +119,6 @@ if (isset($_SESSION['uid']) && $_SESSION['role'] == 'admin') {
     margin-right:10%;padding:10px;
    
 }
-
-}
-@media only screen and (min-width: 1103px) and (max-width: 1160px){
- /* .iconleft{
-    margin-right:-35px!important;
-}
-.iconright{
-    margin-right:35px!important;
-}    */
-}
-@media only screen and (min-width: 1161px) and (max-width: 1560px){
- /* .iconleft{
-    margin-right:-45px!important;
-}
-.iconright{
-    margin-right:45px!important;
-}    */
 }
 
 

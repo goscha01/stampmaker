@@ -48,30 +48,16 @@ function updateLabels(element, show) {
   let showText = showVal[0]
   let showNumber = showVal[1]
   $(".card-item").removeClass("all");
-  $("#labels").prepend("<div class='elementlabel mt-2 myclass3' id='" + element + "'><div class='card-item card-item-n all' id='" + element + "'><p class='upper_text'>" + showText + "  " + showNumber + " </p></div><div class='lower_text'> <button type='button' id='LineText' class='closeL btn d-flex' aria-label='Close'style='background: transparent; border: none; padding: 0px;'>Delete<img style='    height: 30px;width: 30px;position: relative;top: -3px;'  src='img/IconCross-svg.png'  /></button><div class='up_down_arrow'><img class='move-up-element iconleft' style='height:20px;width:20px;'  src='img/asc.png'  /><img class='move-down-element iconright' style='height:20px;width:20px;'  src='img/dse.png'  /></div></div></div>");    //two buttons usman
+  $("#labels").prepend("<div class='elementlabel mt-2 myclass3' id='" + element + "'><div class='card-item card-item-n all' id='" + element + "'><p class='upper_text'>" + showText + "  " + showNumber + " </p></div><div class='lower_text'> <button type='button' id='LineText' class='closeL d-flex' aria-label='Close'style='background: transparent; border: none; padding: 0px;'><img  src='img/IconCross-svg.png'  /></button><div class='up_down_arrow'><img class='move-up-element iconleft'  src='img/asc.png'  /><img class='move-down-element iconright'  src='img/dse.png'  /></div></div></div>");    //two buttons usman
   $(".guide").css("display", "none");
 
-  //hideallproperties();
-
 }
-
-// function updateLabels(element, show) {
-//   $(".card-body").removeClass("all");
-//   $("#labels").append("<div class='card elementlabel' id='" + element + "'><div class='card-body all' id='" + element + "'>" + show + "</div><center><button type='button' id='" + element + "' class='closeL' aria-label='Close'<span aria-hidden='true' class='text-danger'><span style='font-size:15px;margin-bottom:10px;position:relative;bottom:3px;font-weight:bold;'>Delete</span><i class='text-danger'>&times;</i></span></button></center></div>");
-//   $(".guide").css("display", "none");
-
-//   //hideallproperties();
-// }
 
 
 function hideallproperties() {
   $("#properties .property").attr("style", "display:none");
 }
-//last is for the element type
 $(document).ready(function () {
-  // $(window).resize(function(){
-  //   updateTheCanvas();
-  // })
   updateTheCanvas();
   //Adding circle
   $("#addcircle").click(function () {

@@ -45,14 +45,11 @@
   margin-bottom: 10px;
 }
 .hide {
-  /* visibility: hidden; */
   display: none;
 }
 #stageparent {
   width: 100% !important;
-  height: 25em !important;
   border: 1px solid black;
-  padding-top: 2em;
   position: relative;
 }
 #container {
@@ -63,16 +60,11 @@
   width: 100% !important;
   height: 100% !important;
 }
-#container .konvajs-content canvas {
-  /*width: 460px!important;
-  height: 460px!important;*/
-}
 
 .canvasBtns {
   border: 1px solid #ddd;
   width: 175px;
   border-radius: 5px;
-  /* padding: 5px; */
 }
 .canvasBtns .btn {
   border: none;
@@ -87,31 +79,15 @@ input:focus::placeholder {
   color: transparent;
 }
 
-/* input[type="range"] {
-  -webkit-appearance: none;
-  -moz-appearance: none;
-  width: 300px;
-  height: 5px;
-  padding: 0;
-  border-radius: 2px;
-  outline: none;
-  cursor: pointer;
-} */
-/*Chrome thumb*/
-
 input[type="range"]::-webkit-slider-thumb {
   -webkit-appearance: none;
   -moz-appearance: none;
   -webkit-border-radius: 50%;
-  /*16x16px adjusted to be same as 14x14px on moz*/
   height: 14px;
   width: 14px;
   border-radius: 50%;
   background: #ff8800;
-  /* border: 1px solid #222; */
 }
-
-/*Mozilla thumb*/
 
 input[type="range"]::-moz-range-thumb {
   -webkit-appearance: none;
@@ -167,7 +143,6 @@ input[type="range"]::-ms-thumb {
 #howto {
   color: white;
   background: #00438A;
-  padding: 6px;
   width: 100%;
   cursor: pointer;
 }
@@ -228,13 +203,11 @@ input[type="range"]::-ms-thumb {
   text-align: center;
 }
 .bottomleft {
-  width: 240px !important;
-  margin-top: 0px;
   position: fixed;
   bottom: 0;
   left: 0;
   z-index: 100;
-  max-width: 25%;
+  width: clamp(fit-content, 25em, 30em) !important;
 }
 .color-picker {
   border: 1px solid #ddd;
@@ -268,7 +241,7 @@ input[type="range"]::-ms-thumb {
   color: #212529;
   background-color: #ff8800;
   border-color: #212529
-
+}
 /* Spectrum class overlap */
 .sp-replacer {
   border: none !important;
@@ -277,168 +250,4 @@ input[type="range"]::-ms-thumb {
 .sp-replacer .sp-preview {
   border: none !important;
 }
-/*@media screen and (max-width: 768px) {
-  canvas {
-    width: 200px;
-  }
-  .wrapper {
-    margin-top: 7em;
-  }
-  .instruction {
-    position: relative;
-    left: 0px;
-  }
-  #stageparent {
-    width: 100% !important;
-    height: 20em !important;
-    padding-top: 1.5em;
-  }
-  #container {
-    width: 95% !important;
-    height: 15em !important;
-  }
-  .btns {
-    position: absolute;
-    top: -7em;
-    left: calc(50% - 175px);
-  }
-  .list-group {
-    flex-direction: row;
-  }
-  .right-panel .editor-btn {
-    padding: 0px;
-  }
-  .canvas-col {
-    margin-top: 1em;
-  }
-  .seggestions-section {
-    width: 16em;
-    bottom: 1em;
-  }
-  .brand h1 {
-    font-size: 2.5em;
-    margin-left: 10px;
-  }
-  .icon-btn {
-    flex-direction: column;
-  }
-}
-
-@media screen and (max-width: 767px) {
-  .wrapper {
-    margin-top: 6em;
-  }
-  .canvas-col {
-    margin-top: 8em;
-  }
-  #labels-container {
-    margin-top: 8em;
-  }
-  .desktop-view {
-    display: none;
-  }
-  .mobile-view {
-    display: block;
-    position: relative;
-    left: 0px;
-    bottom: 0.8em;
-  }
-  .left-banner,
-  .right-banner {
-    display: none;
-  }
-  .instruction .btn {
-    width: 12.5em;
-  }
-  h1 {
-    font-size: 2rem;
-  }
-   .brand {
-    display: flex;
-    justify-content: flex-end;
-    align-items: center;
-  } 
-  .brand {
-    text-align: left !important;
-    justify-content: flex-start;
-  }
-  .btns-wrapper {
-    padding-top: 0px;
-    margin-bottom: 10px;
-  }
-  .list-group {
-    flex-direction: row;
-  }
-  #stageparent {
-    width: 100% !important;
-    height: 21em !important;
-    padding-top: 0.5em;
-  }
-  #container {
-    width: 90% !important;
-    height: 18em !important;
-  }
-  .btns {
-    position: absolute;
-    top: -5em;
-    left: calc(50% - 170px);
-  }
-  #labels {
-    padding: 0px;
-  }
-  .canvas-btns {
-    bottom: 0;
-  }
-  .properties-wrapper h5 {
-    display: none;
-  }
-  .slidecontainer p,
-  .slidecontainer input {
-    margin: 0px;
-  }
-  .download-btn {
-    position: absolute;
-    top: -87px;
-    left: calc(50% - 68px);
-  }
-   .canvas {
-    margin-top: 10px;
-  } 
-  .right-panel {
-    margin-top: 20px;
-  }
-  .seggestions-section {
-    width: 100%;
-    bottom: 0px;
-  }
-  .brand h1 {
-    font-size: 1.6em;
-    margin-left: 10px;
-  }
-}
-
-@media screen and (max-width: 320px) {
-  h1 {
-    font-size: 1.5em !important;
-  }
-  .brand {
-    padding: 0px;
-  }
-  #stageparent {
-    width: 100% !important;
-    height: 16em !important;
-    padding-top: 0.5em;
-  }
-  #container {
-    width: 90% !important;
-    height: 13em !important;
-  }
-  .instruction {
-    position: relative;
-    top: -85px !important;
-  }
-  .instruction .btn {
-    width: 10em !important;
-  }
-}*/
 

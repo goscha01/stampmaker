@@ -126,45 +126,6 @@ function logout() {
   });
 }
 
-
-
-// function UpdatePassword(ele) {
-//   if (event.key === 'Enter') {
-//     const pass = ele.value;
-//     const id = ele.id;
-//     var regularExpression = /^[a-zA-Z]$/;
-//     if (pass.trim() == "") {
-//       swal("Password Field Empty", "Password field is required", "warning");
-//     }
-//     if (pass.trim().length < 5) {
-//       swal("Miniumum 5 characters are required", "Password length must be 5 minimum character", "warning");
-//     }
-
-//     $.ajax({
-//       url: "adminActivity.php", //the page containing php script
-//       type: "pust", //request type,
-//       dataType: 'json',
-//       data: {
-//         pass: pass,
-//         id: id,
-//         action: 'updatePass'
-//       },
-//       success: function (response) {
-//         if (response.abc == "done") {
-//           swal("Password Updated", "Password updated Successfully", "success");
-//           location.reload();
-//         }
-//       },
-//       error: function (jqXHR, textStatus, errorThrown) {
-//         console.log(JSON.stringify(jqXHR));
-//         console.log("AJAX error: " + textStatus + ' : ' + errorThrown);
-//       }
-//     });
-
-
-//   }
-// }
-
 function login() {
 
 

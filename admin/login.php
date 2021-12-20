@@ -24,7 +24,7 @@ if(isset($_SESSION['uid'])){
 <title>Admin Login</title>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="stylesheet" href="assets/css/my.css">
+<link rel="stylesheet" href="assets/css/my.min.css">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
 
 <script src="assets/js/jquery-3.5.1.js"></script>
