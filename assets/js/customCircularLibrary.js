@@ -20,7 +20,7 @@ function getCircularText(fColor, circlebunch, textbunch, linetextbunch, pictures
 
     var mainCanvas = document.createElement('canvas');
     var ctxRef = mainCanvas.getContext('2d');
-    mainCanvas.style.backgroundImage = "url('svg/back.svg')";
+    mainCanvas.style.backgroundImage = "url('assets/img/back.svg')";
 
 
 

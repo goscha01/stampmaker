@@ -1,3 +1,2 @@
-# stampmaker
-stampmakerapp
-the keyword is READY!
+# MyStampMaker
+Create Custom Stamp Design For Free!

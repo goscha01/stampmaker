@@ -4,7 +4,6 @@ if (session_status() === PHP_SESSION_NONE) {
 }
 class Database{
     
-    // CHANGE THE DB INFO ACCORDING TO YOUR DATABASE
     private $db_host = 'stampmaker.ciyq4ufpar8z.us-east-1.rds.amazonaws.com';
     private $db_name = 'stampmaker';
     private $db_username = 'admin';

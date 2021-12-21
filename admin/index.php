@@ -1,40 +1,41 @@
 <?php
 
 include_once('header.php');
-function timeago($time, $tense='ago') {
-   date_default_timezone_set('America/Detroit');
+function timeago($time, $tense = 'ago')
+{
+    date_default_timezone_set('America/Detroit');
     static $periods = array('year', 'month', 'day', 'hour', 'minute', 'second');
 
-  
-    if(!(strtotime($time)>0)) {
+
+    if (!(strtotime($time) > 0)) {
         return trigger_error("Wrong time format: '$time'", E_USER_ERROR);
     }
-   
+
     $now  = new DateTime('now');
     $time = new DateTime($time);
-    
+
     $diff = $now->diff($time)->format('%y %m %d %h %i %s');
-    
+
     $diff = explode(' ', $diff);
     $diff = array_combine($periods, $diff);
-   
+
     $diff = array_filter($diff);
-    
+
     $period = key($diff);
     $value  = current($diff);
 
-  
-    if(!$value) {
+
+    if (!$value) {
         $period = 'seconds';
         $value  = 0;
     } else {
-       
-        if($period=='day' && $value>=7) {
+
+        if ($period == 'day' && $value >= 7) {
             $period = 'week';
-            $value  = floor($value/7);
+            $value  = floor($value / 7);
         }
-   
-        if($value>1) {
+
+        if ($value > 1) {
             $period .= 's';
         }
     }
@@ -42,7 +43,6 @@ function timeago($time, $tense='ago') {
     return "$value $period $tense";
 }
 ?>
-<!-- Header -->
 <br>
 <br>
 <div class="my-container">
@@ -54,20 +54,16 @@ function timeago($time, $tense='ago') {
         <div id="users" class="my-container my-border details">
             <header id="portfolio">
 
-                <a href="#"><img src="/myimages/avatar_g2.jpg" style="width:65px;"
-                        class="my-circle my-right my-margin my-hide-large my-hover-opacity"></a>
-                <span class="my-button my-hide-large my-xxlarge my-hover-text-grey" onclick="my_open()"><i
-                        class="fa fa-bars"></i></span>
+                <a href="#"><img src="/myimages/avatar_g2.jpg" style="width:65px;" class="my-circle my-right my-margin my-hide-large my-hover-opacity"></a>
+                <span class="my-button my-hide-large my-xxlarge my-hover-text-grey" onclick="my_open()"><i class="fa fa-bars"></i></span>
                 <div class="my-container">
                     <h1><b>Users Detail</b></h1>
                 </div>
             </header>
 
-            <!-- First Photo Grid-->
             <div class="my-row-padding">
                 <div class="my-container">
-                    <button class="my-button my-blue fa fa-plus my-button my-green my-large" data-toggle='modal'
-                        data-target='#myModal'>Add
+                    <button class="my-button my-blue fa fa-plus my-button my-green my-large" data-toggle='modal' data-target='#myModal'>Add
                         Users</button>
                     <br>
                     <br>
@@ -86,31 +82,30 @@ function timeago($time, $tense='ago') {
                         </thead>
                         <tbody>
                             <?php
-                                                    $sql = "SELECT id, username, email,userIP,isActive,regdate,DATE_ADD(regdate, INTERVAL +3 MONTH) as expdate FROM user where role != 'admin'";
-                                                    $result = $conn->query($sql);
-                                                    if ($result->num_rows > 0) {
-                                                    // output data of each row
-                                                    while($row = $result->fetch_assoc()) {
-                                                        $status = ($row['isActive']==1)?'Active':'Not active';
-                                                    echo "<tr>
-                                                        <th scope='row'>".$row["id"]."</th>
-                                                        <td>".$row["username"]."</td>
-                                                        <td>".$row["email"]."</td>
-                                                        <td>".$row["userIP"]."</td>
-                                                           <td>".$status."</td>
-                                                            <td>".timeago($row["regdate"])."</td>
-                                                             <td>".$row["expdate"]."</td>
+                            $sql = "SELECT id, username, email,userIP,isActive,regdate,DATE_ADD(regdate, INTERVAL +3 MONTH) as expdate FROM user where role != 'admin'";
+                            $result = $conn->query($sql);
+                            if ($result->num_rows > 0) {
+                                while ($row = $result->fetch_assoc()) {
+                                    $status = ($row['isActive'] == 1) ? 'Active' : 'Not active';
+                                    echo "<tr>
+                                                        <th scope='row'>" . $row["id"] . "</th>
+                                                        <td>" . $row["username"] . "</td>
+                                                        <td>" . $row["email"] . "</td>
+                                                        <td>" . $row["userIP"] . "</td>
+                                                           <td>" . $status . "</td>
+                                                            <td>" . timeago($row["regdate"]) . "</td>
+                                                             <td>" . $row["expdate"] . "</td>
                                                         <td>
                                                       
-                                                        <button class='delete my-btn my-red' id=".$row["id"].">Delete</button>
+                                                        <button class='delete my-btn my-red' id=" . $row["id"] . ">Delete</button>
                                                         </td>
                                                        
                                                     </tr>";
-                                                    }
-                                                    } else {
-                                                    echo "0 results";
-                                                    }
-                                                    ?>
+                                }
+                            } else {
+                                echo "0 results";
+                            }
+                            ?>
                         </tbody>
                     </table>
                 </div>
@@ -120,10 +115,8 @@ function timeago($time, $tense='ago') {
         <div id="admins" class="my-container my-border details" style="display:none">
             <header id="portfolio">
 
-                <a href="#"><img src="/myimages/avatar_g2.jpg" style="width:65px;"
-                        class="my-circle my-right my-margin my-hide-large my-hover-opacity"></a>
-                <span class="my-button my-hide-large my-xxlarge my-hover-text-grey" onclick="my_open()"><i
-                        class="fa fa-bars"></i></span>
+                <a href="#"><img src="/myimages/avatar_g2.jpg" style="width:65px;" class="my-circle my-right my-margin my-hide-large my-hover-opacity"></a>
+                <span class="my-button my-hide-large my-xxlarge my-hover-text-grey" onclick="my_open()"><i class="fa fa-bars"></i></span>
                 <div class="my-container">
                     <h1><b>Admin Details</b></h1>
                 </div>
@@ -132,8 +125,7 @@ function timeago($time, $tense='ago') {
             <!-- First Photo Grid-->
             <div class="my-row-padding">
                 <div class="my-container">
-                    <button class="my-button my-blue fa fa-plus my-button my-green my-large" data-toggle='modal'
-                        data-target='#myModal'>Add
+                    <button class="my-button my-blue fa fa-plus my-button my-green my-large" data-toggle='modal' data-target='#myModal'>Add
                         Users</button>
                     <br>
                     <br>
@@ -152,32 +144,31 @@ function timeago($time, $tense='ago') {
                         </thead>
                         <tbody>
                             <?php
-                                                    $sql = "SELECT id, username, email,userIP,isActive,regdate FROM user where role = 'admin'";
-                                                    $result = $conn->query($sql);
-                                                    if ($result->num_rows > 0) {
-                                                    // output data of each row
-                                                    while($row = $result->fetch_assoc()) {
-                                                        $status = ($row['isActive']==1)?'Active':'Not active';
-                                                    echo "<tr>
-                                                        <th scope='row'>".$row["id"]."</th>
-                                                        <td>".$row["username"]."</td>
-                                                        <td>".$row["email"]."</td>
+                            $sql = "SELECT id, username, email,userIP,isActive,regdate FROM user where role = 'admin'";
+                            $result = $conn->query($sql);
+                            if ($result->num_rows > 0) {
+                                while ($row = $result->fetch_assoc()) {
+                                    $status = ($row['isActive'] == 1) ? 'Active' : 'Not active';
+                                    echo "<tr>
+                                                        <th scope='row'>" . $row["id"] . "</th>
+                                                        <td>" . $row["username"] . "</td>
+                                                        <td>" . $row["email"] . "</td>
                             
-                                                        <td><input type='password' required class='pwd' onkeydown='javascript:UpdatePassword(this)' id=".$row['id']."></td>
-                                                        <td>".$row["userIP"]."</td>
-                                                           <td>".$status."</td>
-                                                            <td>".timeago($row["regdate"])."</td>
+                                                        <td><input type='password' required class='pwd' onkeydown='javascript:UpdatePassword(this)' id=" . $row['id'] . "></td>
+                                                        <td>" . $row["userIP"] . "</td>
+                                                           <td>" . $status . "</td>
+                                                            <td>" . timeago($row["regdate"]) . "</td>
                                                         <td>
                                                       
-                                                        <button class='delete my-btn my-red' id=".$row["id"].">Delete</button>
+                                                        <button class='delete my-btn my-red' id=" . $row["id"] . ">Delete</button>
                                                         </td>
                                                        
                                                     </tr>";
-                                                    }
-                                                    } else {
-                                                    echo "0 results";
-                                                    }
-                                                    ?>
+                                }
+                            } else {
+                                echo "0 results";
+                            }
+                            ?>
                         </tbody>
                     </table>
                 </div>
@@ -199,11 +190,9 @@ function timeago($time, $tense='ago') {
                         <center>
                             <h3>+ Add User</h3>
                         </center>
-                        <input type="text" class="signup form-control" id="usernametext" placeholder="Username"
-                            required="">
+                        <input type="text" class="signup form-control" id="usernametext" placeholder="Username" required="">
                         <br>
-                        <input type="text" class="signup form-control" id="email" placeholder="Email" required=""
-                            pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$">
+                        <input type="text" class="signup form-control" id="email" placeholder="Email" required="" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$">
                         <br>
                         <input type="password" class="signup form-control" id="pass" placeholder="Password" required="">
                         <br>
@@ -433,20 +422,20 @@ function timeago($time, $tense='ago') {
 
 
     <?php
-        include_once('footer.php');
+    include_once('footer.php');
     ?>
     <script>
-    function openCity(evt, cityName) {
-        var i, x, tablinks;
-        x = document.getElementsByClassName("details");
-        for (i = 0; i < x.length; i++) {
-            x[i].style.display = "none";
+        function openCity(evt, cityName) {
+            var i, x, tablinks;
+            x = document.getElementsByClassName("details");
+            for (i = 0; i < x.length; i++) {
+                x[i].style.display = "none";
+            }
+            tablinks = document.getElementsByClassName("tablink");
+            for (i = 0; i < x.length; i++) {
+                tablinks[i].className = tablinks[i].className.replace(" my-red", "");
+            }
+            document.getElementById(cityName).style.display = "block";
+            evt.currentTarget.className += " my-red";
         }
-        tablinks = document.getElementsByClassName("tablink");
-        for (i = 0; i < x.length; i++) {
-            tablinks[i].className = tablinks[i].className.replace(" my-red", "");
-        }
-        document.getElementById(cityName).style.display = "block";
-        evt.currentTarget.className += " my-red";
-    }
     </script>

@@ -32,7 +32,6 @@ $langS = $_POST["langS"];
 $langT = $_POST["langT"];
 $ip = getUserIpAddr();
 $regdate =  $now->format('Y-m-d H:i:s');
-// $regdate = date("Y-m-d H:i:s");
 $active = 0;
 $stmt->execute();
 
