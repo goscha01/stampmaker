@@ -47,9 +47,17 @@ function updateLabels(element, show) {
   let showText = showVal[0]
   let showNumber = showVal[1]
   $(".card-item").removeClass("all");
-  $("#labels").prepend("<div class='elementlabel label' id='" + element + "'> <p>" + showText + " " + showNumber + " </p> <div> <button type='button' class='closeBtn' aria-label='Close'> <img src='assets/img/icons/cross.svg' class='delete_btn' /> </button> <div class='up_down_arrow'> <img class='move-up-element' src='assets/img/icons/arrow.svg' /> <img class='move-down-element' src='assets/img/icons/arrow.svg' /> </div> </div> </div>");    // two buttons
+  $("#labels").prepend("<div class='elementlabel label' id='" + element + "'> <p class='upper_text'>" + showText + " " + showNumber + " </p> <div> <button type='button' class='closeBtn' aria-label='Close'> <img src='assets/img/icons/cross.svg' class='delete_btn' /> </button> <div class='up_down_arrow'> <img class='move-up-element' src='assets/img/icons/arrow.svg' /> <img class='move-down-element' src='assets/img/icons/arrow.svg' /> </div> </div> </div>");    // two buttons
   $(".guide").css("display", "none");
-
+  document.querySelectorAll(".upper_text").forEach(e => {
+    e.onclick = (event) => {
+      document.querySelectorAll(".property").forEach(p => {
+        p.style.display ="none";
+      })
+      let val = event.target.textContent.replace(/\s/g, "").split("#");
+      document.querySelector(`#${val[0]}${val[1]-1}`).style.display="block"
+    }
+  })
 }
 
 
