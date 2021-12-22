@@ -28,7 +28,6 @@
                             }),
                             success: function(response) {
 
-                                console.log(response);
                                 if (response.status == 200) {
                                     swal("Password Updated", response.message, "success");
                                     window.location.reload();
@@ -119,7 +118,7 @@
                     dataType: 'json',
                     success: function(response) {
                         console.log(response);
-                        swal("Logout", "You are log out successfully.", "success").then(function() {
+                        swal("Logout", "You are logged out successfully.", "success").then(function() {
                             window.location.href = 'login.php';
                         });
 

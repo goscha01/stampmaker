@@ -29,7 +29,6 @@ if (isset($_POST["action"])) {
             $role = $_POST["role"];
             $stmt->execute();
 
-
             $userid1 = $stmt->insert_id;
             $stmt2 = $conn->prepare("insert into tbltranslation (sourceLang,TargetLang,userid) VALUES (?,?,?)");
             $stmt2->bind_param('ssi', $langS, $langT, $userid);
@@ -41,7 +40,6 @@ if (isset($_POST["action"])) {
             echo json_encode(array("abc" => 'done', "id" => $userid));
         }
     }
-
     if ($_POST["action"] == "updatePass") {
         $stmt = $conn->prepare("UPDATE user SET password=? WHERE id=?");
         $stmt->bind_param('si', md5($_POST["pass"]), $_POST["id"]);
@@ -51,7 +49,6 @@ if (isset($_POST["action"])) {
         }
     }
 }
-
 function getUserIpAddr()
 {
     if (!empty($_SERVER['HTTP_CLIENT_IP'])) {

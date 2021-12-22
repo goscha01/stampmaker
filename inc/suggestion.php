@@ -24,4 +24,4 @@ function getSuggest()
 	        </div>
 	    </div>
     ";
-} ?>
+}

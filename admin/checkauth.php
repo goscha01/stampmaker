@@ -29,9 +29,8 @@ function getUserIpAddr()
     return $ip;
 }
 
-
 require __DIR__ . '/classes/Database.php';
-require __DIR__ . '/classes/JwtHandler.php';
+require __DIR__ . '/../classes/JwtHandler.php';
 $now = new DateTime();
 $now->setTimezone(new DateTimeZone('America/Detroit'));
 $start =  $now->format('Y-m-d H:i:s');
@@ -144,10 +143,6 @@ elseif ($_SERVER["REQUEST_METHOD"] == "DELETE") :
             $returnData = msg(1, 200, 'user deleted successful');
         }
     endif;
-
-
-
-
 
 elseif ($_SERVER["REQUEST_METHOD"] == "PUT") :
 

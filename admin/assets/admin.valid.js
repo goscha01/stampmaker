@@ -9,7 +9,6 @@ function valid() {
     $('.dataTables_filter input').attr({
         'autocomplete': 'off'
     });
-
     $('.pwd').val('');
     $('#pwd').val('');
     $('#email').val('');

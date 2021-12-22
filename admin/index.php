@@ -122,7 +122,6 @@ function timeago($time, $tense = 'ago')
                 </div>
             </header>
 
-            <!-- First Photo Grid-->
             <div class="my-row-padding">
                 <div class="my-container">
                     <button class="my-button my-blue fa fa-plus my-button my-green my-large" data-toggle='modal' data-target='#myModal'>Add
@@ -281,7 +280,7 @@ function timeago($time, $tense = 'ago')
                             <option value="Nepali">Nepali</option>
                             <option value="Norwegian">Norwegian</option>
                             <option value="Pashto">Pashto</option>
-                            <option value="Polish">Polis<script src="assets/js/select2.min.js"></script>
+                            <option value="Polish">Polis<script src="../assets/js/select2.min.js"></script>
                                 European">Portuguese
                                 - European</option>
                             <option value="Punjabi">Punjabi</option>
@@ -306,7 +305,7 @@ function timeago($time, $tense = 'ago')
                             <option value="Uzbek">Uzbek</option>
                             <option value="Vietnamese">Vietnamese</option>
                             <option value="Welsh">Welsh</option>
-                            <option value="Yiddish">Yidd<script src="assets/js/select2.min.js"></script>a</option>
+                            <option value="Yiddish">Yidd<script src="../assets/js/select2.min.js"></script>a</option>
                             <option value="Zulu">Zulu</option>
                         </select>
                         <br>

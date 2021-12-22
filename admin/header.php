@@ -12,20 +12,19 @@ $base_url = "http://" . $_SERVER['SERVER_NAME'] . dirname($_SERVER["REQUEST_URI"
 <title>Admin</title>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="stylesheet" href="assets/css/my.min.css">
-<link rel="stylesheet" href="assets/css/bootstrap.min.css">
-<link href="assets/css/dataTables.min.css" rel="stylesheet">
+<link rel="stylesheet" href="assets/admin.min.css">
+<link rel="stylesheet" href="../assets/css/bootstrap.min.css">
+<link href="../assets/css/dataTables.min.css" rel="stylesheet">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
 <script type="text/javascript" src="../assets/js/modals.js"></script>
-<script src="assets/js/jquery-3.5.1.js"></script>
-<script src="assets/js/sweetalert.min.js"></script>
-<script src="assets/js/select2.min.js"></script>
-<script src="assets/js/bootstrap.min.js"></script>
-<script src="assets/js/popper.min.js"></script>
-<script src="assets/js/dataTables.min.js"></script>
-<script src="assets/js/valid.js"></script>
+<script src="../assets/js/jquery-3.5.1.js"></script>
+<script src="../assets/js/select2.min.js"></script>
+<script src="../assets/js/bootstrap.min.js"></script>
+<script src="../assets/js/popper.min.js"></script>
+<script src="../assets/js/dataTables.min.js"></script>
+<script src="assets/admin.valid.js"></script>
 <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.10/css/select2.min.css" rel="stylesheet" />
 

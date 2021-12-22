@@ -18,10 +18,8 @@ function msg($success,$status,$message,$extra = []){
 
 function getUserIpAddr(){
     if(!empty($_SERVER['HTTP_CLIENT_IP'])){
-        //ip from share internet
         $ip = $_SERVER['HTTP_CLIENT_IP'];
     }elseif(!empty($_SERVER['HTTP_X_FORWARDED_FOR'])){
-        //ip pass from proxy
         $ip = $_SERVER['HTTP_X_FORWARDED_FOR'];
     }else{
         $ip = $_SERVER['REMOTE_ADDR'];
@@ -106,7 +104,6 @@ else:
 			}
                     $returnData = msg(1,200,'You have successfully logged in.',$row);
 
-                        // $start = date("Y-m-d H:i:s");
                         $end = "Browser Closed!";
                         $sessionIP = getUserIpAddr();
                         $downloads = 0;
@@ -131,7 +128,6 @@ else:
 
             // IF THE USER IS NOT FOUNDED BY EMAIL THEN SHOW THE FOLLOWING ERROR
             else:
-            //    $returnData = msg(0,422,$d);
                 $returnData = msg(0,422,'Wrong username or Email!');
             endif;
         }

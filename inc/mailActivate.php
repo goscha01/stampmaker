@@ -10,7 +10,6 @@ $to = $_POST["email"];
 $id = $_POST["id"];
 $rlink = $_POST["baseurltosend"];
 $link = $rlink . "/inc/";
-// $link = "https://user.mystampmaker.com/";
 $senderName = 'Stampmaker';
 
 
@@ -69,5 +68,4 @@ $mail->Body = $message;
 } catch (Exception $e) {
      echo json_encode(array("abc"=>'not-done',"msg" => "Email not sent. {$mail->ErrorInfo}"));
 }
-
 ?>

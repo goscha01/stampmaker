@@ -20,39 +20,7 @@ function getCircularText(fColor, circlebunch, textbunch, linetextbunch, pictures
 
     var mainCanvas = document.createElement('canvas');
     var ctxRef = mainCanvas.getContext('2d');
-    mainCanvas.style.backgroundImage = "url('assets/img/back.svg')";
-
-
-
-
-    //     var img1 = document.createElement('img'),
-    //     img2 = document.createElement('img')
-    //     count = 2;
-
-    // /// image loading is async, make sure they are loaded
-    // img1.onload = img2.onload = function() {
-    //     count--;
-    //     if (count === 0) drawImages();
-    // }
-    // img1.src = "C:\\Users\\NOOR\\Desktop\\Freesample.svg";
-    // img2.src = "C:\\Users\\NOOR\\Desktop\\Freesample.svg";
-
-    // /// when loaded, draw them somewhere on the canvas
-    // function drawImages() {
-    //     ctxRef.drawImage(img1, 0, 0);
-    //     ctxRef.drawImage(img2, 20, 20);
-    // }      
-
-    //alert(sources["darthVader"]);
-
-    // loadImages(sources, function(images) {
-    //     for(var i = 0; i < pictures.length; ++i){
-    //         var src = sources["img"+i];
-    //         console.log(src);
-
-    //         ctxRef.drawImage(src, 100, 30);
-    //     }
-    //   });
+    mainCanvas.style.backgroundImage = "url('assets/img/canvas.svg')";
 
     mainCanvas.width = 250;
     mainCanvas.height = 250;
@@ -63,19 +31,16 @@ function getCircularText(fColor, circlebunch, textbunch, linetextbunch, pictures
     //Circles
     for (var i = 0; i < circlebunch.length; ++i) {
 
-        console.log(circlebunch[i]);
         if (circlebunch[i][10] != null && circlebunch[i][10] == "deleted" || circlebunch[i][11] == "deleted") {//wrong array index usman
 
             continue;
         }
 
-        //ctxRef.globalCompositeOperation = 'destination-over';
         ctxRef.beginPath();
 
         ctxRef.arc(centerX, centerY, (circlebunch[i][0] / 2) - 5, 0, 2 * Math.PI, false);
         ctxRef.lineWidth = circlebunch[i][1] * 2;
         ctxRef.strokeStyle = circlebunch[i][10];
-        //console.log(circlebunch[i][10]);
         ctxRef.save();
         ctxRef.clip();
 
@@ -89,15 +54,9 @@ function getCircularText(fColor, circlebunch, textbunch, linetextbunch, pictures
         if (linetextbunch[i][10] != null && linetextbunch[i][10] == "deleted" || linetextbunch[i][12] == "deleted") {
             continue;
         }
-
-        //if(linetextbunch[i][12] == "deleted") {
-            //continue;
-        //}
         
         ctxRef.font = linetextbunch[i][6] + ' ' + linetextbunch[i][7] + ' ' + linetextbunch[i][5] + 'px ' + linetextbunch[i][4];
-        //console.log(linetextbunch[i][6] + ' ' + linetextbunch[i][7] + ' ' + linetextbunch[i][5] + 'px ' + linetextbunch[i][4]);
         ctxRef.save();
-        //ctx.fill();
         ctxRef.beginPath();
         ctxRef.fillStyle = linetextbunch[i][11];
         ctxRef.translate(linetextbunch[i][1], linetextbunch[i][2]);
@@ -115,21 +74,16 @@ function getCircularText(fColor, circlebunch, textbunch, linetextbunch, pictures
             var x; var y;
             x = (-width/2);
             y = linetextbunch[i][5];
-            //ctxRef.strokeStyle = "red";
             ctxRef.lineWidth = 2;
-            //console.log(ctxRef.lineWidth);
             ctxRef.moveTo(x,y);
             ctxRef.lineTo(width/2,y);
             ctxRef.stroke();
-            //ctxRef.fillText("___", 0, 50 / 2);
         }
 
         ctxRef.restore();
     }
     //Rounded Text
     for (var i = 0; i < textbunch.length; ++i) {
-
-        console.log(textbunch[i]);
 
         if (textbunch[i][10] != null && textbunch[i][10] == "deleted"  || textbunch[i][11] == "deleted") { //wrong array index usman
 

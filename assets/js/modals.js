@@ -72,7 +72,6 @@ function ajaxCall() {
                 },
                 success: function (response) {
                   console.log(response);
-            // location.href = location.href;
                 },
                 error: function (jqXHR, textStatus, errorThrown) {
             console.log(JSON.stringify(jqXHR));
@@ -164,9 +163,6 @@ function login() {
         }
         if (response.status == 200) {
           $('#myModalLogin').modal('hide');
-          // $("#usernameLogin").css("border", "1px solid green");
-          // $("#passLogin").css("border", "1px solid green");
-
           swal("Welcome!", response.message, "success").then(function () {
             //Checking if the user turn from the  download
             if ($("#info").html() != "") {
@@ -199,11 +195,6 @@ function download() {
     link.download = "dicomimage.png";
     link.click();
   }
-  //location.reload();
-  //   var link = document.createElement('a');
-  // link.download = 'amazinglogo.png';
-  // link.href = document.getElementById('can').toDataURL();
-  // link.click();
 }
 
 function reset() {
@@ -235,7 +226,7 @@ function toggleinstruction() {
 function toggle_about() {
 
   $("#about_div").slideToggle();
-
+  $("#about_div").toggleClass("about_open");
 }
 
 function suggestion() {

@@ -13,20 +13,17 @@ if (isset($_POST['id'])) {
 
 $base_url = "http://" . $_SERVER['SERVER_NAME'] . dirname($_SERVER["REQUEST_URI"] . '?') . '/';
 if (isset($_SESSION['uid']) && $_SESSION['role'] == 'admin') {
-    // header( 'Location:admin');
 }
 ?>
 <!DOCTYPE html>
 <html>
 
 <head>
-    <link rel="icon" type="image/png" href="assets/img/logo.png" sizes="32x32">
+    <link rel="icon" type="image/png" href="assets/img/favicon.png" sizes="32x32">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-    <!-- Global site tag (gtag.js) - Google Analytics -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=UA-171780865-1"></script>
     <script>
         window.dataLayer = window.dataLayer || [];
-
         function gtag() {
             dataLayer.push(arguments);
         }
@@ -51,77 +48,9 @@ if (isset($_SESSION['uid']) && $_SESSION['role'] == 'admin') {
     <script src="assets/js/select2.min.js"></script>
     <link href="assets/css/select2.min.css" rel="stylesheet" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
+    <!-- CoderShiv Custom CSS -->
     <link rel="stylesheet" href="assets/css/main.css">
     <title>Stamp Maker</title>
-    <style type="text/css">
-        .btn-default {
-            border: 1px solid gray;
-            margin: 0px;
-            border-radius: 5px !important;
-            padding: 2px;
-            box-shadow: 0 0 5px #bfbfbf;
-        }
-
-        .middiv {
-            box-shadow: 0 0 10px #bfbfbf;
-            border-radius: 5%;
-            width: 500px;
-            max-height: 500px !important;
-            margin-left: 10px;
-
-        }
-
-        .myclass1 {
-            box-shadow: 0 0 5px #bfbfbf;
-            padding: 20px;
-            margin: 20px;
-            max-height: 400px !important;
-            max-width: 400px !important;
-        }
-
-        .labels-card {
-            margin: 0px;
-            padding: 0px;
-            border: none;
-            background-color: #f8f8f8;
-            box-shadow: 0 0 10px #bfbfbf;
-            height: 500px;
-            border-radius: 20px;
-            overflow-y: auto;
-        }
-
-
-        .mybtnimg {
-            height: 35px;
-            width: 35px;
-            margin: 1px;
-        }
-
-        .btn-tex {
-            color: black;
-            text-align: left;
-            font-size: 10px;
-        }
-
-        .iconimg {
-            border-radius: 10px;
-        }
-
-        @media only screen and (min-width: 802px) and (max-width: 1100px) {
-
-            .canvas {
-                box-shadow: 0 0 5px #bfbfbf;
-                padding: 20px;
-                margin-top: 20px;
-                margin-left: 10%;
-                margin-right: 10%;
-                padding: 10px;
-
-            }
-
-        }
-    </style>
-
 
 </head>
 

@@ -17,10 +17,8 @@ function msg($success, $status, $message, $extra = [])
 function getUserIpAddr()
 {
     if (!empty($_SERVER['HTTP_CLIENT_IP'])) {
-        //ip from share internet
         $ip = $_SERVER['HTTP_CLIENT_IP'];
     } elseif (!empty($_SERVER['HTTP_X_FORWARDED_FOR'])) {
-        //ip pass from proxy
         $ip = $_SERVER['HTTP_X_FORWARDED_FOR'];
     } else {
         $ip = $_SERVER['REMOTE_ADDR'];
@@ -28,22 +26,18 @@ function getUserIpAddr()
     return $ip;
 }
 
-// INCLUDING DATABASE AND MAKING OBJECT
 require __DIR__ . '/classes/Database.php';
 $db_connection = new Database();
 $conn = $db_connection->dbConnection();
 $now = new DateTime();
 $now->setTimezone(new DateTimeZone('America/Detroit'));
 $regdate =  $now->format('Y-m-d H:i:s');
-// GET DATA FORM REQUEST
 $data = json_decode(file_get_contents("php://input"));
 $returnData = [];
 
-// IF REQUEST METHOD IS NOT POST
 if ($_SERVER["REQUEST_METHOD"] != "POST") :
     $returnData = msg(0, 404, 'Page Not Found!');
 
-// CHECKING EMPTY FIELDS
 elseif (
     !isset($data->username)
     || !isset($data->email)
@@ -62,7 +56,6 @@ elseif (
     $fields = ['fields' => ['username', 'email', 'password', 'nativeLanguage', 'langTarget', 'role']];
     $returnData = msg(0, 422, 'Please Fill in all Required Fields!', $fields);
 
-// IF THERE ARE NO EMPTY FIELDS THEN-
 else :
 
     $username = trim($data->username);
@@ -73,7 +66,6 @@ else :
     $role = trim($data->role);
     $isActive = trim($data->isActive);
     $userIp = trim(getUserIpAddr());
-    // $regdate = date("Y-m-d H:i:s");
     if (!filter_var($email, FILTER_VALIDATE_EMAIL)) :
         $returnData = msg(0, 422, 'Invalid Email Address!');
 
@@ -105,8 +97,6 @@ else :
 
                 $insert_stmt = $conn->prepare($insert_query);
 
-                // DATA BINDING
-
                 $insert_stmt->bindValue(':username', htmlspecialchars(strip_tags($username)), PDO::PARAM_STR);
                 $insert_stmt->bindValue(':email', $email, PDO::PARAM_STR);
                 $insert_stmt->bindValue(':password', password_hash($password, PASSWORD_DEFAULT), PDO::PARAM_STR);
@@ -122,7 +112,6 @@ else :
 
                 $insert_stmt2 = $conn->prepare($insert_query2);
 
-                // DATA BINDING
                 $insert_stmt2->bindValue(':sourceLang', $nativeLanguage, PDO::PARAM_STR);
                 $insert_stmt2->bindValue(':TargetLang', $langTarget, PDO::PARAM_STR);
                 $insert_stmt2->bindValue(':userid', $userid1, PDO::PARAM_STR);
