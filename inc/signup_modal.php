@@ -20,7 +20,7 @@
                         <i class="fas fa-key"></i>
                         <input type="password" class="signup form-control" id="pass" placeholder="Password" required="">
                     </div>
-                    <div class="form_option_grid">
+                    <div class="form_option_container">
                         <div class="form_options">
                             <label>Select Native Language</label>
                             <select class="form-control" id="langS" required="">
@@ -120,8 +120,8 @@
                                 <option value="Yoruba">Yoruba</option>
                                 <option value="Zulu">Zulu</option>
                             </select>
-                            <emp style="font-size:15px;text-decoration:underline;" class="notInlisted" id="source">*
-                                Language Not Inlisted?</emp>
+                            <emp style="font-size:15px;text-decoration:underline;" class="notInlisted" id="source">
+                                Not Inlisted?</emp>
                             <br>
                             <input type="text" class="signup form-control" id="lang2" placeholder="Write Language Here">
                         </div>
@@ -225,35 +225,36 @@
                                 <option value="Zulu">Zulu</option>
                             </select>
 
-                            <p style="font-size:15px;text-decoration:underline;" id="target">* Language Not Inlisted?</p>
+                            <p style="font-size:15px;text-decoration:underline;" id="target">Not Inlisted?</p>
                             <input type="text" class="signup form-control" id="lang3" placeholder="Write Language Here">
                         </div>
                         <div class="form_options">
-                            <label class="checkbox-inline">
-                                Not a translator? Why do you use it?
+                            <label>
+                                Why do you use it?
                             </label>
                             <input class="form-control" placeholder="Use case"></input>
 
                         </div>
                     </div>
-                    <div class="form_terms_grid form_checkboxes">
-                        <label class="checkbox-inline">
-                            I have read and accept <a href="inc/terms.php" target="_blank"><span style="color:#FF8800">Terms</span> <span style="color:#00438B">and</span> <span style="color:#FF8800">Conditions</span></a>
-                            &nbsp;&nbsp;<input type="checkbox" id="accept" required="">
-                        </label>
+                    <div class="form_checkboxes">
+                        <div>
+                            <label class="checkbox-inline">
+                                <input type="checkbox" id="accept" required="">&nbsp;&nbsp;&nbsp; I have read and accept <a href="inc/terms.php" target="_blank"><span style="color:#FF8800">Terms</span> <span style="color:#00438B">and</span> <span style="color:#FF8800">Conditions</span></a>
+                            </label>
 
-                        <div class="field-group">
-                            <div><label for="remember-me">Remember me</label><input type="checkbox" name="remember" id="remember" <?php if (isset($_COOKIE["usernameLogin"])) { ?> checked <?php } ?> />
-
+                            <div class="field-group">
+                                <div><input type="checkbox" name="remember" id="remember" <?php if (isset($_COOKIE["usernameLogin"])) { ?> checked <?php } ?> />
+                                    <label for="remember-me">&nbsp;&nbsp;&nbsp;Remember me</label>
+                                </div>
                             </div>
                         </div>
+                        <div>
                         <a href="inc/privacy.php" style="float:right;color:#FF8800" target="_blank">Privacy notice</a>
 
+                        </div>
                     </div>
                     <br><br>
-                    <center>
-                        <button class="btn btn-md modals" id="signup">Sign Up</button>
-                    </center>
+                        <button class="button modals sign_up" id="signup">Sign Up</button>
                 </form>
 
             </div>

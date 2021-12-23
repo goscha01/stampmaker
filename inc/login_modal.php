@@ -21,21 +21,14 @@
                                                                                                                                         echo $_COOKIE["passLogin"];
                                                                                                                                     } ?>">
                     </div>
-                    <div class="login_terms_grid form_checkboxes">
-                        <center>
-                            <p style="font-weight:normal;text-align: left;font-weight:600">Not registered yet? Click<a id="reg" onclick="notauser();" style="color:#FF8800">
-                                    here</a></p>
-                        </center>
-                        <div class="field-group">
-                            <div>
-                                <label for="remember-me">Remember me</label><input type="checkbox" name="remember" id="remember" <?php if (isset($_COOKIE["usernameLogin"])) { ?> checked <?php } ?> />
-
-                            </div>
+                    <div class="form_checkboxes">
+                        <p style="font-weight:normal;text-align: left;">Not registered yet? Click<a id="reg" onclick="notauser();" style="color:#FF8800;cursor:pointer;">
+                                here</a></p>
+                        <div>
+                            <input type="checkbox" name="remember" id="remember" <?php if (isset($_COOKIE["usernameLogin"])) { ?> checked <?php } ?> /><label for="remember-me">&nbsp;&nbsp;Remember me</label>
                         </div>
                     </div>
-                    <center>
-                        <button class="btn btn-md btn-success modals" id="login">Log In</button>
-                    </center>
+                    <button class="button sign_up modals" id="login">Log In</button>
                 </form>
 
             </div>
