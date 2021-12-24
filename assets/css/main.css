@@ -1018,19 +1018,20 @@ input[type="range"]::-webkit-slider-thumb {
 @media only screen and (max-width: 460px) {
   main {
     grid-template-columns: 0 0.5fr 0.5fr 0;
-    grid-template-rows: 8em 8em minmax(0, 1fr) 3em;
+    grid-template-rows: 8em 8em minmax(0, 1fr) 1em 3em;
     gap: 0;
   }
   .banner_bottom.right {
-    grid-row-start: 6 !important;
-    grid-row-end: 7 !important;
+    grid-row-start: 7 !important;
+    grid-row-end: 8 !important;
     grid-column-start: 1;
+  }
+  .bottom_btns {
+    grid-row-start: 6;
+    grid-row-end: 7;
   }
   .banner_bottom.right img {
     transform: rotate(0);
-  }
-  .bottom_btns {
-    display: none;
   }
 }
 @media only screen and (max-width: 400px) {

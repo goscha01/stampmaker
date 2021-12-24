@@ -16,7 +16,7 @@ include_once('inc/header.php');
             </div>
         </div>
         <div class="mobile mobile_layers">
-            <button type="button" onclick='toggle_section("#layers_mobile")' class="button layers_btn" data-toggle="modal" data-target="#layers">Layers <i style="margin-left: .3em;" class="fas fa-angle-down"></i></button>
+            <button type="button" onclick='toggle_section("#layers_mobile")' class="button layers_btn" data-toggle="modal" data-target="#layers">Layers <i style="margin-left: .3em;" class="fas fa-angle-up"></i></button>
             <div class='suggest' id='layers_mobile'></div>
         </div>
 
@@ -44,7 +44,7 @@ include_once('inc/header.php');
             ?>
         </div>
         <div class="mobile mobile_properties">
-            <button type="button" onclick='toggle_section("#properties_mobile")' class="button properties_btn" data-toggle="modal" data-target="#mobile_props">Properties <i style="margin-left: .3em;" class="fas fa-angle-down"></i></button>
+            <button type="button" onclick='toggle_section("#properties_mobile")' class="button properties_btn" data-toggle="modal" data-target="#mobile_props">Properties <i style="margin-left: .3em;" class="fas fa-angle-up"></i></button>
             <div class='suggest' id='properties_mobile'> </div>
         </div>
     </header>
