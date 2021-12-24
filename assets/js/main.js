@@ -15,11 +15,10 @@ var ElementsForLabels = [];
 var base64First = "";
 
 function rangeSlider() {
-  var slider = $('.slidecontainer'),
-    range = $('.slider'),
-    value = $('.range-slider__value');
+  var slider = $(".slidecontainer"),
+    range = $(".slider"),
+    value = $(".range-slider__value");
   slider.each(function () {
-
     value.each(function () {
       var max = $(this).next().attr("max");
       var min = $(this).next().attr("min");
@@ -28,63 +27,103 @@ function rangeSlider() {
       $(this).html(parseInt(percentage, 10) + "%");
     });
 
-    range.on('input', function () {
+    range.on("input", function () {
       //  debugger;
       var max = $(this).attr("max");
       var min = $(this).attr("min");
       var input = this.value;
 
-      var percentage = ((input - min) * 100) / (max - min)
-      $(this).prev().html(parseInt(percentage, 10) + "%");
+      var percentage = ((input - min) * 100) / (max - min);
+      $(this)
+        .prev()
+        .html(parseInt(percentage, 10) + "%");
     });
   });
 }
 
-
-
 function updateLabels(element, show) {
   let showVal = show.split(" ");
-  let showText = showVal[0]
-  let showNumber = showVal[1]
+  let showText = showVal[0];
+  let showNumber = showVal[1];
   $(".card-item").removeClass("all");
-  $("#labels").prepend("<div class='elementlabel label' id='" + element + "'> <p class='upper_text'>" + showText + " " + showNumber + " </p> <div> <button type='button' class='closeBtn' aria-label='Close'> <img src='assets/img/icons/cross.svg' class='delete_btn' /> </button> <div class='up_down_arrow'> <img class='move-up-element' src='assets/img/icons/arrow.svg' /> <img class='move-down-element' src='assets/img/icons/arrow.svg' /> </div> </div> </div>");    // two buttons
+  $("#labels").prepend(
+    "<div class='elementlabel label' id='" +
+      element +
+      "'> <p class='upper_text'>" +
+      showText +
+      " " +
+      showNumber +
+      " </p> <div> <button type='button' class='closeBtn' aria-label='Close'> <img src='assets/img/icons/cross.svg' class='delete_btn' /> </button> <div class='up_down_arrow'> <img class='move-up-element' src='assets/img/icons/arrow.svg' /> <img class='move-down-element' src='assets/img/icons/arrow.svg' /> </div> </div> </div>"
+  ); // two buttons
   $(".guide").css("display", "none");
-  document.querySelectorAll(".upper_text").forEach(e => {
+  document.querySelectorAll(".upper_text").forEach((e) => {
     e.onclick = (event) => {
-      document.querySelectorAll(".property").forEach(p => {
-        p.style.display ="none";
-      })
-      let val = event.target.textContent.replace(/\s/g, "").replace("Image", "Picture").split("#");
-      document.querySelector(`#${val[0]}${val[1]-1}`).style.display="block"
-    }
-  })
+      document.querySelectorAll(".property").forEach((p) => {
+        p.style.display = "none";
+      });
+      let val = event.target.textContent
+        .replace(/\s/g, "")
+        .replace("Image", "Picture")
+        .split("#");
+      document.querySelector(`#${val[0]}${val[1] - 1}`).style.display = "block";
+    };
+  });
 }
-
 
 function hideallproperties() {
   $("#properties .property").attr("style", "display:none");
-  
 }
 $(document).ready(function () {
   updateTheCanvas();
+  if ($(window).width() < 700) {
+    document.querySelector("#properties_mobile").innerHTML =
+      document.querySelector("#properties_container").innerHTML;
+    document.querySelector("#layers_mobile").innerHTML =
+      document.querySelector(".layers_tab").innerHTML;
+    document.querySelector("#properties_container").innerHTML = "";
+    document.querySelector(".layers_tab").innerHTML = "";
+  }
   // Adding circle
   $("#addcircle").click(function () {
     hideallproperties();
     if (checkAvailiblity(Circles, 5) == 0) {
       return;
     }
-    var moduleDiv = " <div id='Circle" + (Circles.length) + "' class='property'>    <div>        <h6>Circle: " + (Circles.length + 1) + "</h6>        <div class='slidecontainer shape_color color-element' style='width: 100%;'>            <p class='color_picker_container'>Color<input id='CircleColor-" + (Circles.length) + "' />        </div>        <div class='slidecontainer'>Radius:<span class='range-slider__value'>0</span><input type='range' id='InputRadiusCircle-" + (Circles.length) + "' class='slider' min='30' max='240' value='260'></div>        <div class='slidecontainer'>Stroke width:<span class='range-slider__value'>0</span><input type='range' id='InputStrokeWidthCircle-" + (Circles.length) + "' class='slider' min='1' max='100' value='1'></div>    </div></div>";
-
+    var moduleDiv =
+      " <div id='Circle" +
+      Circles.length +
+      "' class='property'>    <div>        <h6>Circle: " +
+      (Circles.length + 1) +
+      "</h6>        <div class='slidecontainer shape_color color-element' style='width: 100%;'>            <p class='color_picker_container'>Color<input id='CircleColor-" +
+      Circles.length +
+      "' />        </div>        <div class='slidecontainer'>Radius:<span class='range-slider__value'>0</span><input type='range' id='InputRadiusCircle-" +
+      Circles.length +
+      "' class='slider' min='30' max='240' value='260'></div>        <div class='slidecontainer'>Stroke width:<span class='range-slider__value'>0</span><input type='range' id='InputStrokeWidthCircle-" +
+      Circles.length +
+      "' class='slider' min='1' max='100' value='1'></div>    </div></div>";
 
     $("#properties").append(moduleDiv);
-    var Circle = [$('#InputRadiusCircle-' + (Circles.length)).val(), $('#InputStrokeWidthCircle-' + (Circles.length)).val(), null, null, null, null, null, null, "circle", null];
+    var Circle = [
+      $("#InputRadiusCircle-" + Circles.length).val(),
+      $("#InputStrokeWidthCircle-" + Circles.length).val(),
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      "circle",
+      null,
+    ];
     Circles.push(Circle);
 
-    updateLabels("Circle #" + (Circles.length - 1), "Circle #" + (Circles.length));
+    updateLabels(
+      "Circle #" + (Circles.length - 1),
+      "Circle #" + Circles.length
+    );
 
     updateTheCanvas();
     updateColorPicker("CircleColor-" + (Circles.length - 1));
-
   });
   // Adding Round text
   $("#addroundtext").click(function () {
@@ -92,21 +131,66 @@ $(document).ready(function () {
     if (checkAvailiblity(RoundTexts, 7) == 0) {
       return;
     } // bold italic id in btn
-    var moduleDiv = "<div id='RoundText" + (RoundTexts.length) + "' class='property'>    <div>        <h6 class='text-center text-secondary font-style'>RoundText: " + (RoundTexts.length+1) + "</h6>    </div>    <div class='input_block'> <select class='text_design_shadow font_input' id='InputFontRoundText-" + (RoundTexts.length) + "'>            <option value='Arial' style='font-family: Arial' selected>Arial</option>            <option value='Calibri' style='font-family: Calibri'>Calibri</option>            <option value='Courier New' style='font-family: Courier New'>Courier New</option>            <option value='Tahoma' style='font-family: Tahoma'>Tahoma</option>            <option value='Times New Roma' style='font-family: Times New Roma'>Times NewRoma</option>            <option value='Verdana' style='font-family: Verdana'>Verdana</option>            <option value='Comic Sans MS' style='font-family: Comic Sans MS'>Comic Sans MS</option>            <option value='Days' style='font-family: Days'>Days</option>            <option value='Simpleiriska' style='font-family: Simpleiriska'>Simpleiriska</option>            <option value='Marck Script' style='font-family: Marck Script'>Marck Script</option>        </select><select id='InputFontSizeRoundText-" + (RoundTexts.length) + "' class='text_design_shadow''>            <option>6</option>            <option>7</option>            <option>8</option>            <option>9</option>            <option>10</option>            <option>12</option>            <option>14</option>            <option>16</option>            <option selected>Size: 18</option>            <option>20</option>            <option>22</option>            <option>24</option>            <option>28</option>            <option>30</option>            <option>32</option>            <option>34</option>            <option>36</option>            <option>38</option>            <option>40</option>            <option>42</option>            <option>44</option>            <option>46</option>            <option>48</option>            <option>50</option>            <option>52</option>            <option>54</option>            <option>56</option>            <option>60</option>            <option>64</option>            <option>72</option>            <option>80</option>        </select>        <div class='text_design text_design_shadow' style='border:1px solid #898989; padding: .1em .3em;'><button class='bg-light' style='border:none;font-family: serif;margin: 0;padding:0;' id='InputBoldRoundText-" + (RoundTexts.length) + "'>B</button> <button style='border:none;border-radius: 0;border-right: 2px solid #ff8800'> </button><button class='bg-light' style='border:none;font-family:serif;' id='InputItalicRoundText-" + (RoundTexts.length) + "' type='button'>I</button></div>        <div class='text_design_color text_design_shadow color_picker_container' style='border:1px solid black;'>Color<input id='RoundColor-" + (RoundTexts.length) + "' /></div>    </div>    <div> <input placeholder='Add some Text' type='text' id='InputTextRoundText-" + (RoundTexts.length) + "' class='text' value=''></div>        <div>            <div class='slidecontainer'> Radius: <span class='range-slider__value'>0</span><input type='range' id='InputRadiusRoundText-" + (RoundTexts.length) + "' class='slider' min='30' max='406' value='150'> </div>            <div class='slidecontainer'> Spacing:<span class='range-slider__value'>0</span><input type='range' id='InputSpacingRoundText-" + (RoundTexts.length) + "' class='slider' min='1.00' max='10.00' value='1'> </div>            <div class='slidecontainer'> Start Point:<span class='range-slider__value'>0</span><input type='range' id='InputStartingPointRoundText-" + (RoundTexts.length) + "' class='slider' min='0' max='360' value='0'> </div>            <div class='slidecontainer' style='display:none'>Width:<span class='range-slider__value' style='display:none'>0</span><input type='range' id='InputWidthRoundText-" + (RoundTexts.length) + "' style='display:none' class='slider' min='1' max='200' value='100'></div>            <div class='slidecontainer' style='display:none'>Height:<span class='range-slider__value'>0</span><input type='range' style='display:none' id='InputHeightRoundText-" + (RoundTexts.length) + "' class='slider' min='1' max='200' value='100'></div>            <div class='custom-control custom-checkbox'><input type='checkbox' style='display:none' class='custom-control-input' id='InputRoundTextAspect-" + (RoundTexts.length) + "'><label style='display:none' class='custom-control-label' for='InputRoundTextAspect-" + (RoundTexts.length) + "'>Maintain AspectRatio?</label></div>        </div></div>";
-    
-    $("#properties").append(moduleDiv);
-    var textFieldVal = $('#InputTextRoundText-' + (RoundTexts.length)).val();
+    var moduleDiv =
+      "<div id='RoundText" +
+      RoundTexts.length +
+      "' class='property round_text'>    <div>        <h6 class='text-center text-secondary font-style'>RoundText: " +
+      (RoundTexts.length + 1) +
+      "</h6>    </div>    <div class='input_block'> <select class='text_design_shadow font_input' id='InputFontRoundText-" +
+      RoundTexts.length +
+      "'>            <option value='Arial' style='font-family: Arial' selected>Arial</option>            <option value='Calibri' style='font-family: Calibri'>Calibri</option>            <option value='Courier New' style='font-family: Courier New'>Courier New</option>            <option value='Tahoma' style='font-family: Tahoma'>Tahoma</option>            <option value='Times New Roma' style='font-family: Times New Roma'>Times NewRoma</option>            <option value='Verdana' style='font-family: Verdana'>Verdana</option>            <option value='Comic Sans MS' style='font-family: Comic Sans MS'>Comic Sans MS</option>            <option value='Days' style='font-family: Days'>Days</option>            <option value='Simpleiriska' style='font-family: Simpleiriska'>Simpleiriska</option>            <option value='Marck Script' style='font-family: Marck Script'>Marck Script</option>        </select><select id='InputFontSizeRoundText-" +
+      RoundTexts.length +
+      "' class='text_design_shadow''>            <option>6</option>            <option>7</option>            <option>8</option>            <option>9</option>            <option>10</option>            <option>12</option>            <option>14</option>            <option>16</option>            <option selected>Size: 18</option>            <option>20</option>            <option>22</option>            <option>24</option>            <option>28</option>            <option>30</option>            <option>32</option>            <option>34</option>            <option>36</option>            <option>38</option>            <option>40</option>            <option>42</option>            <option>44</option>            <option>46</option>            <option>48</option>            <option>50</option>            <option>52</option>            <option>54</option>            <option>56</option>            <option>60</option>            <option>64</option>            <option>72</option>            <option>80</option>        </select>        <div class='text_design text_design_shadow' style='border:1px solid #898989; padding: .1em .3em;'><button class='bg-light' style='border:none;font-family: serif;margin: 0;padding:0;' id='InputBoldRoundText-" +
+      RoundTexts.length +
+      "'>B</button> <button style='border:none;border-radius: 0;border-right: 2px solid #ff8800'> </button><button class='bg-light' style='border:none;font-family:serif;' id='InputItalicRoundText-" +
+      RoundTexts.length +
+      "' type='button'>I</button></div>        <div class='text_design_color text_design_shadow color_picker_container' style='border:1px solid black;'>Color<input id='RoundColor-" +
+      RoundTexts.length +
+      "' /></div>    </div>    <div> <input placeholder='Add some Text' type='text' id='InputTextRoundText-" +
+      RoundTexts.length +
+      "' class='text' value=''></div>        <div>            <div class='slidecontainer'> Radius: <span class='range-slider__value'>0</span><input type='range' id='InputRadiusRoundText-" +
+      RoundTexts.length +
+      "' class='slider' min='30' max='406' value='150'> </div>            <div class='slidecontainer'> Spacing:<span class='range-slider__value'>0</span><input type='range' id='InputSpacingRoundText-" +
+      RoundTexts.length +
+      "' class='slider' min='1.00' max='10.00' value='1'> </div>            <div class='slidecontainer'> Start Point:<span class='range-slider__value'>0</span><input type='range' id='InputStartingPointRoundText-" +
+      RoundTexts.length +
+      "' class='slider' min='0' max='360' value='0'> </div>            <div class='slidecontainer' style='display:none'>Width:<span class='range-slider__value' style='display:none'>0</span><input type='range' id='InputWidthRoundText-" +
+      RoundTexts.length +
+      "' style='display:none' class='slider' min='1' max='200' value='100'></div>            <div class='slidecontainer' style='display:none'>Height:<span class='range-slider__value'>0</span><input type='range' style='display:none' id='InputHeightRoundText-" +
+      RoundTexts.length +
+      "' class='slider' min='1' max='200' value='100'></div>            <div class='custom-control custom-checkbox'><input type='checkbox' style='display:none' class='custom-control-input' id='InputRoundTextAspect-" +
+      RoundTexts.length +
+      "'><label style='display:none' class='custom-control-label' for='InputRoundTextAspect-" +
+      RoundTexts.length +
+      "'>Maintain AspectRatio?</label></div>        </div></div>";
 
-    if(textFieldVal === ""){
-       textFieldValn = "Text around the circle"; 
-    }else{
-       textFieldValn = $('#InputTextRoundText-' + (RoundTexts.length)).val();
+    $("#properties").append(moduleDiv);
+    var textFieldVal = $("#InputTextRoundText-" + RoundTexts.length).val();
+
+    if (textFieldVal === "") {
+      textFieldValn = "Text around the circle";
+    } else {
+      textFieldValn = $("#InputTextRoundText-" + RoundTexts.length).val();
     }
-    var RoundText = [$('#InputRadiusRoundText-' + (RoundTexts.length)).val(), $('#InputSpacingRoundText-' + (RoundTexts.length)).val(), $('#InputStartingPointRoundText-' + (RoundTexts.length)).val(), textFieldValn, $('#InputFontRoundText-' + (RoundTexts.length)).val(), $('#InputFontSizeRoundText-' + (RoundTexts.length)).val(), "normal", "normal", "Round Text", null];
+    var RoundText = [
+      $("#InputRadiusRoundText-" + RoundTexts.length).val(),
+      $("#InputSpacingRoundText-" + RoundTexts.length).val(),
+      $("#InputStartingPointRoundText-" + RoundTexts.length).val(),
+      textFieldValn,
+      $("#InputFontRoundText-" + RoundTexts.length).val(),
+      $("#InputFontSizeRoundText-" + RoundTexts.length).val(),
+      "normal",
+      "normal",
+      "Round Text",
+      null,
+    ];
 
     RoundTexts.push(RoundText);
 
-    updateLabels("RoundText #" + (RoundTexts.length - 1), "RoundText #" + (RoundTexts.length));
+    updateLabels(
+      "RoundText #" + (RoundTexts.length - 1),
+      "RoundText #" + RoundTexts.length
+    );
     updateTheCanvas();
     updateColorPicker("RoundColor-" + (RoundTexts.length - 1));
   });
@@ -116,20 +200,57 @@ $(document).ready(function () {
     if (checkAvailiblity(LineTexts, 10) == 0) {
       return;
     } // bold italic  modals
-    var moduleDiv = "<div id='LineText" + (LineTexts.length) + "' class='property line_text'>    <div class=''>        <h6 class='text-center text-secondary font-style'>Line: " + (LineTexts.length + 1) + "</h6>    </div>    <div class='input_block'> <select class='m-1 text_design_shadow font_input' style='height:25px' id='InputFontLineText-" + (LineTexts.length) + "'>            <option value='Arial' style='font-family: Arial' selected=''>Arial</option>            <option value='Calibri' style='font-family: Calibri'>Calibri (body)</option>            <option value='Courier New' style='font-family: Courier New'>Courier New</option>            <option value='Tahoma' style='font-family: Tahoma'>Tahoma</option>            <option value='Times New Roma' style='font-family: Times New Roma'>Times New Roma</option>            <option value='Verdana' style='font-family: Verdana'>Verdana</option>            <option value='Comic Sans MS' style='font-family: Comic Sans MS'>Comic Sans MS</option>            <option value='Days' style='font-family: Days'>Days</option>            <option value='Simpleiriska' style='font-family: Simpleiriska'>Simpleiriska</option>            <option value='Marck Script' style='font-family: Marck Script'>Marck Script</option>        </select><select id='InputFontSizeLineText-" + (LineTexts.length) + "' class='m-1 text_design_shadow' style='height:25px;float-left;'>            <option>6</option>            <option>7</option>            <option>8</option>            <option>9</option>            <option>10</option>            <option>12</option>            <option>14</option>            <option>16</option>            <option selected=''>Size: 18</option>            <option>20</option>            <option>22</option>            <option>24</option>            <option>28</option>            <option>30</option>            <option>32</option>            <option>34</option>            <option>36</option>            <option>38</option>            <option>40</option>            <option>42</option>            <option>44</option>            <option>46</option>            <option>48</option>            <option>50</option>            <option>52</option>            <option>54</option>            <option>56</option>            <option>60</option>            <option>64</option>            <option>72</option>            <option>80</option>        </select>        <div class='text_design text_design_shadow' style='border:1px solid #898989; padding: .1em .3em;'><button class='bg-light' style='border:none;font-family: serif;margin: 0;padding:0;' id='InputBoldLineText-" + (LineTexts.length) + "'>B</button> <button style='border:none;border-radius: 0;border-right: 2px solid #ff8800'> </button> <button class='bg-light' style='border:none;font-family:serif;'  id='InputItalicLineText-" + (LineTexts.length) + "' type='button'>I</button></div>        <div class='text_design_color text_design_shadow color_picker_container' style='border:1px solid black;'>Color<input id='LineColor-" + (LineTexts.length) + "'  /></div>    </div>    <div><input type='text' id='InputTextLineText-" + (LineTexts.length) + "' class='text' placeholder='Add some text' value=''> </div>    <div>        <div class='slidecontainer'> Position X: <span class='range-slider__value'>0</span> <input type='range' id='InputHorizontalPositionLineText-" + (LineTexts.length) + "' class='slider' min='0' max='250' value='125'> </div>        <div class='slidecontainer'> Position Y:<span class='range-slider__value'>0</span> <input type='range' id='InputVerticalPositionLineText-" + (LineTexts.length) + "' class='slider' min='0' max='240' value='120'> </div>        <div class='slidecontainer'> Rotation:<span class='range-slider__value'>0</span> <input type='range' id='InputRotationLineText-" + (LineTexts.length) + "' class='slider' min='0' max='360' value='0'></div>    </div></div></div>";
+    var moduleDiv =
+      "<div id='LineText" +
+      LineTexts.length +
+      "' class='property line_text'>    <div class=''>        <h6 class='text-center text-secondary font-style'>Line: " +
+      (LineTexts.length + 1) +
+      "</h6>    </div>    <div class='input_block'> <select class='m-1 text_design_shadow font_input' style='height:25px' id='InputFontLineText-" +
+      LineTexts.length +
+      "'>            <option value='Arial' style='font-family: Arial' selected=''>Arial</option>            <option value='Calibri' style='font-family: Calibri'>Calibri (body)</option>            <option value='Courier New' style='font-family: Courier New'>Courier New</option>            <option value='Tahoma' style='font-family: Tahoma'>Tahoma</option>            <option value='Times New Roma' style='font-family: Times New Roma'>Times New Roma</option>            <option value='Verdana' style='font-family: Verdana'>Verdana</option>            <option value='Comic Sans MS' style='font-family: Comic Sans MS'>Comic Sans MS</option>            <option value='Days' style='font-family: Days'>Days</option>            <option value='Simpleiriska' style='font-family: Simpleiriska'>Simpleiriska</option>            <option value='Marck Script' style='font-family: Marck Script'>Marck Script</option>        </select><select id='InputFontSizeLineText-" +
+      LineTexts.length +
+      "' class='m-1 text_design_shadow' style='height:25px;float-left;'>            <option>6</option>            <option>7</option>            <option>8</option>            <option>9</option>            <option>10</option>            <option>12</option>            <option>14</option>            <option>16</option>            <option selected=''>Size: 18</option>            <option>20</option>            <option>22</option>            <option>24</option>            <option>28</option>            <option>30</option>            <option>32</option>            <option>34</option>            <option>36</option>            <option>38</option>            <option>40</option>            <option>42</option>            <option>44</option>            <option>46</option>            <option>48</option>            <option>50</option>            <option>52</option>            <option>54</option>            <option>56</option>            <option>60</option>            <option>64</option>            <option>72</option>            <option>80</option>        </select>        <div class='text_design text_design_shadow' style='border:1px solid #898989; padding: .1em .3em;'><button class='bg-light' style='border:none;font-family: serif;margin: 0;padding:0;' id='InputBoldLineText-" +
+      LineTexts.length +
+      "'>B</button> <button style='border:none;border-radius: 0;border-right: 2px solid #ff8800'> </button> <button class='bg-light' style='border:none;font-family:serif;'  id='InputItalicLineText-" +
+      LineTexts.length +
+      "' type='button'>I</button></div>        <div class='text_design_color text_design_shadow color_picker_container' style='border:1px solid black;'>Color<input id='LineColor-" +
+      LineTexts.length +
+      "'  /></div>    </div>    <div><input type='text' id='InputTextLineText-" +
+      LineTexts.length +
+      "' class='text' placeholder='Add some text' value=''> </div>    <div>        <div class='slidecontainer'> Position X: <span class='range-slider__value'>0</span> <input type='range' id='InputHorizontalPositionLineText-" +
+      LineTexts.length +
+      "' class='slider' min='0' max='250' value='125'> </div>        <div class='slidecontainer'> Position Y:<span class='range-slider__value'>0</span> <input type='range' id='InputVerticalPositionLineText-" +
+      LineTexts.length +
+      "' class='slider' min='0' max='240' value='120'> </div>        <div class='slidecontainer'> Rotation:<span class='range-slider__value'>0</span> <input type='range' id='InputRotationLineText-" +
+      LineTexts.length +
+      "' class='slider' min='0' max='360' value='0'></div>    </div></div></div>";
     $("#properties").append(moduleDiv);
-    var textFieldVal = $('#InputTextLineText-' + (LineTexts.length)).val();
+    var textFieldVal = $("#InputTextLineText-" + LineTexts.length).val();
 
-    if(textFieldVal === ""){
-       textFieldValn = "Text on the line"; 
-    }else{
-       textFieldValn = $('#InputTextLineText-' + (LineTexts.length)).val();
+    if (textFieldVal === "") {
+      textFieldValn = "Text on the line";
+    } else {
+      textFieldValn = $("#InputTextLineText-" + LineTexts.length).val();
     }
-    var LineText = [textFieldValn, $('#InputHorizontalPositionLineText-' + (LineTexts.length)).val(), $('#InputVerticalPositionLineText-' + (LineTexts.length)).val(), $('#InputRotationLineText-' + (LineTexts.length)).val(), $('#InputFontLineText-' + (LineTexts.length)).val(), $('#InputFontSizeLineText-' + (LineTexts.length)).val(), "normal", "normal", "normal", "#ff8800"];
+    var LineText = [
+      textFieldValn,
+      $("#InputHorizontalPositionLineText-" + LineTexts.length).val(),
+      $("#InputVerticalPositionLineText-" + LineTexts.length).val(),
+      $("#InputRotationLineText-" + LineTexts.length).val(),
+      $("#InputFontLineText-" + LineTexts.length).val(),
+      $("#InputFontSizeLineText-" + LineTexts.length).val(),
+      "normal",
+      "normal",
+      "normal",
+      "#ff8800",
+    ];
 
     LineTexts.push(LineText);
 
-    updateLabels("LineText #" + (LineTexts.length - 1), "LineText #" + (LineTexts.length));
+    updateLabels(
+      "LineText #" + (LineTexts.length - 1),
+      "LineText #" + LineTexts.length
+    );
     updateTheCanvas();
     updateColorPicker("LineColor-" + (LineTexts.length - 1));
   });
@@ -140,7 +261,7 @@ $(document).ready(function () {
     var undeleted = 0;
     for (var i = 0; i < Pictures.length; ++i) {
       // Runs when it is deleted
-      if (typeof Pictures[i][6] === 'undefined') {
+      if (typeof Pictures[i][6] === "undefined") {
         undeleted++;
       }
     }
@@ -148,13 +269,40 @@ $(document).ready(function () {
     if (ne == 0 || ne < 0) {
       return;
     }
-    var moduleDiv = "<div id='Picture" + (Pictures.length) + "' class='property picture_properties'>    <div>        <h6>Image: " + (Pictures.length + 1) + "</h6><div class='slidecontainer file_input'> <input type='file' id='InputPictureSrc-" + (Pictures.length) + "' name='files' /></div>            <div class='slidecontainer'> Position X: <span class='range-slider__value'>0</span> <input type='range' id='InputPictureHorizontalPosition-" + (Pictures.length) + "' class='slider' min='1' max='250' value='126'> </div>            <div class='slidecontainer'> Position Y: <span class='range-slider__value'>0</span> <input type='range' id='InputPictureVerticalPosition-" + (Pictures.length) + "' class='slider' min='1' max='250' value='126'> </div>            <div class='slidecontainer'> Size: <span class='range-slider__value'>0</span> <input type='range' id='InputPictureSize-" + (Pictures.length) + "' class='slider' min='1' max='250' value='250'> </div>            <div class='slidecontainer'> Rotation: <span class='range-slider__value'>0</span> <input type='range' id='InputPictureRotation-" + (Pictures.length) + "' class='slider' min='0' max='360' value='0'> </div>    </div></div>"
+    var moduleDiv =
+      "<div id='Picture" +
+      Pictures.length +
+      "' class='property picture_properties'>    <div>        <h6>Image: " +
+      (Pictures.length + 1) +
+      "</h6><div class='slidecontainer file_input'> <input type='file' id='InputPictureSrc-" +
+      Pictures.length +
+      "' name='files' /></div>            <div class='slidecontainer'> Position X: <span class='range-slider__value'>0</span> <input type='range' id='InputPictureHorizontalPosition-" +
+      Pictures.length +
+      "' class='slider' min='1' max='250' value='126'> </div>            <div class='slidecontainer'> Position Y: <span class='range-slider__value'>0</span> <input type='range' id='InputPictureVerticalPosition-" +
+      Pictures.length +
+      "' class='slider' min='1' max='250' value='126'> </div>            <div class='slidecontainer'> Size: <span class='range-slider__value'>0</span> <input type='range' id='InputPictureSize-" +
+      Pictures.length +
+      "' class='slider' min='1' max='250' value='250'> </div>            <div class='slidecontainer'> Rotation: <span class='range-slider__value'>0</span> <input type='range' id='InputPictureRotation-" +
+      Pictures.length +
+      "' class='slider' min='0' max='360' value='0'> </div>    </div></div>";
 
     $("#properties").append(moduleDiv);
-    var Picture = [($('#InputPictureSrc-' + (Pictures.length)).val() == null ? null : $('#InputPictureSrc-' + (Pictures.length)).val()), $('#InputPictureSize-' + (Pictures.length)).val(), $('#InputPictureHorizontalPosition-' + (Pictures.length)).val(), $('#InputPictureVerticalPosition-' + (Pictures.length)).val(), $('#InputPictureRotation-' + (Pictures.length)).val(), "Picture"];
+    var Picture = [
+      $("#InputPictureSrc-" + Pictures.length).val() == null
+        ? null
+        : $("#InputPictureSrc-" + Pictures.length).val(),
+      $("#InputPictureSize-" + Pictures.length).val(),
+      $("#InputPictureHorizontalPosition-" + Pictures.length).val(),
+      $("#InputPictureVerticalPosition-" + Pictures.length).val(),
+      $("#InputPictureRotation-" + Pictures.length).val(),
+      "Picture",
+    ];
     Pictures.push(Picture);
 
-    updateLabels("Picture #" + (Pictures.length - 1), "Image #" + (Pictures.length));
+    updateLabels(
+      "Picture #" + (Pictures.length - 1),
+      "Image #" + Pictures.length
+    );
     updateTheCanvas();
   });
 
@@ -162,7 +310,6 @@ $(document).ready(function () {
     $("#" + ele).spectrum({
       color: "#ff8800",
       move: function (color) {
-
         if (ele.indexOf("Circle") !== -1) {
           var indexofelement = ele.split("-").pop();
           Circles[indexofelement][10] = color.toHexString();
@@ -176,40 +323,42 @@ $(document).ready(function () {
           LineTexts[indexofelement][11] = color.toHexString();
           updateTheCanvas();
         }
-
-      }
+      },
     });
   }
 
   function updateTheCanvas() {
     rangeSlider();
-    var fore = $('.pickup').val();
-    $('.canvas').append(getCircularText(fore, Circles, RoundTexts, LineTexts, Pictures, DeletedElements));
-
+    var fore = $(".pickup").val();
+    $(".canvas").append(
+      getCircularText(
+        fore,
+        Circles,
+        RoundTexts,
+        LineTexts,
+        Pictures,
+        DeletedElements
+      )
+    );
   }
-  $(document).on('click', '.closeBtn', function () {
-    elementd = $(this).parent().parent().next(); 
+  $(document).on("click", ".closeBtn", function () {
+    elementd = $(this).parent().parent().next();
     elementp = $(this).parent().parent().prev();
-    lastchild = $(".elementlabel:last-child"); 
-    var orignalid = $(this).parent().parent().attr('id');// delete element on canvas with id
+    lastchild = $(".elementlabel:last-child");
+    var orignalid = $(this).parent().parent().attr("id"); // delete element on canvas with id
     $(this).parent().parent().remove(); // deleted to remove
-    var typeofelement = orignalid.split(' ')[0];  
-    var indexofelement = orignalid.split('#')[1]; 
-    
+    var typeofelement = orignalid.split(" ")[0];
+    var indexofelement = orignalid.split("#")[1];
+
     var deleteElement = [typeofelement, indexofelement];
 
     if (typeofelement == "Circle") {
-
       Circles[indexofelement].push("deleted");
-
     } else if (typeofelement == "LineText") {
-
       LineTexts[indexofelement].push("deleted");
     } else if (typeofelement == "RoundText") {
-
       RoundTexts[indexofelement].push("deleted");
     } else {
-
       Pictures[indexofelement].push("deleted");
       base64First = "";
     }
@@ -218,166 +367,160 @@ $(document).ready(function () {
     hideallproperties();
     // changed code
     var lastchildid = $(lastchild).attr("id");
-    console.log(orignalid + "gg" );
+    console.log(orignalid + "gg");
     console.log(lastchildid);
-    
-    if($(this).parent().parent().attr("id") == lastchildid)
-    {
+
+    if ($(this).parent().parent().attr("id") == lastchildid) {
       var newhh = $(elementp).attr("id");
       var elementtype = newhh.split("#")[0]; //  linetext
       var elementindex = newhh.split("#")[1]; //  0
-      var propertywindowid = elementtype.trim() + elementindex;//  linetext0
-      $("#" + propertywindowid).attr("style", "display:block");// #linetext0
-    }
-    else{
-      nextactiveelement=$(this).parent().parent().next();
+      var propertywindowid = elementtype.trim() + elementindex; //  linetext0
+      $("#" + propertywindowid).attr("style", "display:block"); // #linetext0
+    } else {
+      nextactiveelement = $(this).parent().parent().next();
       var newhh = $(elementd).attr("id");
       var elementtype = newhh.split("#")[0]; //  linetext
       var elementindex = newhh.split("#")[1]; //  0
-      var propertywindowid = elementtype.trim() + elementindex;//  linetext0
-      $("#" + propertywindowid).attr("style", "display:block");// #linetext0
-    }  
-  })
-
+      var propertywindowid = elementtype.trim() + elementindex; //  linetext0
+      $("#" + propertywindowid).attr("style", "display:block"); // #linetext0
+    }
+  });
 
   // new function
-  $(document).on('click', '.card-item-n', function () {
+  $(document).on("click", ".card-item-n", function () {
     hideallproperties();
-    var elementid = $(this).attr("id");     // wrong id
+    var elementid = $(this).attr("id"); // wrong id
 
     var elementtype = elementid.split("#")[0];
     var elementindex = elementid.split("#")[1];
     var propertywindowid = elementtype.trim() + elementindex;
     $("#" + propertywindowid).attr("style", "display:block");
-
   });
   // new function for move down
-  $(document).on('click', '.move-down-element', function () {
+  $(document).on("click", ".move-down-element", function () {
     nextelement = $(this).parent().parent().parent().next();
     currentelement = $(this).parent().parent().parent();
     $(nextelement).insertBefore(currentelement);
   });
 
   // new function for move up
-  $(document).on('click', '.move-up-element', function () {
+  $(document).on("click", ".move-up-element", function () {
     prevelement = $(this).parent().parent().parent().prev();
     currentelement = $(this).parent().parent().parent();
     $(prevelement).insertAfter(currentelement);
   });
-  $('.pickup').change(function () {
+  $(".pickup").change(function () {
     updateTheCanvas();
-  })
-  $(document).on('change input click', 'input[type=text],input[type=range],input[type=file], select, button:not(.close,.swal-button,.modals)', function () {
-
-    var idofelement = $(this).attr("id");
-    if(idofelement){
-    var valueofelement = $(this).val();
-    var indexofelement = idofelement.split("-").pop();
-    // Checking if the element is circle
-    if (idofelement.indexOf("Circle") !== -1) {
-      if (idofelement.split('-')[0] == "InputRadiusCircle") {
-        Circles[indexofelement][0] = valueofelement;
-        updateTheCanvas();
-      } else if (idofelement.split('-')[0] == "InputStrokeWidthCircle") {
-        Circles[indexofelement][1] = valueofelement;
-        updateTheCanvas();
-      }
-    } else if (idofelement.indexOf("RoundText") !== -1) {
-      var theElementInputId = idofelement.split('-')[0];
-      if (theElementInputId == "InputTextRoundText") {
-        RoundTexts[indexofelement][3] = valueofelement;
-      } else if (theElementInputId == "InputRadiusRoundText") {
-        RoundTexts[indexofelement][0] = valueofelement;
-      } else if (theElementInputId == "InputSpacingRoundText") {
-        RoundTexts[indexofelement][1] = valueofelement;
-      } else if (theElementInputId == "InputFontRoundText") {
-        RoundTexts[indexofelement][4] = valueofelement;
-      } else if (theElementInputId == "InputFontSizeRoundText") {
-        RoundTexts[indexofelement][5] = valueofelement;
-      } else if (theElementInputId == "InputStartingPointRoundText") {
-        RoundTexts[indexofelement][2] = valueofelement;
-      } else if (theElementInputId == "InputBoldRoundText") {
-        if (RoundTexts[indexofelement][6] == "normal") {
-          RoundTexts[indexofelement][6] = "600";
-        } else {
-          RoundTexts[indexofelement][6] = "normal";
-        }
-      } else if (theElementInputId == "InputItalicRoundText") {
-        if (RoundTexts[indexofelement][7] == "normal") {
-          RoundTexts[indexofelement][7] = "italic";
-        } else {
-          RoundTexts[indexofelement][7] = "normal";
-        }
-      }
-      updateTheCanvas();
-
-
-
-    } else if (idofelement.indexOf("LineText") !== -1) {
-      var theElementInputId = idofelement.split('-')[0];
-      if (theElementInputId == "InputHorizontalPositionLineText") {
-        LineTexts[indexofelement][1] = valueofelement;
-      } else if (theElementInputId == "InputVerticalPositionLineText") {
-        LineTexts[indexofelement][2] = valueofelement;
-      } else if (theElementInputId == "InputTextLineText") {
-        LineTexts[indexofelement][0] = valueofelement;
-      } else if (theElementInputId == "InputRotationLineText") {
-        LineTexts[indexofelement][3] = valueofelement;
-      } else if (theElementInputId == "InputFontLineText") {
-        LineTexts[indexofelement][4] = valueofelement;
-      } else if (theElementInputId == "InputFontSizeLineText") {
-        LineTexts[indexofelement][5] = valueofelement;
-      } else if (theElementInputId == "InputBoldLineText") {
-        if (LineTexts[indexofelement][6] == "normal") {
-          LineTexts[indexofelement][6] = "600";
-        } else {
-          LineTexts[indexofelement][6] = "normal";
-        }
-      } else if (theElementInputId == "InputItalicLineText") {
-        if (LineTexts[indexofelement][7] == "normal") {
-          LineTexts[indexofelement][7] = "italic";
-        } else {
-          LineTexts[indexofelement][7] = "normal";
-        }
-      } else if (theElementInputId == "InputUnderlineLineText") {  code
-        if (LineTexts[indexofelement][8] == "normal") {
-          LineTexts[indexofelement][8] = "underline";
-        } else {
-          LineTexts[indexofelement][8] = "normal";
-        }
-      }  
-
-      updateTheCanvas();
-    } else if (idofelement.indexOf("Picture") !== -1) {
-
-      var theElementInputId = idofelement.split('-')[0];
-      if (theElementInputId == "InputPictureHorizontalPosition") {
-        Pictures[indexofelement][2] = valueofelement;
-      } else if (theElementInputId == "InputPictureVerticalPosition") {
-        Pictures[indexofelement][3] = valueofelement;
-      } else if (theElementInputId == "InputPictureSize") {
-        Pictures[indexofelement][1] = valueofelement;
-      } else if (theElementInputId == "InputPictureRotation") {
-        Pictures[indexofelement][4] = valueofelement;
-      } else if (theElementInputId == "InputPictureSrc") {
-      }
-      updateTheCanvas();
-    }
-  }
   });
-})
+  $(document).on(
+    "change input click",
+    "input[type=text],input[type=range],input[type=file], select, button:not(.close,.swal-button,.modals)",
+    function () {
+      var idofelement = $(this).attr("id");
+      if (idofelement) {
+        var valueofelement = $(this).val();
+        var indexofelement = idofelement.split("-").pop();
+        // Checking if the element is circle
+        if (idofelement.indexOf("Circle") !== -1) {
+          if (idofelement.split("-")[0] == "InputRadiusCircle") {
+            Circles[indexofelement][0] = valueofelement;
+            updateTheCanvas();
+          } else if (idofelement.split("-")[0] == "InputStrokeWidthCircle") {
+            Circles[indexofelement][1] = valueofelement;
+            updateTheCanvas();
+          }
+        } else if (idofelement.indexOf("RoundText") !== -1) {
+          var theElementInputId = idofelement.split("-")[0];
+          if (theElementInputId == "InputTextRoundText") {
+            RoundTexts[indexofelement][3] = valueofelement;
+          } else if (theElementInputId == "InputRadiusRoundText") {
+            RoundTexts[indexofelement][0] = valueofelement;
+          } else if (theElementInputId == "InputSpacingRoundText") {
+            RoundTexts[indexofelement][1] = valueofelement;
+          } else if (theElementInputId == "InputFontRoundText") {
+            RoundTexts[indexofelement][4] = valueofelement;
+          } else if (theElementInputId == "InputFontSizeRoundText") {
+            RoundTexts[indexofelement][5] = valueofelement;
+          } else if (theElementInputId == "InputStartingPointRoundText") {
+            RoundTexts[indexofelement][2] = valueofelement;
+          } else if (theElementInputId == "InputBoldRoundText") {
+            if (RoundTexts[indexofelement][6] == "normal") {
+              RoundTexts[indexofelement][6] = "600";
+            } else {
+              RoundTexts[indexofelement][6] = "normal";
+            }
+          } else if (theElementInputId == "InputItalicRoundText") {
+            if (RoundTexts[indexofelement][7] == "normal") {
+              RoundTexts[indexofelement][7] = "italic";
+            } else {
+              RoundTexts[indexofelement][7] = "normal";
+            }
+          }
+          updateTheCanvas();
+        } else if (idofelement.indexOf("LineText") !== -1) {
+          var theElementInputId = idofelement.split("-")[0];
+          if (theElementInputId == "InputHorizontalPositionLineText") {
+            LineTexts[indexofelement][1] = valueofelement;
+          } else if (theElementInputId == "InputVerticalPositionLineText") {
+            LineTexts[indexofelement][2] = valueofelement;
+          } else if (theElementInputId == "InputTextLineText") {
+            LineTexts[indexofelement][0] = valueofelement;
+          } else if (theElementInputId == "InputRotationLineText") {
+            LineTexts[indexofelement][3] = valueofelement;
+          } else if (theElementInputId == "InputFontLineText") {
+            LineTexts[indexofelement][4] = valueofelement;
+          } else if (theElementInputId == "InputFontSizeLineText") {
+            LineTexts[indexofelement][5] = valueofelement;
+          } else if (theElementInputId == "InputBoldLineText") {
+            if (LineTexts[indexofelement][6] == "normal") {
+              LineTexts[indexofelement][6] = "600";
+            } else {
+              LineTexts[indexofelement][6] = "normal";
+            }
+          } else if (theElementInputId == "InputItalicLineText") {
+            if (LineTexts[indexofelement][7] == "normal") {
+              LineTexts[indexofelement][7] = "italic";
+            } else {
+              LineTexts[indexofelement][7] = "normal";
+            }
+          } else if (theElementInputId == "InputUnderlineLineText") {
+            code;
+            if (LineTexts[indexofelement][8] == "normal") {
+              LineTexts[indexofelement][8] = "underline";
+            } else {
+              LineTexts[indexofelement][8] = "normal";
+            }
+          }
 
-$('input[type=range]').on('input', function () {
-  $(this).trigger('change');
+          updateTheCanvas();
+        } else if (idofelement.indexOf("Picture") !== -1) {
+          var theElementInputId = idofelement.split("-")[0];
+          if (theElementInputId == "InputPictureHorizontalPosition") {
+            Pictures[indexofelement][2] = valueofelement;
+          } else if (theElementInputId == "InputPictureVerticalPosition") {
+            Pictures[indexofelement][3] = valueofelement;
+          } else if (theElementInputId == "InputPictureSize") {
+            Pictures[indexofelement][1] = valueofelement;
+          } else if (theElementInputId == "InputPictureRotation") {
+            Pictures[indexofelement][4] = valueofelement;
+          } else if (theElementInputId == "InputPictureSrc") {
+          }
+          updateTheCanvas();
+        }
+      }
+    }
+  );
 });
 
+$("input[type=range]").on("input", function () {
+  $(this).trigger("change");
+});
 
-$(document).on('change', 'input[type=file]', function () {
+$(document).on("change", "input[type=file]", function () {
   if (this.files && this.files[0]) {
-
     var FR = new FileReader();
     var id = $(this).attr("id");
-    var index = id.split('-').pop();
+    var index = id.split("-").pop();
 
     FR.addEventListener("load", function (e) {
       base64First = e.target.result;
@@ -389,20 +532,28 @@ $(document).on('change', 'input[type=file]', function () {
         $("#InputPictureHorizontalPosition-" + index).val(126);
       }
       rangeSlider();
-      var fore = $('.pickup').val();
-      $('.canvas').append(getCircularText(fore, Circles, RoundTexts, LineTexts, Pictures, DeletedElements));
+      var fore = $(".pickup").val();
+      $(".canvas").append(
+        getCircularText(
+          fore,
+          Circles,
+          RoundTexts,
+          LineTexts,
+          Pictures,
+          DeletedElements
+        )
+      );
     });
 
     FR.readAsDataURL(this.files[0]);
   }
 });
 
-
 function checkAvailiblity(ElementArray, max) {
   var undeleted = 0;
   for (var i = 0; i < ElementArray.length; ++i) {
     // Runs when it is deleted
-    if (typeof ElementArray[i][9] === 'undefined') {
+    if (typeof ElementArray[i][9] === "undefined") {
       undeleted++;
     }
   }
@@ -415,7 +566,7 @@ function checkAvailiblity(ElementArray, max) {
 
 function down(session) {
   if (session == "null" || session == null) {
-    $("#myModalLogin").modal('toggle');
+    $("#myModalLogin").modal("toggle");
     $("#info").html("Please Login Before Downloading Your Stamp");
     return;
   }
@@ -428,13 +579,13 @@ function incrementdownloadnumber(s) {
   $.ajax({
     url: "/inc/incrementdownloadnum.php", // the page containing php script
     type: "post", // request type,
-    dataType: 'json',
+    dataType: "json",
     data: {
-      id: s
+      id: s,
     },
     success: function (response) {
       console.log(response.abc);
-    }
+    },
   });
 }
 // Signup Modals
@@ -474,8 +625,7 @@ $(document).ready(function () {
     CheckValidation(!notTranslator, "#langS");
     CheckValidation(!notTranslator, "#langTarget");
   });
-  $("#signUp").click(function () { });
-
+  $("#signUp").click(function () {});
 });
 
 function CheckValidation(customLang, id) {

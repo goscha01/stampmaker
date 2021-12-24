@@ -223,10 +223,30 @@ function toggleinstruction() {
 
 }
 
-function toggle_about() {
+function toggle_section(e) {
+  document.querySelectorAll("button i").forEach(g => {
+    g.style.transform = "rotate(0)";
+  })
+  let myEle = document.querySelector(e);
+  if (myEle.classList.contains("open")) {
+    $(e).fadeOut();
+    if (myEle.id != 'about_div') {
+      myEle.parentElement.querySelector("i").style.transform = "rotate(0)";
+    }
+    myEle.classList.remove("open")
+  } else {
+    $(e).fadeIn();
+    myEle.classList.add("open")
+    if (myEle.id != 'about_div') {
+    myEle.parentElement.querySelector("i").style.transform = "rotate(-180deg)";
+    }
+  }
+  document.querySelectorAll(".open").forEach(f => {
+    if (`#${f.id}` == e) return;
+    $(f).fadeOut();
+    f.classList.remove("open");
+  })
 
-  $("#about_div").slideToggle();
-  $("#about_div").toggleClass("about_open");
 }
 
 function suggestion() {

@@ -1,15 +1,18 @@
-<?php 
+<?php
 if (empty($_SESSION["uid"])) {
+	echo "    </div>
+	</main>
+	";
 } else {
-    getSuggest();
+	getSuggest();
 }
 
 function getSuggest()
 {
-    echo "
+	echo "
         <div class='demo bottomright seggestions-section'> 
         	<div id='suggestionbox' onclick='togglesuggestions()'>
-	            To send concerns or suggestions.<b>Click Here</b>
+	            Send Concerns/Suggestions
 	        </div>
 	        <div class='suggest' id='suggest'>
 	        	<div class='card'>
@@ -23,5 +26,8 @@ function getSuggest()
 				</div>        
 	        </div>
 	    </div>
+		</div>
+		</main>
+		
     ";
 }

@@ -7,7 +7,7 @@ include_once('inc/header.php');
 <main>
     <header class="header">
         <div class="about_section">
-            <button type="button" onclick='toggle_about()' class="button about_btn" data-toggle="modal" data-target="#aboutus">About</button>
+            <button type="button" onclick='toggle_section("#about_div")' class="button about_btn" data-toggle="modal" data-target="#aboutus">About</button>
             <div class='suggest' id='about_div'>
                 <h6>About MyStampMaker</h6>
                 <p>
@@ -15,6 +15,11 @@ include_once('inc/header.php');
                 </p>
             </div>
         </div>
+        <div class="mobile mobile_layers">
+            <button type="button" onclick='toggle_section("#layers_mobile")' class="button layers_btn" data-toggle="modal" data-target="#layers">Layers <i style="margin-left: .3em;" class="fas fa-angle-down"></i></button>
+            <div class='suggest' id='layers_mobile'></div>
+        </div>
+
         <div class="branding">
             <img class="site_logo" src="assets/img/site_logo.svg" alt="MyStampMaker Official Logo" />
             <h1 class="site_title">MyStampMaker</h1>
@@ -37,6 +42,10 @@ include_once('inc/header.php');
                 }
             }
             ?>
+        </div>
+        <div class="mobile mobile_properties">
+            <button type="button" onclick='toggle_section("#properties_mobile")' class="button properties_btn" data-toggle="modal" data-target="#mobile_props">Properties <i style="margin-left: .3em;" class="fas fa-angle-down"></i></button>
+            <div class='suggest' id='properties_mobile'> </div>
         </div>
     </header>
     <div class="banner_left banner">
@@ -89,6 +98,8 @@ include_once('inc/header.php');
         </div>
 
     </div>
+
+
     <div class="banner_right banner">
         <img src="assets/img/banners/banner_left.png" alt="MyStampMaker Banner" />
     </div>
@@ -98,36 +109,33 @@ include_once('inc/header.php');
     <div class="banner_bottom right banner">
         <img src="assets/img/banners/banner_bottom.png" alt="MyStampMaker Banner" />
     </div>
-</main>
-<!-- 
-<div>
-    <div class='demo bottomleft seggestions-section'>
-        <div id='howto' onclick='toggleinstruction()'>
-            <p>View Instructions</p>
+    <div class="bottom_btns">
+        <div class='demo bottomleft seggestions-section'>
+            <div id='howto' onclick='toggleinstruction()'>
+                View Instructions
+            </div>
+            <div class='suggest instructions' id='suggestIns'>
+                <div>
+                    <h5>Instructions</h5>
+                    <div class="insclose" onclick='toggleinstruction()'>Close <img src="assets/img/icons/cross.svg"></div>
+                </div>
+                <p>
+                    ★ Select <b>Circle</b> element to add a stamp circle<br>
+                    ★ Edit the circle, change its radius and stroke width<br>
+                    ★ Select <b>Round</b> Text element to add a text around the circle<br>
+                    ★ Enter and edit the text, change spacing and rotate it clockwise<br>
+                    ★ Select <b>Line</b> Text element to add a text in the center<br>
+                    ★ Enter and edit the text, move or rotate it<br>
+                    ★ Select <b>Image</b> element to add an image<br>
+                    ★ Upload the image, change its size and position<br>
+                    ★ Add any numbers of elements<br>
+                    ★ Delete elements clicking on <b>delete x</b> <br>
+                    ★ <b>Download</b> your stamp
+                </p>
+            </div>
         </div>
-        <div class='suggest instructions' id='suggestIns'>
-            <h5>Instructions</h5>
-            ★ Select <b>Circle</b> element to add a stamp circle<br>
-            ★ Edit the circle, change its radius and stroke width<br>
-            ★ Select <b>Round</b> Text element to add a text around the circle<br>
-            ★ Enter and edit the text, change spacing and rotate it clockwise<br>
-            ★ Select <b>Line</b> Text element to add a text in the center<br>
-            ★ Enter and edit the text, move or rotate it<br>
-            ★ Select <b>Image</b> element to add an image<br>
-            ★ Upload the image, change its size and position<br>
-            ★ Add any numbers of elements<br>
-            ★ Delete elements clicking on <b>delete x</b> <br>
-            ★ <b>Download</b> your stamp
-        </div>
-    </div>
 
-    <div class="col-lg-2 col-md-1 text-center">
-
-    </div>
-
-</div> -->
+<?php include 'inc/suggestion.php'; ?>
 
 <?php include 'inc/signup_modal.php'; ?>
 <?php include 'inc/login_modal.php'; ?>
-
-<?php include 'inc/suggestion.php'; ?>
