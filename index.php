@@ -151,11 +151,14 @@ include_once('inc/header.php');
         </div>
         <!-- Suggestions Section only to be shown when Logged In -->
         <?php
-        if (empty($_SESSION["uid"])) {
-            echo "</div></main>";
-        } else {
-            echo `<div class='suggestion_section'><div id='toggle' onclick='toggle_ins("#suggest")'> Any Suggestions? </div><div class='suggest' id='suggest'><div><h5>Leave Suggestion</h5><div class='insclose' onclick='toggle_ins("#suggest")'>Close <img src='assets/img/icons/cross.svg'></div></div>                <form action='javascript:suggestion()' method='post'>                    <textarea type='text' class='signup form-control' id='suggestText' placeholder='Enter Suggestions here.' required></textarea><button class='modals button' id="downloads">Send</button></form></div></div></div></main>`;
-        }
+            getSuggest();
+            function getSuggest() {
+                if (empty($_SESSION["uid"])) {
+                    echo "</div></main>";
+                } else {
+                    echo ``;
+                }
+            }
         ?>
 
         <!-- Including Sign Up and Login Modals -->
