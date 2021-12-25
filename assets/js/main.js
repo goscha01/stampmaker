@@ -53,7 +53,7 @@ function updateLabels(element, show) {
       showText +
       " " +
       showNumber +
-      " </p> <div> <button type='button' class='closeBtn' aria-label='Close'> <img src='assets/img/icons/cross.svg' class='delete_btn' /> </button> <div class='up_down_arrow'> <img class='move-up-element' src='assets/img/icons/arrow.svg' /> <img class='move-down-element' src='assets/img/icons/arrow.svg' /> </div> </div> </div>"
+      " </p> <div> <button type='button' class='closeBtn delete_btn' aria-label='Close' style='color: #ff8800; background: transparent;'> ✖ </button> <div class='up_down_arrow'> <img class='move-up-element' src='assets/img/icons/arrow.svg' /> <img class='move-down-element' src='assets/img/icons/arrow.svg' /> </div> </div> </div>"
   ); // two buttons
   $(".guide").css("display", "none");
   document.querySelectorAll(".upper_text").forEach((e) => {
@@ -65,7 +65,8 @@ function updateLabels(element, show) {
         .replace(/\s/g, "")
         .replace("Image", "Picture")
         .split("#");
-      document.querySelector(`#${val[0]}${val[1] - 1}`).style.display = "block";
+      document.querySelector(`#${val[0]}${val[1] - 1}`).style.display = "flex";
+      document.querySelector(".properties_btn").click();
     };
   });
 }
@@ -75,11 +76,13 @@ function hideallproperties() {
 }
 $(document).ready(function () {
   updateTheCanvas();
-  if ($(window).width() < 700) {
-    document.querySelector("#properties_mobile").innerHTML =
-      document.querySelector("#properties_container").innerHTML;
-    document.querySelector("#layers_mobile").innerHTML =
-      document.querySelector(".layers_tab").innerHTML;
+  if ($(window).width() < 580) {
+    document.querySelector("#properties_mobile").innerHTML = `${
+      document.querySelector("#properties_container").innerHTML
+    }`;
+    document.querySelector("#layers_mobile").innerHTML = `${
+      document.querySelector(".layers_tab").innerHTML
+    }`;
     document.querySelector("#properties_container").innerHTML = "";
     document.querySelector(".layers_tab").innerHTML = "";
   }
@@ -96,11 +99,11 @@ $(document).ready(function () {
       (Circles.length + 1) +
       "</h6>        <div class='slidecontainer shape_color color-element' style='width: 100%;'>            <p class='color_picker_container'>Color<input id='CircleColor-" +
       Circles.length +
-      "' />        </div>        <div class='slidecontainer'>Radius:<span class='range-slider__value'>0</span><input type='range' id='InputRadiusCircle-" +
+      "' />        </div>        <div class='circle_inputs'>            <div class='slidecontainer'>Radius:<span class='range-slider__value'>0</span><input type='range' id='InputRadiusCircle-" +
       Circles.length +
-      "' class='slider' min='30' max='240' value='260'></div>        <div class='slidecontainer'>Stroke width:<span class='range-slider__value'>0</span><input type='range' id='InputStrokeWidthCircle-" +
+      "' class='slider' min='30' max='240' value='260'></div>            <div class='slidecontainer'>                Stroke width:<span class='range-slider__value'>0</span><input type='range' id='InputStrokeWidthCircle-" +
       Circles.length +
-      "' class='slider' min='1' max='100' value='1'></div>    </div></div>";
+      "' class='slider' min='1' max='100' value='1'></div>        </div>    </div></div>";
 
     $("#properties").append(moduleDiv);
     var Circle = [
@@ -270,21 +273,7 @@ $(document).ready(function () {
       return;
     }
     var moduleDiv =
-      "<div id='Picture" +
-      Pictures.length +
-      "' class='property picture_properties'>    <div>        <h6>Image: " +
-      (Pictures.length + 1) +
-      "</h6><div class='slidecontainer file_input'> <input type='file' id='InputPictureSrc-" +
-      Pictures.length +
-      "' name='files' /></div>            <div class='slidecontainer'> Position X: <span class='range-slider__value'>0</span> <input type='range' id='InputPictureHorizontalPosition-" +
-      Pictures.length +
-      "' class='slider' min='1' max='250' value='126'> </div>            <div class='slidecontainer'> Position Y: <span class='range-slider__value'>0</span> <input type='range' id='InputPictureVerticalPosition-" +
-      Pictures.length +
-      "' class='slider' min='1' max='250' value='126'> </div>            <div class='slidecontainer'> Size: <span class='range-slider__value'>0</span> <input type='range' id='InputPictureSize-" +
-      Pictures.length +
-      "' class='slider' min='1' max='250' value='250'> </div>            <div class='slidecontainer'> Rotation: <span class='range-slider__value'>0</span> <input type='range' id='InputPictureRotation-" +
-      Pictures.length +
-      "' class='slider' min='0' max='360' value='0'> </div>    </div></div>";
+      "<div id='Picture" +      Pictures.length +      "' class='property picture_properties'>    <div>        <h6>Image: " + (Pictures.length + 1) + "</h6>        <div class='slidecontainer file_input'> <input type='file' id='InputPictureSrc-" +      Pictures.length +      "' name='files' /></div>        <div class='circle_inputs'>            <div class='slidecontainer'> Position X: <span class='range-slider__value'>0</span> <input type='range' id='InputPictureHorizontalPosition-" +      Pictures.length +      "' class='slider' min='1' max='250' value='126'> </div>            <div class='slidecontainer'> Position Y: <span class='range-slider__value'>0</span> <input type='range' id='InputPictureVerticalPosition-" +      Pictures.length +      "' class='slider' min='1' max='250' value='126'> </div>            <div class='slidecontainer'> Size: <span class='range-slider__value'>0</span> <input type='range' id='InputPictureSize-" +      Pictures.length +      "' class='slider' min='1' max='250' value='250'> </div>            <div class='slidecontainer'> Rotation: <span class='range-slider__value'>0</span> <input type='range' id='InputPictureRotation-" +      Pictures.length +      "' class='slider' min='0' max='360' value='0'> </div>        </div>    </div></div>";
 
     $("#properties").append(moduleDiv);
     var Picture = [

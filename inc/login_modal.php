@@ -25,7 +25,7 @@
                         <p style="font-weight:normal;text-align: left;">Not registered yet? Click<a id="reg" onclick="notauser();" style="color:#FF8800;cursor:pointer;">
                                 here</a></p>
                         <div>
-                            <input type="checkbox" name="remember" id="remember" <?php if (isset($_COOKIE["usernameLogin"])) { ?> checked <?php } ?> /><label for="remember-me">&nbsp;&nbsp;Remember me</label>
+                            <input type="checkbox" name="remember" id="remember" <?php if (isset($_COOKIE["usernameLogin"])) { ?> checked <?php } ?> /><label for="remember-me">&nbsp;&nbsp;&nbsp;&nbsp;Remember me</label>
                         </div>
                     </div>
                     <button class="button sign_up modals" id="login">Log In</button>

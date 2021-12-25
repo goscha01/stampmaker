@@ -22,7 +22,7 @@
                     </div>
                     <div class="form_option_container">
                         <div class="form_options">
-                            <label>Select Native Language</label>
+                            <label>Native Language</label>
                             <select class="form-control" id="langS" required="">
                                 <option selected="" value="" disabled="">English</option>
                                 <option value="English">English</option>
@@ -126,7 +126,7 @@
                             <input type="text" class="signup form-control" id="lang2" placeholder="Write Language Here">
                         </div>
                         <div class="form_options">
-                            <label>Select Target Language</label>
+                            <label>Target Language</label>
                             <select class="form-control" id="langTarget" required="">
                                 <option selected="" value="" disabled="">English</option>
                                 <option value="English">English</option>
@@ -249,12 +249,11 @@
                             </div>
                         </div>
                         <div>
-                        <a href="inc/privacy.php" style="float:right;color:#FF8800" target="_blank">Privacy notice</a>
+                            <a href="inc/privacy.php" style="float:right;color:#FF8800" target="_blank">Privacy notice</a>
 
                         </div>
                     </div>
-                    <br><br>
-                        <button class="button modals sign_up" id="signup">Sign Up</button>
+                    <button class="button modals sign_up" id="signup">Sign Up</button>
                 </form>
 
             </div>

@@ -212,34 +212,14 @@ function notauser() {
 
 };
 
-function togglesuggestions() {
-
-  $("#suggest").slideToggle();
-}
-
-function toggleinstruction() {
-
-  $("#suggestIns").slideToggle();
-
-}
-
 function toggle_section(e) {
-  document.querySelectorAll("button i").forEach(g => {
-    g.style.transform = "rotate(0)";
-  })
   let myEle = document.querySelector(e);
   if (myEle.classList.contains("open")) {
     $(e).fadeOut();
-    if (myEle.id != 'about_div') {
-      myEle.parentElement.querySelector("i").style.transform = "rotate(0)";
-    }
     myEle.classList.remove("open")
   } else {
-    $(e).fadeIn();
+    $(e).slideDown();
     myEle.classList.add("open")
-    if (myEle.id != 'about_div') {
-    myEle.parentElement.querySelector("i").style.transform = "rotate(-180deg)";
-    }
   }
   document.querySelectorAll(".open").forEach(f => {
     if (`#${f.id}` == e) return;
@@ -248,7 +228,9 @@ function toggle_section(e) {
   })
 
 }
-
+function toggle_ins(e) {
+  $(e).slideToggle();
+}
 function suggestion() {
   var suggestText = $("#suggestText").val();
   var base_url_n = window.location.origin;
