@@ -149,18 +149,7 @@ include_once('inc/header.php');
                 </p>
             </div>
         </div>
-        <!-- Suggestions Section only to be shown when Logged In -->
-        <?php
-            getSuggest();
-            function getSuggest() {
-                if (empty($_SESSION["uid"])) {
-                    echo "</div></main>";
-                } else {
-                    echo ``;
-                }
-            }
-        ?>
-
-        <!-- Including Sign Up and Login Modals -->
+        <!-- Including Sign Up, Login and Suggestion Modals -->
+        <?php include 'inc/suggestion.php'; ?>
         <?php include 'inc/signup_modal.php'; ?>
         <?php include 'inc/login_modal.php'; ?>
