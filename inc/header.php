@@ -49,8 +49,18 @@ if (isset($_SESSION['uid']) && $_SESSION['role'] == 'admin') {
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
     <!-- CoderShiv Custom CSS -->
     <link rel="stylesheet" href="assets/css/main.css">
-    <title>Stamp Maker</title>
-
+    <title>MyStampMaker</title>
+    <style>
+        body {
+            background: #00438a;
+            opacity: 0;
+            transition: background 1000ms, opacity 1500ms;
+        }
+        .loaded {
+            background: unset;
+            opacity: 1;
+        }
+    </style>
 </head>
 
-<body>
+<body onload="document.body.classList.add('loaded')">

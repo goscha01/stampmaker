@@ -11,7 +11,7 @@ include_once('inc/header.php');
         <!-- About Sections -->
         <div class="about_section header_side left">
             <!-- Open Button -->
-            <button type="button" onclick='toggle_section("#about_div")' class="button about_btn" data-toggle="modal" data-target="#aboutus">About</button>
+            <button type="button" onclick='toggle_ins("#about_div")' class="button about_btn" data-toggle="modal" data-target="#aboutus">About</button>
             <!-- Hidden Content -->
             <div class='suggest' id='about_div'>
                 <h6>About MyStampMaker</h6>

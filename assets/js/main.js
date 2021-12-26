@@ -46,15 +46,13 @@ function updateLabels(element, show) {
   let showText = showVal[0];
   let showNumber = showVal[1];
   $(".card-item").removeClass("all");
-  $("#labels").prepend(
-    "<div class='elementlabel label' id='" +
-      element +
-      "'> <p class='upper_text'>" +
-      showText +
-      " " +
-      showNumber +
-      " </p> <div> <button type='button' class='closeBtn delete_btn' aria-label='Close' style='color: #ff8800; background: transparent;'> ✖ </button> <div class='up_down_arrow'> <img class='move-up-element' src='assets/img/icons/arrow.svg' /> <img class='move-down-element' src='assets/img/icons/arrow.svg' /> </div> </div> </div>"
-  ); // two buttons
+  $("<div class='elementlabel label' id='" +
+  element +
+  "'> <p class='upper_text'>" +
+  showText +
+  " " +
+  showNumber +
+  " </p> <div> <button type='button' class='closeBtn delete_btn' aria-label='Close' style='color: #ff8800; background: transparent;'> ✖ </button> <div class='up_down_arrow'> <img class='move-up-element' src='assets/img/icons/arrow.svg' /> <img class='move-down-element' src='assets/img/icons/arrow.svg' /> </div> </div> </div>").hide().prependTo("#labels").fadeIn();
   $(".guide").css("display", "none");
   document.querySelectorAll(".upper_text").forEach((e) => {
     e.onclick = (event) => {
@@ -65,7 +63,7 @@ function updateLabels(element, show) {
         .replace(/\s/g, "")
         .replace("Image", "Picture")
         .split("#");
-      document.querySelector(`#${val[0]}${val[1] - 1}`).style.display = "flex";
+      document.querySelector(`#${val[0]}${val[1] - 1}`).style.display = "flex"
       document.querySelector(".properties_btn").click();
     };
   });
@@ -76,7 +74,8 @@ function hideallproperties() {
 }
 $(document).ready(function () {
   updateTheCanvas();
-  if ($(window).width() < 580) {
+  if ($(window).width() < 700 || $(window).height() > $(window).width()) {
+    console.log("Layout: Mobile");
     document.querySelector("#properties_mobile").innerHTML = `${
       document.querySelector("#properties_container").innerHTML
     }`;
@@ -85,6 +84,8 @@ $(document).ready(function () {
     }`;
     document.querySelector("#properties_container").innerHTML = "";
     document.querySelector(".layers_tab").innerHTML = "";
+  } else {
+    console.log("Layout: Desktop");
   }
   // Adding circle
   $("#addcircle").click(function () {
@@ -504,7 +505,6 @@ $(document).ready(function () {
 $("input[type=range]").on("input", function () {
   $(this).trigger("change");
 });
-
 $(document).on("change", "input[type=file]", function () {
   if (this.files && this.files[0]) {
     var FR = new FileReader();
