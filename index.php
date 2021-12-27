@@ -5,6 +5,12 @@ session_start();
 include_once('inc/header.php');
 
 ?>
+<!-- Loader -->
+<span class="loader_wrapper">
+    <img src="assets/img/site_logo.svg" alt="MyStampMaker Logo" width="200px">
+    <div class="loader"></div>
+</span>
+
 <main>
     <!-- Header -->
     <header class="header">
@@ -15,15 +21,20 @@ include_once('inc/header.php');
             <!-- Hidden Content -->
             <div class='suggest' id='about_div'>
                 <h6>About MyStampMaker</h6>
-                <p>
-                    Welcome to MyStampMaker, an online tool that helps you create Custom Stamp Designs for FREE!
-                </p>
+                <?php
+                if (isset($_SESSION["uid"])) {
+                    $d = $_SESSION["uid"];
+                    echo "<div><div>Hi, " . $d['username'] . "</div><div>Welcome to MyStampMaker, an online tool that helps you create Custom Stamp Designs for FREE!</div></div>";
+                } else {
+                    echo "<div><div>Welcome to MyStampMaker, an online tool that helps you create Custom Stamp Designs for FREE!</div><div><a data-toggle='modal' data-target='#myModal' class='about_cta'>Sign Up</a> Now to Get Started!</div></div>";
+                }
+                ?>
             </div>
         </div>
         <!-- Logo and Title -->
         <div class="branding">
             <img class="site_logo" src="assets/img/site_logo.svg" alt="MyStampMaker Official Logo" />
-            <h1 class="site_title">MyStampMaker</h1>
+            <h1 class="site_title">My Stamp Maker</h1>
         </div>
         <!-- Login/Signup/Dashboard/Logout Buttons Logic -->
         <div class="nav_container header_side right">
@@ -32,7 +43,7 @@ include_once('inc/header.php');
                 $d = $_SESSION["uid"];
                 echo "<h6 class='welcome_text'>Welcome, <br>" . $d['username'] . "  </h6><button class='button logout_btn' onclick='logout()'>Log Out</button>";
                 if ($d['role'] == "admin") {
-                    echo "<a class='button' href='admin'>Dashboard</a>";
+                    echo "<a class='button dashboard_link' href='admin'>Dashboard</a>";
                 }
             } else {
                 echo "<button type='button' class='sign_up button' data-toggle='modal' data-target='#myModal'>Sign Up</button><button type='button' class='login_btn button' data-toggle='modal' data-target='#myModalLogin' onclick='reset()'>Log In</button>";
@@ -44,7 +55,7 @@ include_once('inc/header.php');
     <div class="mobile_btns">
         <!-- Layers Sections -->
         <div class="mobile mobile_layers">
-            <div class='suggest' id='layers_mobile'></div>
+            <div class='suggest scroll' id='layers_mobile'></div>
             <button type="button" onclick='toggle_section("#layers_mobile")' class="button layers_btn" data-toggle="modal" data-target="#layers"></button>
         </div>
         <!-- Properties Section -->
@@ -62,7 +73,7 @@ include_once('inc/header.php');
     <!-- StampMaker Interface -->
     <div class="work_area">
         <!-- Desktop Layers Section -->
-        <div class="layers_tab side_card">
+        <div class="layers_tab side_card scroll">
             <h5>Layers</h5>
             <div id="labels">
 

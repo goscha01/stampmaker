@@ -24,6 +24,7 @@ if (isset($_SESSION['uid']) && $_SESSION['role'] == 'admin') {
     <script async src="https://www.googletagmanager.com/gtag/js?id=UA-171780865-1"></script>
     <script>
         window.dataLayer = window.dataLayer || [];
+
         function gtag() {
             dataLayer.push(arguments);
         }
@@ -32,7 +33,9 @@ if (isset($_SESSION['uid']) && $_SESSION['role'] == 'admin') {
         gtag('config', 'UA-171780865-1');
     </script>
     </script>
+    <link type="text/css" href="assets/css/overlayScrollbars.min.css" rel="stylesheet" />
     <script src="assets/js/jquery-3.5.1.js"></script>
+    <script type="text/javascript" src="assets/js/jquery.overlayScrollbars.min.js"></script>
     <link rel="stylesheet" href="assets/css/bootstrap.min.css">
     <script src="assets/js/bootstrap.min.js"></script>
     <script src="http://hongru.github.io/proj/canvas2image/canvas2image.js"></script>
@@ -47,20 +50,10 @@ if (isset($_SESSION['uid']) && $_SESSION['role'] == 'admin') {
     <script src="assets/js/select2.min.js"></script>
     <link href="assets/css/select2.min.css" rel="stylesheet" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
     <!-- CoderShiv Custom CSS -->
     <link rel="stylesheet" href="assets/css/main.css">
     <title>MyStampMaker</title>
-    <style>
-        body {
-            background: #00438a;
-            opacity: 0;
-            transition: background 1000ms, opacity 1500ms;
-        }
-        .loaded {
-            background: unset;
-            opacity: 1;
-        }
-    </style>
 </head>
 
-<body onload="document.body.classList.add('loaded')">
+<body>
