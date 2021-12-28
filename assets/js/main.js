@@ -46,6 +46,9 @@ function updateLabels(element, show) {
   let showText = showVal[0];
   let showNumber = showVal[1];
   $(".card-item").removeClass("all");
+  $(".label").removeClass(
+    "animate__animated animate__fadeInDown animate__faster animate__slideInUp animate__fadeInLeft animate__fadeIn animate__shakeX"
+  );
   $(
     "<div class='elementlabel label' id='" +
       element +
@@ -55,9 +58,14 @@ function updateLabels(element, show) {
       showNumber +
       " </p> <div> <button type='button' class='closeBtn delete_btn' aria-label='Close' style='color: #ff8800; background: transparent;'> ✖ </button> <div class='up_down_arrow'> <img class='move-up-element' src='assets/img/icons/arrow.svg' /> <img class='move-down-element' src='assets/img/icons/arrow.svg' /> </div> </div> </div>"
   )
-    .hide()
     .prependTo("#labels")
-    .fadeIn(500);
+    .addClass("animate__animated animate__fadeInLeft animate__faster");
+  $(`#${element.replace(" #", "")}`).removeClass(
+    "animate__animated animate__fadeInDown animate__faster animate__slideInUp animate__fadeInLeft animate__fadeIn animate__shakeX"
+  );
+  $(`#${element.replace(" #", "")}`).addClass(
+    "animate__animated animate__fadeIn animate__faster"
+  );
   $(".guide").css("display", "none");
   document.querySelectorAll(".upper_text").forEach((e) => {
     e.onclick = (event) => {
@@ -68,6 +76,7 @@ function updateLabels(element, show) {
         .replace(/\s/g, "")
         .replace("Image", "Picture")
         .split("#");
+      $(`#${val[0]}${val[1] - 1}`).fadeIn();
       document.querySelector(`#${val[0]}${val[1] - 1}`).style.display = "flex";
       document.querySelector(".properties_btn").click();
     };
@@ -79,13 +88,18 @@ function hideallproperties() {
 }
 $(document).ready(function () {
   updateTheCanvas();
+  $("canvas").css("height", `${$("canvas").width()}px`)
+  if ($("canvas").height() > 70/100 * $(window).height()) {
+    $("canvas").css("width", `${50/100 * $(window).height()}px`)
+    $("canvas").css("height", `${$("canvas").width()}px`)
+  }
   if ($(window).width() < 700 || $(window).height() > $(window).width()) {
     console.log("Layout: Mobile");
     document.querySelector("#properties_mobile").innerHTML = `${
       document.querySelector("#properties_container").innerHTML
     }`;
     document.querySelector("#layers_mobile").innerHTML = `${
-      document.querySelector(".layers_tab").innerHTML
+      document.querySelector(".layers_tab").querySelector(".os-content").innerHTML
     }`;
     document.querySelector("#properties_container").innerHTML = "";
     document.querySelector(".layers_tab").innerHTML = "";
@@ -105,9 +119,9 @@ $(document).ready(function () {
       (Circles.length + 1) +
       "</h6>        <div class='slidecontainer shape_color color-element' style='width: 100%;'>            <p class='color_picker_container'>Color<input id='CircleColor-" +
       Circles.length +
-      "' />        </div>        <div class='circle_inputs'>            <div class='slidecontainer'>Radius:<span class='range-slider__value'>0</span><input type='range' id='InputRadiusCircle-" +
+      "' />        </div>        <div class='circle_inputs'>            <div class='slidecontainer'><span>Radius:</span><span class='range-slider__value'>0</span><input type='range' id='InputRadiusCircle-" +
       Circles.length +
-      "' class='slider' min='30' max='240' value='260'></div>            <div class='slidecontainer'>                Stroke width:<span class='range-slider__value'>0</span><input type='range' id='InputStrokeWidthCircle-" +
+      "' class='slider' min='30' max='240' value='260'></div>            <div class='slidecontainer'>                <span>Stroke Width:</span><span class='range-slider__value'>0</span><input type='range' id='InputStrokeWidthCircle-" +
       Circles.length +
       "' class='slider' min='1' max='100' value='1'></div>        </div>    </div></div>";
 
@@ -151,19 +165,19 @@ $(document).ready(function () {
       RoundTexts.length +
       "' class='text_design_shadow''>            <option>6</option>            <option>7</option>            <option>8</option>            <option>9</option>            <option>10</option>            <option>12</option>            <option>14</option>            <option>16</option>            <option selected>Size: 18</option>            <option>20</option>            <option>22</option>            <option>24</option>            <option>28</option>            <option>30</option>            <option>32</option>            <option>34</option>            <option>36</option>            <option>38</option>            <option>40</option>            <option>42</option>            <option>44</option>            <option>46</option>            <option>48</option>            <option>50</option>            <option>52</option>            <option>54</option>            <option>56</option>            <option>60</option>            <option>64</option>            <option>72</option>            <option>80</option>        </select>        <div class='text_design text_design_shadow bold_italic' style='border:1px solid #898989; padding: .1em .3em;'><button class='bg-light' style='border:none;font-family: serif;margin: 0;padding:0;' id='InputBoldRoundText-" +
       RoundTexts.length +
-      "'>B</button> <button style='border:none;border-radius: 0;border-right: 2px solid #ff8800'> </button><button class='bg-light' style='border:none;font-family:serif;' id='InputItalicRoundText-" +
+      "'>B</button> <button style='border: none;border-right: .1rem solid #000000; height: 1rem;'> </button><button class='bg-light' style='border:none;font-family:serif;' id='InputItalicRoundText-" +
       RoundTexts.length +
-      "' type='button'>I</button></div>        <div class='text_design_color text_design_shadow color_picker_container' style='border:1px solid black;'>Color<input id='RoundColor-" +
+      "' type='button'>I</button></div>        <div class='text_design_color text_design_shadow color_picker_container'>Color<input id='RoundColor-" +
       RoundTexts.length +
       "' /></div>    </div>    <div> <input placeholder='Add some Text' type='text' id='InputTextRoundText-" +
       RoundTexts.length +
-      "' class='text' value=''></div>        <div>            <div class='slidecontainer'> Radius: <span class='range-slider__value'>0</span><input type='range' id='InputRadiusRoundText-" +
+      "' class='text' value=''></div>        <div class='circle_inputs'>            <div class='slidecontainer'> <span>Radius:</span> <span class='range-slider__value'>0</span><input type='range' id='InputRadiusRoundText-" +
       RoundTexts.length +
-      "' class='slider' min='30' max='406' value='150'> </div>            <div class='slidecontainer'> Spacing:<span class='range-slider__value'>0</span><input type='range' id='InputSpacingRoundText-" +
+      "' class='slider' min='30' max='406' value='150'> </div>            <div class='slidecontainer'> <span>Spacing:</span><span class='range-slider__value'>0</span><input type='range' id='InputSpacingRoundText-" +
       RoundTexts.length +
-      "' class='slider' min='1.00' max='10.00' value='1'> </div>            <div class='slidecontainer'> Start Point:<span class='range-slider__value'>0</span><input type='range' id='InputStartingPointRoundText-" +
+      "' class='slider' min='1.00' max='10.00' value='1'> </div>            <div class='slidecontainer'> <span>Start Point:</span> <span class='range-slider__value'>0</span><input type='range' id='InputStartingPointRoundText-" +
       RoundTexts.length +
-      "' class='slider' min='0' max='360' value='0'> </div>            <div class='slidecontainer' style='display:none'>Width:<span class='range-slider__value' style='display:none'>0</span><input type='range' id='InputWidthRoundText-" +
+      "' class='slider' min='0' max='360' value='0'> </div>            <div class='slidecontainer' style='display:none'><span>Width: </span><span class='range-slider__value' style='display:none'>0</span><input type='range' id='InputWidthRoundText-" +
       RoundTexts.length +
       "' style='display:none' class='slider' min='1' max='200' value='100'></div>            <div class='slidecontainer' style='display:none'>Height:<span class='range-slider__value'>0</span><input type='range' style='display:none' id='InputHeightRoundText-" +
       RoundTexts.length +
@@ -220,17 +234,17 @@ $(document).ready(function () {
       LineTexts.length +
       "' class='m-1 text_design_shadow'>            <option>6</option>            <option>7</option>            <option>8</option>            <option>9</option>            <option>10</option>            <option>12</option>            <option>14</option>            <option>16</option>            <option selected=''>Size: 18</option>            <option>20</option>            <option>22</option>            <option>24</option>            <option>28</option>            <option>30</option>            <option>32</option>            <option>34</option>            <option>36</option>            <option>38</option>            <option>40</option>            <option>42</option>            <option>44</option>            <option>46</option>            <option>48</option>            <option>50</option>            <option>52</option>            <option>54</option>            <option>56</option>            <option>60</option>            <option>64</option>            <option>72</option>            <option>80</option>        </select>        <div class='text_design text_design_shadow bold_italic' style='border:1px solid #898989; padding: .1em .3em;'><button class='bg-light' style='font-family: serif;margin: 0;padding:0;border:none;' id='InputBoldLineText-" +
       LineTexts.length +
-      "'>B</button> <button style='border:none;border-radius: 0;border-right: 2px solid #000000'> </button> <button class='bg-light' style='border:none;font-family:serif;'  id='InputItalicLineText-" +
+      "'>B</button> <button style='border: none;border-right: .1rem solid #000000; height: 1rem;'> </button> <button class='bg-light' style='border:none;font-family:serif;'  id='InputItalicLineText-" +
       LineTexts.length +
-      "' type='button'>I</button></div>        <div class='text_design_color text_design_shadow color_picker_container' style='border:1px solid black;'>Color<input id='LineColor-" +
+      "' type='button'>I</button></div>        <div class='text_design_color text_design_shadow color_picker_container'>Color<input id='LineColor-" +
       LineTexts.length +
       "'  /></div>    </div>    <div><input type='text' id='InputTextLineText-" +
       LineTexts.length +
-      "' class='text' placeholder='Add some Text' value=''> </div>    <div>        <div class='slidecontainer'> Position X: <span class='range-slider__value'>0</span> <input type='range' id='InputHorizontalPositionLineText-" +
+      "' class='text' placeholder='Add some Text' value=''> </div>    <div class='circle_inputs'>        <div class='slidecontainer'><span> Position X: </span><span class='range-slider__value'>0</span> <input type='range' id='InputHorizontalPositionLineText-" +
       LineTexts.length +
-      "' class='slider' min='0' max='250' value='125'> </div>        <div class='slidecontainer'> Position Y:<span class='range-slider__value'>0</span> <input type='range' id='InputVerticalPositionLineText-" +
+      "' class='slider' min='0' max='250' value='125'> </div>        <div class='slidecontainer'><span> Position Y:</span><span class='range-slider__value'>0</span> <input type='range' id='InputVerticalPositionLineText-" +
       LineTexts.length +
-      "' class='slider' min='0' max='240' value='120'> </div>        <div class='slidecontainer'> Rotation:<span class='range-slider__value'>0</span> <input type='range' id='InputRotationLineText-" +
+      "' class='slider' min='0' max='240' value='120'> </div>        <div class='slidecontainer'><span> Rotation:</span><span class='range-slider__value'>0</span> <input type='range' id='InputRotationLineText-" +
       LineTexts.length +
       "' class='slider' min='0' max='360' value='0'></div>    </div></div></div>";
     $("#properties").append(moduleDiv);
@@ -285,13 +299,13 @@ $(document).ready(function () {
       (Pictures.length + 1) +
       "</h6>        <div class='slidecontainer file_input'> <input type='file' id='InputPictureSrc-" +
       Pictures.length +
-      "' name='files' /></div>        <div class='circle_inputs'>            <div class='slidecontainer'> Position X: <span class='range-slider__value'>0</span> <input type='range' id='InputPictureHorizontalPosition-" +
+      "' name='files' /></div>        <div class='circle_inputs'>            <div class='slidecontainer'><span> Position X: </span><span class='range-slider__value'>0</span> <input type='range' id='InputPictureHorizontalPosition-" +
       Pictures.length +
-      "' class='slider' min='1' max='250' value='126'> </div>            <div class='slidecontainer'> Position Y: <span class='range-slider__value'>0</span> <input type='range' id='InputPictureVerticalPosition-" +
+      "' class='slider' min='1' max='250' value='126'> </div>            <div class='slidecontainer'><span> Position Y: </span><span class='range-slider__value'>0</span> <input type='range' id='InputPictureVerticalPosition-" +
       Pictures.length +
-      "' class='slider' min='1' max='250' value='126'> </div>            <div class='slidecontainer'> Size: <span class='range-slider__value'>0</span> <input type='range' id='InputPictureSize-" +
+      "' class='slider' min='1' max='250' value='126'> </div>            <div class='slidecontainer'><span> Size: </span><span class='range-slider__value'>0</span> <input type='range' id='InputPictureSize-" +
       Pictures.length +
-      "' class='slider' min='1' max='250' value='250'> </div>            <div class='slidecontainer'> Rotation: <span class='range-slider__value'>0</span> <input type='range' id='InputPictureRotation-" +
+      "' class='slider' min='1' max='250' value='250'> </div>            <div class='slidecontainer'><span> Rotation: </span><span class='range-slider__value'>0</span> <input type='range' id='InputPictureRotation-" +
       Pictures.length +
       "' class='slider' min='0' max='360' value='0'> </div>        </div>    </div></div>";
 
@@ -351,9 +365,13 @@ $(document).ready(function () {
     );
   }
   $(document).on("click", ".closeBtn", function (e) {
+    $(e.target.parentElement.parentElement).removeClass(
+      "animate__animated animate__fadeInDown animate__faster animate__slideInUp animate__fadeInLeft animate__fadeIn animate__shakeX"
+    );
     $(e.target.parentElement.parentElement)
-      .addClass("animate__animated animate__shakeX")
+      .addClass("animate__animated animate__shakeX animate__faster")
       .fadeOut();
+
     setTimeout(() => {
       elementd = $(this).parent().parent().next();
       elementp = $(this).parent().parent().prev();
@@ -397,7 +415,7 @@ $(document).ready(function () {
         var propertywindowid = elementtype.trim() + elementindex; //  linetext0
         $("#" + propertywindowid).attr("style", "display:block"); // #linetext0
       }
-    }, 500);
+    }, 1000);
   });
 
   // new function
@@ -414,6 +432,20 @@ $(document).ready(function () {
   $(document).on("click", ".move-down-element", function () {
     nextelement = $(this).parent().parent().parent().next();
     currentelement = $(this).parent().parent().parent();
+    if (this.parentElement.parentElement.parentElement != document.querySelectorAll(".label")[document.querySelectorAll(".label").length-1]) {
+      currentelement.removeClass(
+        "animate__animated animate__fadeInDown animate__faster animate__slideInUp animate__fadeInLeft animate__fadeIn animate__shakeX"
+      );
+      nextelement.removeClass(
+        "animate__animated animate__fadeInDown animate__faster animate__slideInUp animate__fadeInLeft animate__fadeIn animate__shakeX"
+      );
+      currentelement.addClass(
+        "animate__animated animate__fadeInDown animate__faster"
+      );
+      nextelement.addClass(
+        "animate__animated animate__slideInUp animate__faster"
+      );
+    }
     $(nextelement).insertBefore(currentelement);
   });
 
@@ -421,6 +453,20 @@ $(document).ready(function () {
   $(document).on("click", ".move-up-element", function () {
     prevelement = $(this).parent().parent().parent().prev();
     currentelement = $(this).parent().parent().parent();
+    if (this.parentElement.parentElement.parentElement != document.querySelectorAll(".label")[0]) {
+      prevelement.removeClass(
+        "animate__animated animate__fadeInDown animate__faster animate__slideInUp animate__fadeInLeft animate__fadeIn animate__shakeX"
+      );
+      currentelement.removeClass(
+        "animate__animated animate__fadeInDown animate__faster animate__slideInUp animate__fadeInLeft animate__fadeIn animate__shakeX"
+      );
+      prevelement.addClass(
+        "animate__animated animate__fadeInDown animate__faster"
+      );
+      currentelement.addClass(
+        "animate__animated animate__slideInUp animate__faster"
+      );
+    }
     $(prevelement).insertAfter(currentelement);
   });
   $(".pickup").change(function () {

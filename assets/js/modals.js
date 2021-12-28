@@ -187,12 +187,12 @@ function download() {
   var canvas = document.getElementsByTagName('canvas')[0];
   if (canvas.msToBlob) { //for IE
     var blob = canvas.msToBlob();
-    window.navigator.msSaveBlob(blob, 'dicomimage.png');
+    window.navigator.msSaveBlob(blob, 'MyStampMaker-Stamp.png');
   } else {
     //other browsers
     var link = document.createElement('a');
     link.href = canvas.toDataURL();
-    link.download = "dicomimage.png";
+    link.download = "MyStampMaker-Stamp.png";
     link.click();
   }
 }
@@ -218,7 +218,7 @@ function toggle_section(e) {
     $(e).fadeOut();
     myEle.classList.remove("open")
   } else {
-    $(e).slideDown();
+    $(e).fadeIn();
     myEle.classList.add("open")
   }
   document.querySelectorAll(".open").forEach(f => {

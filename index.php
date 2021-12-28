@@ -53,18 +53,15 @@ include_once('inc/header.php');
     </header>
     <!-- Mobile Layers and Properties Sections -->
     <div class="mobile_btns">
-        <!-- Layers Sections -->
         <div class="mobile mobile_layers">
             <div class='suggest scroll' id='layers_mobile'></div>
             <button type="button" onclick='toggle_section("#layers_mobile")' class="button layers_btn" data-toggle="modal" data-target="#layers"></button>
         </div>
-        <!-- Properties Section -->
         <div class="mobile mobile_properties">
             <div class='suggest' id='properties_mobile'></div>
             <button type="button" onclick='toggle_section("#properties_mobile")' class="button properties_btn" data-toggle="modal" data-target="#mobile_props"></button>
         </div>
     </div>
-
     <!-- Banner Side - Left -->
     <div class="left banner banner_side">
         <img src="assets/img/banners/banner_left.png" alt="MyStampMaker Banner" />
