@@ -1592,6 +1592,9 @@ input[type="range"]:focus::-ms-fill-upper {
     min-width: 5rem !important;
     padding: .1rem .3rem !important;
   }
+  .header_side {
+    width: 50%;
+  }
   .about_section {
     display: none;
   }
