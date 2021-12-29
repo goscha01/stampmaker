@@ -1194,6 +1194,9 @@ input[type="range"]:focus::-ms-fill-upper {
     width: 100% !important;
     max-width: 100% !important;
   }
+  .canvas canvas, .canvas {
+    max-height: 50vw !important;
+  }
   .header {
     height: 7rem;
   }

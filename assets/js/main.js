@@ -87,7 +87,7 @@ function updateLabels(element, show) {
       height = $(window).height();
   setInterval(function () {
       if ($(window).width() !== width || $(window).height() !== height) {
-          location.reload();
+          // location.reload();
           width = $(window).width();
           height = $(window).height();
       }
