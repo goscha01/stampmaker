@@ -83,13 +83,11 @@ function updateLabels(element, show) {
   });
 }
 (function () {
-  var width = $(window).width(),
-      height = $(window).height();
+  var width = $(window).width();
   setInterval(function () {
-      if ($(window).width() !== width || $(window).height() !== height) {
-          location.reload();
+      if ($(window).width() !== width) {
           width = $(window).width();
-          height = $(window).height();
+          location.reload();
       }
   }, 2500);
 }());
