@@ -107,7 +107,7 @@ function setResponsive() {
     document.querySelector("#layers_mobile").innerHTML = `${
       document.querySelector(".layers_tab").querySelector(".os-content").innerHTML
     }`;
-  } 
+  }
 }
 $(document).ready(function () {
   updateTheCanvas();

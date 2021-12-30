@@ -7,7 +7,7 @@ include_once('inc/header.php');
 ?>
 <!-- Loader -->
 <span class="loader_wrapper">
-    <img src="assets/img/site_logo.svg" alt="MyStampMaker Logo" width="200px">
+    <img src="assets/img/site_logo.svg" alt="MyStampMaker Logo">
     <div class="loader"></div>
 </span>
 
