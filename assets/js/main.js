@@ -78,7 +78,7 @@ function updateLabels(element, show) {
         .split("#");
       $(`#${val[0]}${val[1] - 1}`).fadeIn();
       document.querySelector(`#${val[0]}${val[1] - 1}`).style.display = "flex";
-      document.querySelector(".properties_btn").click();
+      openProperties()
     };
   });
 }
@@ -108,6 +108,10 @@ function setResponsive() {
       document.querySelector(".layers_tab").querySelector(".os-content").innerHTML
     }`;
   }
+}
+function openProperties() {
+  $("#properties_mobile").fadeIn();
+  $("#properties_mobile").addClass("open")
 }
 $(document).ready(function () {
   updateTheCanvas();
@@ -148,6 +152,7 @@ $(document).ready(function () {
       "circle",
       null,
     ];
+    openProperties();
     Circles.push(Circle);
 
     updateLabels(
@@ -217,6 +222,7 @@ $(document).ready(function () {
       "Round Text",
       null,
     ];
+    openProperties()
 
     RoundTexts.push(RoundText);
 
@@ -277,6 +283,7 @@ $(document).ready(function () {
       "normal",
       "#ff8800",
     ];
+    openProperties()
 
     LineTexts.push(LineText);
 
@@ -330,6 +337,7 @@ $(document).ready(function () {
       $("#InputPictureRotation-" + Pictures.length).val(),
       "Picture",
     ];
+    openProperties()
     Pictures.push(Picture);
 
     updateLabels(
