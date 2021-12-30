@@ -87,7 +87,7 @@ function updateLabels(element, show) {
   setInterval(function () {
       if ($(window).width() !== width) {
           width = $(window).width();
-          location.reload();
+          setResponsive();
       }
   }, 2500);
 }());
@@ -95,10 +95,10 @@ function hideallproperties() {
   $("#properties .property").attr("style", "display:none");
 }
 function setResponsive() {
-  $("canvas").css("width", `${$("canvas").height()}px !important`)
+  $("canvas").css("height", `${$("canvas").width()}px !important`)
   if ($("canvas").height() > 70/100 * $(window).height()) {
     $("canvas").css("width", `${40/100 * $(window).height()}px`)
-    $("canvas").css("height", `${$("canvas").width()}px`)
+    $("canvas").css("height", `${40/100 * $(window).height()}px`)
   }
   if ($(window).width() < 700 || $(window).height() > $(window).width() || $(window).height() < 500 && $(window).height() < $(window).width() ) {
     document.querySelector("#properties_mobile").innerHTML = `${

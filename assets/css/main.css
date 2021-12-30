@@ -1182,7 +1182,7 @@ input[type="range"]:focus::-ms-fill-upper {
 }
 
 /* Tablet and Mobile Portrait / Mobile Landscape View */
-@media only screen and (orientation: portrait), (max-width: 775px), (max-height: 500px) and (orientation: landscape) {
+@media only screen and (orientation: portrait), (max-width: 815px), (max-height: 500px) and (orientation: landscape) {
   main {
     -ms-grid-columns: minmax(0, 11rem) minmax(27rem, 1fr) minmax(0, 11rem) !important;
         grid-template-columns: minmax(0, 11rem) minmax(27rem, 1fr) minmax(0, 11rem) !important;
@@ -1667,7 +1667,6 @@ input[type="range"]:focus::-ms-fill-upper {
   }
   .canvas canvas, .canvas {
     max-height: 15rem;
-    max-width: 15rem;
   }
   .tool {
     font-size: 110% !important;
