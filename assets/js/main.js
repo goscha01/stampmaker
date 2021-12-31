@@ -51,12 +51,12 @@ function updateLabels(element, show) {
   );
   $(
     "<div class='elementlabel label' id='" +
-      element +
-      "'> <p class='upper_text'>" +
-      showText +
-      " " +
-      showNumber +
-      " </p> <div> <button type='button' class='closeBtn delete_btn' aria-label='Close' style='color: #ff8800; background: transparent;'> ✖ </button> <div class='up_down_arrow'> <img class='move-up-element' src='assets/img/icons/arrow.svg' /> <img class='move-down-element' src='assets/img/icons/arrow.svg' /> </div> </div> </div>"
+    element +
+    "'> <p class='upper_text'>" +
+    showText +
+    " " +
+    showNumber +
+    " </p> <div> <button type='button' class='closeBtn delete_btn' aria-label='Close' style='color: #ff8800; background: transparent;'> ✖ </button> <div class='up_down_arrow'> <img class='move-up-element' src='assets/img/icons/arrow.svg' /> <img class='move-down-element' src='assets/img/icons/arrow.svg' /> </div> </div> </div>"
   )
     .prependTo("#labels")
     .addClass("animate__animated animate__fadeInLeft animate__faster");
@@ -82,51 +82,38 @@ function updateLabels(element, show) {
     };
   });
 }
-(function () {
-  var width = $(window).width();
-  setInterval(function () {
-      if ($(window).width() !== width) {
-          width = $(window).width();
-          setResponsive();
-      }
-  }, 2500);
-}());
 function hideallproperties() {
   $("#properties .property").attr("style", "display:none");
 }
 function setResponsive() {
-  $("canvas").css("height", `${$("canvas").width()}px !important`)
-  if ($("canvas").height() > 70/100 * $(window).height()) {
-    $("canvas").css("width", `${40/100 * $(window).height()}px`)
-    $("canvas").css("height", `${40/100 * $(window).height()}px`)
+  let side = ($(".canvas_tab").height() - ($(".canvas_tab #downloads").height() + $(".canvas_tab .toolbar").height())) - 30;
+  let styles = `.canvas, canvas {width: ${side}px !important;height: ${side}px !important;`
+  var styleSheet = document.createElement("style")
+  styleSheet.type = "text/css"
+  styleSheet.innerText = styles
+  if (side >= $(document).width()) {
+    styleSheet.innerText = `.canvas, canvas {width: ${$(".canvas_tab").width() - 10}px !important;height: ${$(".canvas_tab").width() - 10}px !important;`
   }
-  if ($(window).width() < 700 || $(window).height() > $(window).width() || $(window).height() < 500 && $(window).height() < $(window).width() ) {
-    document.querySelector("#properties_mobile").innerHTML = `${
-      document.querySelector("#properties_container").innerHTML
-    }`;
-    document.querySelector("#layers_mobile").innerHTML = `${
-      document.querySelector(".layers_tab").querySelector(".os-content").innerHTML
-    }`;
-    if (elem.requestFullscreen) {
-      elem.requestFullscreen();
-      console.log("Mode: Full Screen");
-    } else if (elem.webkitRequestFullscreen) { /* Safari */
-      elem.webkitRequestFullscreen();
-      console.log("Mode: Full Screen");
-    } else if (elem.msRequestFullscreen) { /* IE11 */
-      elem.msRequestFullscreen();
-      console.log("Mode: Full Screen");
-    }
-  }
+  document.head.appendChild(styleSheet)
 }
 function openProperties() {
   $("#properties_mobile").fadeIn();
   $("#properties_mobile").addClass("open")
 }
 $(document).ready(function () {
+  window.addEventListener('orientationchange', function () {
+    location.reload();
+    setResponsive();
+  });
   updateTheCanvas();
   setResponsive();
-  $(".text").focus(function() {
+  if ($(window).width() < 700 || $(window).height() > $(window).width() || $(window).height() < 500 && $(window).height() < $(window).width()) {
+    document.querySelector("#properties_mobile").innerHTML = `${document.querySelector("#properties_container").innerHTML
+      }`;
+    document.querySelector("#layers_mobile").innerHTML = `${document.querySelector(".layers_tab").querySelector(".os-content").innerHTML
+      }`;
+  }
+  $(".text").focus(function () {
     var height = $("body").css('height');
     $("body").css('height', height);
   });
@@ -460,7 +447,7 @@ $(document).ready(function () {
   $(document).on("click", ".move-down-element", function () {
     nextelement = $(this).parent().parent().parent().next();
     currentelement = $(this).parent().parent().parent();
-    if (this.parentElement.parentElement.parentElement != document.querySelectorAll(".label")[document.querySelectorAll(".label").length-1]) {
+    if (this.parentElement.parentElement.parentElement != document.querySelectorAll(".label")[document.querySelectorAll(".label").length - 1]) {
       currentelement.removeClass(
         "animate__animated animate__fadeInDown animate__faster animate__slideInUp animate__fadeInLeft animate__fadeIn animate__shakeX"
       );
@@ -719,7 +706,7 @@ $(document).ready(function () {
     CheckValidation(!notTranslator, "#langS");
     CheckValidation(!notTranslator, "#langTarget");
   });
-  $("#signUp").click(function () {});
+  $("#signUp").click(function () { });
 });
 
 function CheckValidation(customLang, id) {
