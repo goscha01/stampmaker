@@ -56,7 +56,7 @@ function updateLabels(element, show) {
     showText +
     " " +
     showNumber +
-    " </p> <div> <button type='button' class='closeBtn delete_btn' aria-label='Close' style='color: #ff8800; background: transparent;'> ✖ </button> <div class='up_down_arrow'> <img class='move-up-element' src='assets/img/icons/arrow.svg' /> <img class='move-down-element' src='assets/img/icons/arrow.svg' /> </div> </div> </div>"
+    " </p> <div> <button type='button' class='closeBtn delete_btn' aria-label='Close' style='color: #ff8800; background: transparent;font-family: monospace;'> X </button> <div class='up_down_arrow'> <img class='move-up-element' src='assets/img/icons/arrow.svg' /> <img class='move-down-element' src='assets/img/icons/arrow.svg' /> </div> </div> </div>"
   )
     .prependTo("#labels")
     .addClass("animate__animated animate__fadeInLeft animate__faster");
@@ -86,6 +86,7 @@ function hideallproperties() {
   $("#properties .property").attr("style", "display:none");
 }
 function setResponsive() {
+  $('style').remove();
   let side = ($(".canvas_tab").height() - ($(".canvas_tab #downloads").height() + $(".canvas_tab .toolbar").height())) - 30;
   let styles = `.canvas, canvas {width: ${side}px !important;height: ${side}px !important;`
   var styleSheet = document.createElement("style")
@@ -103,6 +104,9 @@ function openProperties() {
 $(document).ready(function () {
   window.addEventListener('orientationchange', function () {
     location.reload();
+    setResponsive();
+  });
+  $(window).resize(function() {
     setResponsive();
   });
   updateTheCanvas();
@@ -189,15 +193,7 @@ $(document).ready(function () {
       RoundTexts.length +
       "' class='slider' min='1.00' max='10.00' value='1'> </div>            <div class='slidecontainer'> <span>Start Point:</span> <span class='range-slider__value'>0</span><input type='range' id='InputStartingPointRoundText-" +
       RoundTexts.length +
-      "' class='slider' min='0' max='360' value='0'> </div>            <div class='slidecontainer' style='display:none'><span>Width: </span><span class='range-slider__value' style='display:none'>0</span><input type='range' id='InputWidthRoundText-" +
-      RoundTexts.length +
-      "' style='display:none' class='slider' min='1' max='200' value='100'></div>            <div class='slidecontainer' style='display:none'>Height:<span class='range-slider__value'>0</span><input type='range' style='display:none' id='InputHeightRoundText-" +
-      RoundTexts.length +
-      "' class='slider' min='1' max='200' value='100'></div>            <div class='custom-control custom-checkbox'><input type='checkbox' style='display:none' class='custom-control-input' id='InputRoundTextAspect-" +
-      RoundTexts.length +
-      "'><label style='display:none' class='custom-control-label' for='InputRoundTextAspect-" +
-      RoundTexts.length +
-      "'>Maintain AspectRatio?</label></div>        </div></div>";
+      "' class='slider' min='0' max='360' value='0'> </div>                    </div></div>";
 
     $("#properties").append(moduleDiv);
     var textFieldVal = $("#InputTextRoundText-" + RoundTexts.length).val();
