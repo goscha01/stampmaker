@@ -20,7 +20,14 @@ if (isset($_SESSION['uid']) && $_SESSION['role'] == 'admin') {
 
 <head>
     <link rel="icon" type="image/png" href="assets/img/favicon.png" sizes="32x32">
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimal-ui">
+    <meta name="theme-color" content="#00438a">
+    <meta name="title" content="MyStampMaker">
+    <meta name="description" content="Create, Edit and Save Custom Stamp Designs Online for FREE! ">
+    <meta name="keywords" content="MyStampMaker, Stamp Designs, Online Stamp Designer">
+    <meta name="robots" content="index, follow">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="language" content="English">
     <script async src="https://www.googletagmanager.com/gtag/js?id=UA-171780865-1"></script>
     <script>
         window.dataLayer = window.dataLayer || [];
@@ -57,4 +64,3 @@ if (isset($_SESSION['uid']) && $_SESSION['role'] == 'admin') {
 </head>
 
 <body>
-    
