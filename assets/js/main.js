@@ -107,6 +107,16 @@ function setResponsive() {
     document.querySelector("#layers_mobile").innerHTML = `${
       document.querySelector(".layers_tab").querySelector(".os-content").innerHTML
     }`;
+    if (elem.requestFullscreen) {
+      elem.requestFullscreen();
+      console.log("Mode: Full Screen");
+    } else if (elem.webkitRequestFullscreen) { /* Safari */
+      elem.webkitRequestFullscreen();
+      console.log("Mode: Full Screen");
+    } else if (elem.msRequestFullscreen) { /* IE11 */
+      elem.msRequestFullscreen();
+      console.log("Mode: Full Screen");
+    }
   }
 }
 function openProperties() {
