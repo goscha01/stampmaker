@@ -56,7 +56,7 @@ function updateLabels(element, show) {
     showText +
     " " +
     showNumber +
-    " </p> <div> <button type='button' class='closeBtn delete_btn' aria-label='Close' style='color: #ff8800; background: transparent;font-family: monospace;'> X </button> <div class='up_down_arrow'> <img class='move-up-element' src='assets/img/icons/arrow.svg' /> <img class='move-down-element' src='assets/img/icons/arrow.svg' /> </div> </div> </div>"
+    " </p> <div> <button type='button' class='closeBtn delete_btn' aria-label='Close' style='color: #ff8800; background: transparent;'> <i style='font-size: 1rem;transform: translateY(.1rem);' class='fas fa-times'></i> </button> <div class='up_down_arrow'> <img class='move-up-element' src='assets/img/icons/arrow.svg' /> <img class='move-down-element' src='assets/img/icons/arrow.svg' /> </div> </div> </div>"
   )
     .prependTo("#labels")
     .addClass("animate__animated animate__fadeInLeft animate__faster");
@@ -87,13 +87,14 @@ function hideallproperties() {
 }
 function setResponsive() {
   $('style').remove();
-  let side = ($(".canvas_tab").height() - ($(".canvas_tab #downloads").height() + $(".canvas_tab .toolbar").height())) - 30;
-  let styles = `.canvas, canvas {width: ${side}px !important;height: ${side}px !important;`
+  let side = ($(".canvas_tab").height() - ($(".canvas_tab #downloads").height() + $(".canvas_tab .toolbar").height())) - 30,
+  slideSize = $(".banner_bottom.right").outerHeight(true) + $(".mobile_btns").outerHeight(true) + $(".toolbar").outerHeight(true) + 25,
+  styles = `.canvas, canvas {    width: ${side}px !important;    height: ${side}px !important;  }   .mobile .suggest {    min-height: ${slideSize}px !important;}`
   var styleSheet = document.createElement("style")
   styleSheet.type = "text/css"
   styleSheet.innerText = styles
   if (side >= $(document).width()) {
-    styleSheet.innerText = `.canvas, canvas {width: ${$(".canvas_tab").width() - 10}px !important;height: ${$(".canvas_tab").width() - 10}px !important;`
+    styleSheet.innerText = `.canvas, canvas {width: ${$(".canvas_tab").width() - 10}px !important;height: ${$(".canvas_tab").width() - 10}px !important;}.mobile .suggest {    min-height: ${slideSize}px !important;}`
   }
   document.head.appendChild(styleSheet)
 }
@@ -130,15 +131,15 @@ $(document).ready(function () {
     var moduleDiv =
       " <div id='Circle" +
       Circles.length +
-      "' class='property'>    <div>        <h6>Circle: " +
+      "' class='property'>            <h6>Circle: " +
       (Circles.length + 1) +
-      "</h6>        <div class='slidecontainer shape_color color-element' style='width: 100%;'>            <p class='color_picker_container'>Color<input id='CircleColor-" +
+      "</h6>        <div class=' shape_color color-element' style='width: 100%;'>            <p class='color_picker_container'>Color<input id='CircleColor-" +
       Circles.length +
       "' />        </div>        <div class='circle_inputs'>            <div class='slidecontainer'><span>Radius:</span><span class='range-slider__value'>0</span><input type='range' id='InputRadiusCircle-" +
       Circles.length +
       "' class='slider' min='30' max='240' value='260'></div>            <div class='slidecontainer'>                <span>Stroke Width:</span><span class='range-slider__value'>0</span><input type='range' id='InputStrokeWidthCircle-" +
       Circles.length +
-      "' class='slider' min='1' max='100' value='1'></div>        </div>    </div></div>";
+      "' class='slider' min='1' max='100' value='1'></div>        </div>    </div>";
 
     $("#properties").append(moduleDiv);
     var Circle = [
@@ -235,7 +236,7 @@ $(document).ready(function () {
     var moduleDiv =
       "<div id='LineText" +
       LineTexts.length +
-      "' class='property line_text'>    <div class=''>        <h6 class='text-center text-secondary font-style'>Line: " +
+      "' class='property line_text'>    <div class=''>        <h6 class='text-center text-secondary font-style'>LineText: " +
       (LineTexts.length + 1) +
       "</h6>    </div>    <div class='input_block'> <select class='m-1 text_design_shadow font_input' id='InputFontLineText-" +
       LineTexts.length +
@@ -305,11 +306,13 @@ $(document).ready(function () {
     var moduleDiv =
       "<div id='Picture" +
       Pictures.length +
-      "' class='property picture_properties'>    <div>        <h6>Image: " +
+      "' class='property picture_properties'>            <h6>Image: " +
       (Pictures.length + 1) +
-      "</h6>        <div class='slidecontainer file_input'> <input type='file' id='InputPictureSrc-" +
+      "</h6>        <div class='file_input'>  <input type='file' id='InputPictureSrc-" +
       Pictures.length +
-      "' name='files' /></div>        <div class='circle_inputs'>            <div class='slidecontainer'><span> Position X: </span><span class='range-slider__value'>0</span> <input type='range' id='InputPictureHorizontalPosition-" +
+      "' name='files' /><label for='InputPictureSrc-" +
+      Pictures.length +
+      "'>Open File</label></div>        <div class='circle_inputs'>            <div class='slidecontainer'><span> Position X: </span><span class='range-slider__value'>0</span> <input type='range' id='InputPictureHorizontalPosition-" +
       Pictures.length +
       "' class='slider' min='1' max='250' value='126'> </div>            <div class='slidecontainer'><span> Position Y: </span><span class='range-slider__value'>0</span> <input type='range' id='InputPictureVerticalPosition-" +
       Pictures.length +
@@ -317,7 +320,7 @@ $(document).ready(function () {
       Pictures.length +
       "' class='slider' min='1' max='250' value='250'> </div>            <div class='slidecontainer'><span> Rotation: </span><span class='range-slider__value'>0</span> <input type='range' id='InputPictureRotation-" +
       Pictures.length +
-      "' class='slider' min='0' max='360' value='0'> </div>        </div>    </div></div>";
+      "' class='slider' min='0' max='360' value='0'> </div>        </div>    </div>";
 
     $("#properties").append(moduleDiv);
     var Picture = [
@@ -382,7 +385,6 @@ $(document).ready(function () {
     $(e.target.parentElement.parentElement)
       .addClass("animate__animated animate__shakeX animate__faster")
       .fadeOut();
-
     setTimeout(() => {
       elementd = $(this).parent().parent().next();
       elementp = $(this).parent().parent().prev();
