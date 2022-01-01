@@ -86,12 +86,13 @@ function hideallproperties() {
   $("#properties .property").attr("style", "display:none");
 }
 function setResponsive() {
-  $('style').remove();
+  $('.canvas_style').remove();
   let side = ($(".canvas_tab").height() - ($(".canvas_tab #downloads").height() + $(".canvas_tab .toolbar").height())) - 30,
   styles = `.canvas, canvas {    width: ${side}px !important;    height: ${side}px !important;  }  `;
   var styleSheet = document.createElement("style")
-  styleSheet.type = "text/css"
-  styleSheet.innerText = styles
+  styleSheet.type = "text/css";
+  styleSheet.setAttribute("class", "canvas_style");
+  styleSheet.innerText = styles;
   if (side >= $(document).width()) {
     styleSheet.innerText = `.canvas, canvas {width: ${$(".canvas_tab").width() - 10}px !important;height: ${$(".canvas_tab").width() - 10}px !important;}`
   }
