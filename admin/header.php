@@ -48,7 +48,7 @@ $base_url = "http://" . $_SERVER['SERVER_NAME'] . dirname($_SERVER["REQUEST_URI"
             <a href="#" onclick="my_close()" class="my-hide-large my-right my-jumbo my-padding my-hover-grey" title="close menu">
                 <i class="fa fa-remove"></i>
             </a>
-            <img src="assets/img/admin.min.png" style="width:45%;" class="my-round"><br><br>
+            <img src="assets/img/admin.min.png" alt="Administrator Icon" style="width:45%;" class="my-round"><br><br>
             <h5>Welcome <b class="my-codespan"><?= $_SESSION['username']; ?></b></h5>
             <h4><b>Admin</b></h4>
 

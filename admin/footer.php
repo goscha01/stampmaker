@@ -1,4 +1,4 @@
-        </div>
+</div>
         </body>
 
         </html>
@@ -14,7 +14,7 @@
                         swal("Password Field Empty", "Password field is required", "warning");
                     }
                     if (pass.trim().length < 5) {
-                        swal("Miniumum 5 characters are required", "Password length must be 5 minimum character",
+                        swal("Miniumum 5 characters are required", "Password length must be 5 minimum characters Long",
                             "warning");
                     } else
                         $.ajax({
@@ -74,7 +74,7 @@
                 var role = $("#role").val();
                 var isActive = $("#isActive").val();
                 if (Txtpass.trim().length < 5) {
-                    swal("Miniumum 5 characters are required", "Password length must be 5 minimum character",
+                    swal("Miniumum 5 characters are required", "Password length must be 5 minimum characters long",
                         "warning");
                 } else
                     $.ajax({

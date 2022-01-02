@@ -139,7 +139,7 @@ include_once('inc/header.php');
                 <div>
                     <h5>Instructions</h5>
                     <!-- Close Button -->
-                    <div class="insclose" onclick='toggle_ins("#suggestIns")'>Close <img src="assets/img/icons/cross.svg"></div>
+                    <div class="insclose" onclick='toggle_ins("#suggestIns")'>Close <i class='fas fa-times' style="color: #ffffff;"></i></div>
                 </div>
                 <!-- Content -->
                 <p>

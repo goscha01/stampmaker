@@ -1,6 +1,10 @@
-# MyStampMaker
+<p align="center">
+  <img align="center" src="assets/img/site_logo.svg">
+  <h1 align="center">MyStampMaker</h1>
+  <p align="center">Create Custom Stamp Deisgn for FREE!</p>
+</p>
 
-Create Custom Stamp Design For Free!
+<hr>
 
 ## Creating a Custom Stamp Design has never been easier!
 * Select <b>Circle</b> element to add a stamp circle

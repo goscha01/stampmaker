@@ -1,18 +1,19 @@
-var Inputdiameter;
-var InputSpacing;
-var InputText;
-var InputStartAngle;
-var InputColor;
-var InputStrokeWidth;
-var InputRadiusCircle;
-var base64String = "";
-var Circles = [];
-var RoundTexts = [];
-var LineTexts = [];
-var Pictures = [];
-var DeletedElements = [];
-var ElementsForLabels = [];
-var base64First = "";
+// Declarations
+var Inputdiameter,
+  InputSpacing,
+  InputText,
+  InputStartAngle,
+  InputColor,
+  InputStrokeWidth,
+  InputRadiusCircle,
+  base64String = "",
+  Circles = [],
+  RoundTexts = [],
+  LineTexts = [],
+  Pictures = [],
+  DeletedElements = [],
+  ElementsForLabels = [],
+  base64First = "";
 
 function rangeSlider() {
   var slider = $(".slidecontainer"),
@@ -50,13 +51,20 @@ function updateLabels(element, show) {
     "animate__animated animate__fadeInDown animate__faster animate__slideInUp animate__fadeInLeft animate__fadeIn animate__shakeX"
   );
   $(
-    "<div class='elementlabel label' id='" +
-    element +
-    "'> <p class='upper_text'>" +
-    showText +
-    " " +
-    showNumber +
-    " </p> <div> <button type='button' class='closeBtn delete_btn' aria-label='Close' style='color: #ff8800; background: transparent;'> <i style='font-size: 1rem;transform: translateY(.1rem);' class='fas fa-times'></i> </button> <div class='up_down_arrow'> <img class='move-up-element' src='assets/img/icons/arrow.svg' /> <img class='move-down-element' src='assets/img/icons/arrow.svg' /> </div> </div> </div>"
+    `
+    <div class="elementlabel label" id="${element}">
+        <p class="upper_text">${showText} ${showNumber}</p>
+        <div>
+            <button type='button' class='closeBtn delete_btn' aria-label='Close'>
+                <i class='fas fa-times' style="color: #ff8800;"></i> 
+            </button>
+            <div class='up_down_arrow'> 
+                <img class='move-up-element' src='assets/img/icons/arrow.svg' /> 
+                <img class='move-down-element' src='assets/img/icons/arrow.svg' />
+            </div>
+        </div>
+    </div>
+    `
   )
     .prependTo("#labels")
     .addClass("animate__animated animate__fadeInLeft animate__faster");
@@ -67,60 +75,69 @@ function updateLabels(element, show) {
     "animate__animated animate__fadeIn animate__faster"
   );
   $(".guide").css("display", "none");
-  document.querySelectorAll(".upper_text").forEach((e) => {
-    e.onclick = (event) => {
-      document.querySelectorAll(".property").forEach((p) => {
-        p.style.display = "none";
-      });
-      let val = event.target.textContent
-        .replace(/\s/g, "")
-        .replace("Image", "Picture")
-        .split("#");
-      $(`#${val[0]}${val[1] - 1}`).fadeIn();
-      document.querySelector(`#${val[0]}${val[1] - 1}`).style.display = "flex";
-      openProperties()
-    };
+  $(".upper_text").click(function (event) {
+    $(".property").hide();
+    let val = event.target.textContent
+      .replace(/\s/g, "")
+      .replace("Image", "Picture")
+      .split("#");
+    $(`#${val[0]}${val[1] - 1}`).fadeIn();
+    $(`#${val[0]}${val[1] - 1}`).css("display", "grid");
+    openProperties();
   });
 }
 function hideallproperties() {
   $("#properties .property").attr("style", "display:none");
 }
 function setResponsive() {
-  $('.canvas_style').remove();
-  let side = ($(".canvas_tab").height() - ($(".canvas_tab #downloads").height() + $(".canvas_tab .toolbar").height())) - 30,
-  styles = `.canvas, canvas {    width: ${side}px !important;    height: ${side}px !important;  }  `;
-  var styleSheet = document.createElement("style")
+  $(".canvas_style").remove();
+  let side =
+      $(".canvas_tab").height() -
+      ($(".canvas_tab #downloads").height() +
+        $(".canvas_tab .toolbar").height()) -
+      30,
+    styles = `.canvas, canvas {    width: ${side}px !important;    height: ${side}px !important;  }  `;
+  var styleSheet = document.createElement("style");
   styleSheet.type = "text/css";
   styleSheet.setAttribute("class", "canvas_style");
   styleSheet.innerText = styles;
   if (side >= $(document).width()) {
-    styleSheet.innerText = `.canvas, canvas {width: ${$(".canvas_tab").width() - 10}px !important;height: ${$(".canvas_tab").width() - 10}px !important;}`
+    styleSheet.innerText = `.canvas, canvas {width: ${
+      $(".canvas_tab").width() - 10
+    }px !important;height: ${$(".canvas_tab").width() - 10}px !important;}`;
   }
-  document.head.appendChild(styleSheet)
+  document.head.appendChild(styleSheet);
 }
 function openProperties() {
   $("#properties_mobile").fadeIn();
-  $("#properties_mobile").addClass("open")
+  $("#properties_mobile").addClass("open");
 }
 $(document).ready(function () {
-  window.addEventListener('orientationchange', function () {
+  window.addEventListener("orientationchange", function () {
     location.reload();
     setResponsive();
   });
-  $(window).resize(function() {
+  $(window).resize(function () {
     setResponsive();
   });
   updateTheCanvas();
   setResponsive();
-  if ($(window).width() < 700 || $(window).height() > $(window).width() || $(window).height() < 500 && $(window).height() < $(window).width()) {
-    document.querySelector("#properties_mobile").innerHTML = `${document.querySelector("#properties_container").innerHTML
-      }`;
-    document.querySelector("#layers_mobile").innerHTML = `${document.querySelector(".layers_tab").querySelector(".os-content").innerHTML
-      }`;
+  if (
+    $(window).width() < 700 ||
+    $(window).height() > $(window).width() ||
+    ($(window).height() < 500 && $(window).height() < $(window).width())
+  ) {
+    document.querySelector("#properties_mobile").innerHTML = `${
+      document.querySelector("#properties_container").innerHTML
+    }`;
+    document.querySelector("#layers_mobile").innerHTML = `${
+      document.querySelector(".layers_tab").querySelector(".os-content")
+        .innerHTML
+    }`;
   }
   $(".text").focus(function () {
-    var height = $("body").css('height');
-    $("body").css('height', height);
+    var height = $("body").css("height");
+    $("body").css("height", height);
   });
   // Adding circle
   $("#addcircle").click(function () {
@@ -128,18 +145,31 @@ $(document).ready(function () {
     if (checkAvailiblity(Circles, 5) == 0) {
       return;
     }
-    var moduleDiv =
-      " <div id='Circle" +
-      Circles.length +
-      "' class='property'>            <h6>Circle: " +
-      (Circles.length + 1) +
-      "</h6>        <div class=' shape_color color-element' style='width: 100%;'>            <p class='color_picker_container'>Color<input id='CircleColor-" +
-      Circles.length +
-      "' />        </div>        <div class='circle_inputs'>            <div class='slidecontainer'><span>Radius:</span><span class='range-slider__value'>0</span><input type='range' id='InputRadiusCircle-" +
-      Circles.length +
-      "' class='slider' min='30' max='240' value='260'></div>            <div class='slidecontainer'>                <span>Stroke Width:</span><span class='range-slider__value'>0</span><input type='range' id='InputStrokeWidthCircle-" +
-      Circles.length +
-      "' class='slider' min='1' max='100' value='1'></div>        </div>    </div>";
+    var moduleDiv = `<div id="Circle${Circles.length}" class="property">
+    <h6>Circle: ${Circles.length + 1}</h6>
+    <div class="shape_color color-element" style='width: 100%;'>
+        <p class="color_picker_container">Color<input id="CircleColor-${
+          Circles.length
+        }"></p>
+    </div>
+    <div class="circle_inputs">
+        <div class="slidecontainer">
+            <span>Radius: </span>
+            <span class="range-slider__value">0</span>
+            <input type='range' id='InputRadiusCircle-${
+              Circles.length
+            }' class='slider' min='30' max='240' value='260'>
+        </div>
+        <div class="slidecontainer">
+            <span>Stroke Width: </span>
+            <span class="range-slider__value">0</span>
+            <input type='range' id='InputStrokeWidthCircle-${
+              Circles.length
+            }' class='slider' min='1' max='100' value='1'>
+        </div>
+    </div>
+</div>
+`;
 
     $("#properties").append(moduleDiv);
     var Circle = [
@@ -216,7 +246,7 @@ $(document).ready(function () {
       "Round Text",
       null,
     ];
-    openProperties()
+    openProperties();
 
     RoundTexts.push(RoundText);
 
@@ -277,7 +307,7 @@ $(document).ready(function () {
       "normal",
       "#ff8800",
     ];
-    openProperties()
+    openProperties();
 
     LineTexts.push(LineText);
 
@@ -333,7 +363,7 @@ $(document).ready(function () {
       $("#InputPictureRotation-" + Pictures.length).val(),
       "Picture",
     ];
-    openProperties()
+    openProperties();
     Pictures.push(Picture);
 
     updateLabels(
@@ -445,7 +475,12 @@ $(document).ready(function () {
   $(document).on("click", ".move-down-element", function () {
     nextelement = $(this).parent().parent().parent().next();
     currentelement = $(this).parent().parent().parent();
-    if (this.parentElement.parentElement.parentElement != document.querySelectorAll(".label")[document.querySelectorAll(".label").length - 1]) {
+    if (
+      this.parentElement.parentElement.parentElement !=
+      document.querySelectorAll(".label")[
+        document.querySelectorAll(".label").length - 1
+      ]
+    ) {
       currentelement.removeClass(
         "animate__animated animate__fadeInDown animate__faster animate__slideInUp animate__fadeInLeft animate__fadeIn animate__shakeX"
       );
@@ -466,7 +501,10 @@ $(document).ready(function () {
   $(document).on("click", ".move-up-element", function () {
     prevelement = $(this).parent().parent().parent().prev();
     currentelement = $(this).parent().parent().parent();
-    if (this.parentElement.parentElement.parentElement != document.querySelectorAll(".label")[0]) {
+    if (
+      this.parentElement.parentElement.parentElement !=
+      document.querySelectorAll(".label")[0]
+    ) {
       prevelement.removeClass(
         "animate__animated animate__fadeInDown animate__faster animate__slideInUp animate__fadeInLeft animate__fadeIn animate__shakeX"
       );
@@ -704,7 +742,7 @@ $(document).ready(function () {
     CheckValidation(!notTranslator, "#langS");
     CheckValidation(!notTranslator, "#langTarget");
   });
-  $("#signUp").click(function () { });
+  $("#signUp").click(function () {});
 });
 
 function CheckValidation(customLang, id) {

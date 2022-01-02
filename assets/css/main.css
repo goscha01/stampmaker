@@ -595,9 +595,9 @@ main {
   display: -ms-grid;
   display: grid;
   -ms-grid-columns: 1fr;
-      grid-template-columns: 1fr;
-  -ms-grid-rows: (minmax(0, auto))[auto-fit];
-      grid-template-rows: repeat(auto-fit, minmax(0, auto));
+  grid-template-columns: 1fr;
+  -ms-grid-rows: minmax(0, auto) [auto-fit];
+  grid-template-rows: repeat(auto-fit, minmax(0, auto));
   overflow: hidden;
 }
 
@@ -612,10 +612,10 @@ main {
   text-align: center;
   color: var(--black);
   -ms-grid-row: 1;
-      grid-row-start: 1;
+  grid-row-start: 1;
   grid-row-end: 2;
   -ms-grid-column: 1;
-      grid-column-start: 1;
+  grid-column-start: 1;
   grid-column-end: 2;
 }
 
@@ -649,10 +649,10 @@ main {
 /* Font-Style Inputs */
 .input_block {
   -ms-grid-row: 2;
-      grid-row-start: 2;
+  grid-row-start: 2;
   grid-row-end: 3;
   -ms-grid-column: 1;
-      grid-column-start: 1;
+  grid-column-start: 1;
   grid-column-end: 2;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -661,8 +661,8 @@ main {
   -ms-flex-align: center;
   align-items: center;
   -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
   -ms-flex-wrap: wrap;
   flex-wrap: wrap;
   width: 100%;
@@ -782,11 +782,11 @@ cle_inputs {
   display: -ms-flexbox;
   display: flex;
   -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  -ms-flex-align: center;
+  align-items: center;
   -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
 }
 
 /* Custom Choose File Button */
@@ -932,11 +932,11 @@ input[type="range"]:focus::-ms-fill-upper {
   -ms-grid-rows: auto auto;
   grid-template-rows: auto auto;
   -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  -ms-flex-align: center;
+  align-items: center;
   -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
   margin: 0;
 }
 
@@ -1449,7 +1449,7 @@ input[type="range"]:focus::-ms-fill-upper {
     position: fixed;
     top: 7rem;
     -webkit-transform: translateY(-100%);
-            transform: translateY(-100%);
+    transform: translateY(-100%);
     right: 0.5rem;
     z-index: 4 !important;
     color: var(--secondary) !important;
@@ -1485,11 +1485,11 @@ input[type="range"]:focus::-ms-fill-upper {
     display: -ms-flexbox;
     display: flex;
     -webkit-box-align: center;
-        -ms-flex-align: center;
-            align-items: center;
+    -ms-flex-align: center;
+    align-items: center;
     -webkit-box-pack: center;
-        -ms-flex-pack: center;
-            justify-content: center;
+    -ms-flex-pack: center;
+    justify-content: center;
   }
   .file_input label {
     display: block !important;
@@ -1516,8 +1516,8 @@ input[type="range"]:focus::-ms-fill-upper {
     -ms-flex-align: center !important;
     align-items: center !important;
     -webkit-box-pack: justify;
-        -ms-flex-pack: justify;
-            justify-content: space-between;
+    -ms-flex-pack: justify;
+    justify-content: space-between;
     -webkit-box-orient: horizontal !important;
     -webkit-box-direction: normal !important;
     -ms-flex-direction: row !important;
@@ -1698,8 +1698,8 @@ input[type="range"]:focus::-ms-fill-upper {
   .input_block, .circle_inputs {
     width: 95% !important;
     -webkit-box-pack: center !important;
-        -ms-flex-pack: center !important;
-            justify-content: center !important;
+    -ms-flex-pack: center !important;
+    justify-content: center !important;
   }
   .slidecontainer {
     width: 25vw !important;
@@ -1719,7 +1719,7 @@ input[type="range"]:focus::-ms-fill-upper {
   }
   .round_text .slidecontainer {
     -ms-grid-columns: auto 3ch;
-        grid-template-columns: auto 3ch;
+    grid-template-columns: auto 3ch;
   }
 }
 
@@ -1759,9 +1759,9 @@ input[type="range"]:focus::-ms-fill-upper {
     display: -ms-grid !important;
     display: grid !important;
     -ms-grid-columns: auto auto;
-        grid-template-columns: auto auto;
+    grid-template-columns: auto auto;
     -ms-grid-rows: auto auto;
-        grid-template-rows: auto auto;
+    grid-template-rows: auto auto;
   }
   .picture_properties .circle_inputs .slidecontainer {
     width: 100% !important;
