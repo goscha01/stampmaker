@@ -8,7 +8,7 @@
   --dark: #b35f00;
   --white: #ffffff;
   --black: #484848;
-  --shadow: rgba(0, 0, 0, 0.1);
+  --shadow: rgba(0, 0, 0, 0.15);
   --font: "Nunito", sans-serif;
 }
 
@@ -162,7 +162,8 @@ main {
 
 #downloads {
   padding: 0.5rem 1rem;
-  margin: 0.5rem 0 !important;
+  margin: auto 0 0.5rem 0;
+  margin-bottom: clamp(0.5rem, 1rem, 3rem);
 }
 
 .sign_up,
@@ -373,10 +374,12 @@ main {
 /* Shadow with slight y-offset*/
 .canvas_tab,
 .side_card {
-  -webkit-box-shadow: 0 1rem 1rem 0 var(--shadow);
-  box-shadow: 0 1rem 1rem 0 var(--shadow);
+  -webkit-box-shadow: 0 1rem 2rem 0 var(--shadow);
+  box-shadow: 0 1rem 2rem 0 var(--shadow);
   border-bottom-left-radius: 1rem;
   border-bottom-right-radius: 1rem;
+  margin-bottom: 1rem;
+  padding: 1rem .5rem .2rem .5rem !important;
   max-height: 35rem;
 }
 
@@ -523,7 +526,6 @@ main {
   justify-content: center;
   -webkit-box-flex: 2;
   -ms-flex-positive: 2;
-  flex-grow: 2;
   margin-top: clamp(0.1rem, 0.5rem, 5rem);
   margin-bottom: clamp(0.1rem, 0.5rem, 5rem);
   height: 100%;
@@ -550,7 +552,8 @@ main {
   -webkit-box-pack: justify;
   -ms-flex-pack: justify;
   justify-content: space-between;
-  margin-bottom: 0.5rem;
+  margin: .2rem 0 auto 0;
+  margin-top: clamp(0.5rem, 1rem, 3rem);
   width: 100%;
 }
 
@@ -1269,7 +1272,7 @@ input[type="range"]:focus::-ms-fill-upper {
 }
 
 /* Tablet and Mobile Portrait / Mobile Landscape View */
-@media only screen and (orientation: portrait), (max-width: 815px), (max-height: 500px) and (orientation: landscape) {
+@media only screen and (orientation: portrait), (max-width: 815px), (max-height: 500px) and (orientation: landscape), (max-aspect-ratio: 10/9) {
   main {
     -ms-grid-columns: minmax(0, 11rem) minmax(27rem, 1fr) minmax(0, 11rem) !important;
     grid-template-columns: minmax(0, 11rem) minmax(27rem, 1fr) minmax(0, 11rem) !important;
@@ -1664,8 +1667,8 @@ input[type="range"]:focus::-ms-fill-upper {
 /* Canvas Tab takes up minimum width on smaller Tablets */
 @media only screen and (max-width: 670px) and (orientation: portrait) {
   main {
-    -ms-grid-columns: minmax(8rem, 1fr) minmax(0, auto) minmax(8rem, 1fr) !important;
-    grid-template-columns: minmax(8rem, 1fr) minmax(0, auto) minmax(8rem, 1fr) !important;
+    -ms-grid-columns: minmax(8rem, auto) minmax(0, 1fr) minmax(8rem, auto) !important;
+    grid-template-columns: minmax(8rem, auto) minmax(0, 1fr) minmax(8rem, auto) !important;
   }
 }
 

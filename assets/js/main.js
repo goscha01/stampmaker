@@ -89,22 +89,22 @@ function updateLabels(element, show) {
 function hideallproperties() {
   $("#properties .property").attr("style", "display:none");
 }
+
 function setResponsive() {
   $(".canvas_style").remove();
   let side =
       $(".canvas_tab").height() -
       ($(".canvas_tab #downloads").height() +
-        $(".canvas_tab .toolbar").height()) -
-      30,
-    styles = `.canvas, canvas {    width: ${side}px !important;    height: ${side}px !important;  }  `;
+        $(".canvas_tab .toolbar").height()) - 50,
+    styles = `.canvas, canvas {    width: calc(${side/parseFloat(getComputedStyle(document.documentElement).fontSize)}rem - 5vmin) !important;    height: calc(${side/parseFloat(getComputedStyle(document.documentElement).fontSize)}rem - 5vmin) !important; max-height: 800px; max-width: 800px;}  `;
   var styleSheet = document.createElement("style");
   styleSheet.type = "text/css";
   styleSheet.setAttribute("class", "canvas_style");
   styleSheet.innerText = styles;
-  if (side >= $(document).width()) {
-    styleSheet.innerText = `.canvas, canvas {width: ${
-      $(".canvas_tab").width() - 10
-    }px !important;height: ${$(".canvas_tab").width() - 10}px !important;}`;
+  if (side >= $(document).width() || side >= $(".canvas_tab").width()) {
+    styleSheet.innerText = `.canvas, canvas {width: calc(${
+      ($(".canvas_tab").width())/parseFloat(getComputedStyle(document.documentElement).fontSize)
+    }rem - 5vmin) !important;height: calc(${($(".canvas_tab").width())/parseFloat(getComputedStyle(document.documentElement).fontSize)}rem - 5vmin) !important;max-height: 800px; max-width: 800px;}`;
   }
   document.head.appendChild(styleSheet);
 }
@@ -117,6 +117,9 @@ $(document).ready(function () {
     location.reload();
     setResponsive();
   });
+  setInterval(() => {
+    setResponsive()
+  }, 100);
   $(window).resize(function () {
     setResponsive();
   });
@@ -458,7 +461,7 @@ $(document).ready(function () {
         var propertywindowid = elementtype.trim() + elementindex; //  linetext0
         $("#" + propertywindowid).attr("style", "display:block"); // #linetext0
       }
-    }, 1000);
+    }, 200);
   });
 
   // new function
