@@ -96,7 +96,7 @@ function setResponsive() {
       $(".canvas_tab").height() -
       ($(".canvas_tab #downloads").height() +
         $(".canvas_tab .toolbar").height()) - 50,
-    styles = `.canvas, canvas {    width: calc(${side/parseFloat(getComputedStyle(document.documentElement).fontSize)}rem - 5vmin) !important;    height: calc(${side/parseFloat(getComputedStyle(document.documentElement).fontSize)}rem - 5vmin) !important; max-height: 800px; max-width: 800px;}  `;
+    styles = `.canvas, canvas {    width: calc(${side/parseFloat(getComputedStyle(document.documentElement).fontSize)}rem - 5vmin) !important;    height: calc(${side/parseFloat(getComputedStyle(document.documentElement).fontSize)}rem - 5vmin) !important; max-height: 100%; max-width: 100%;}  `;
   var styleSheet = document.createElement("style");
   styleSheet.type = "text/css";
   styleSheet.setAttribute("class", "canvas_style");
@@ -104,7 +104,7 @@ function setResponsive() {
   if (side >= $(document).width() || side >= $(".canvas_tab").width()) {
     styleSheet.innerText = `.canvas, canvas {width: calc(${
       ($(".canvas_tab").width())/parseFloat(getComputedStyle(document.documentElement).fontSize)
-    }rem - 5vmin) !important;height: calc(${($(".canvas_tab").width())/parseFloat(getComputedStyle(document.documentElement).fontSize)}rem - 5vmin) !important;max-height: 800px; max-width: 800px;}`;
+    }rem - 5vmin) !important;height: calc(${($(".canvas_tab").width())/parseFloat(getComputedStyle(document.documentElement).fontSize)}rem - 5vmin) !important;max-height: 100%; max-width: 100%;}`;
   }
   document.head.appendChild(styleSheet);
 }
@@ -113,6 +113,7 @@ function openProperties() {
   $("#properties_mobile").addClass("open");
 }
 $(document).ready(function () {
+  console.log("MyStampMaker: Latest Version")
   window.addEventListener("orientationchange", function () {
     location.reload();
     setResponsive();
