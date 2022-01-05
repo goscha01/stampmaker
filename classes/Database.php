@@ -1,8 +1,9 @@
 <?php
 class Database
 {
+    const db_host = 'stampmaker.ciyq4ufpar8z.us-east-1.rds.amazonaws.com'; //old DB
+    // //  $db_host = 'aa100xgok1nbrz5.ciyq4ufpar8z.us-east-1.rds.amazonaws.com'; //production DB 
 
-    private $db_host = 'stampmaker.ciyq4ufpar8z.us-east-1.rds.amazonaws.com';
     private $db_name = 'stampmaker';
     private $db_username = 'admin';
     private $db_password = 'admin12345';

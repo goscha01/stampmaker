@@ -29,10 +29,10 @@ if(!isset($_SESSION['uid'])){
 }
 
 }
-function consoleLog($msg) {
-  echo '<script type="text/javascript">' .
-    'console.log(' . $msg . ');</script>';
-}
+// function consoleLog($msg) {
+//   echo '<script type="text/javascript">' .
+//     'console.log(' . $msg . ');</script>';
+// }
 
-consoleLog('inc dbConfig php');
+// consoleLog('inc dbConfig php');
 ?>
