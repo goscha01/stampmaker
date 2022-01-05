@@ -13,7 +13,7 @@ $servername = "localhost";
 $username = "root";
 $password = "";
 $dbname = "stampMaker";
-
+echo "inc DBconfig php" . $e->getMessage();
 $conn = new mysqli("stampmaker.ciyq4ufpar8z.us-east-1.rds.amazonaws.com", "admin", "admin12345", "stampmaker","3306");
 
 $base_url="http://".$_SERVER['SERVER_NAME'].dirname($_SERVER["REQUEST_URI"].'?').'/';

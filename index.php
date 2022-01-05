@@ -34,7 +34,7 @@ include_once('inc/header.php');
         <!-- Logo and Title -->
         <div class="branding">
             <img class="site_logo" src="assets/img/site_logo.svg" alt="MyStampMaker Official Logo" />
-            <h1 class="site_title">My Stamp Maker</h1>
+            <h1 class="site_title">My Stamp Maker DEV Prod</h1>
         </div>
         <!-- Login/Signup/Dashboard/Logout Buttons Logic -->
         <div class="nav_container header_side right">

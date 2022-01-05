@@ -6,5 +6,5 @@
   const db_password = 'admin12345';
   const port = 'admin12345';
 
-
+  echo "classes dbConfig php" . $e->getMessage();
 ?>
