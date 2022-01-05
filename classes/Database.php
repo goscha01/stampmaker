@@ -12,11 +12,6 @@ class Database
     public function dbConnection()
     {
     
-        function consoleLog($msg) {
-            echo '<script type="text/javascript">' .
-              'console.log(' . $msg . ');</script>';
-        }
-        
         consoleLog('classes Database php');
 
         try {
@@ -29,4 +24,11 @@ class Database
             exit;
         }
     }
+
+    function consoleLog($msg) {
+        echo '<script type="text/javascript">' .
+          'console.log(' . $msg . ');</script>';
+    }
+    
+    
 }
