@@ -11,5 +11,5 @@
       'console.log(' . $msg . ');</script>';
 }
 
-consoleLog('admin dbconfig php');
+consoleLog('classes dbConfig php');
 ?>

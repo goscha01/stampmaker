@@ -16,7 +16,7 @@ class Database
               'console.log(' . $msg . ');</script>';
         }
         
-        consoleLog('admin dbconfig php');
+        consoleLog('classes Database php');
 
         try {
             $conn = new PDO('mysql:host=' . $this->db_host . ';port=' . $this->port . ';dbname=' . $this->db_name, $this->db_username, $this->db_password);

@@ -34,5 +34,5 @@ function consoleLog($msg) {
     'console.log(' . $msg . ');</script>';
 }
 
-consoleLog('admin dbconfig php');
+consoleLog('inc dbConfig php');
 ?>
