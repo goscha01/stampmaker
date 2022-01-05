@@ -1,9 +1,0 @@
-<?php
-  const db_host = 'stampmaker.ciyq4ufpar8z.us-east-1.rds.amazonaws.com'; //old DB
-  const db_name = 'stampmaker';
-  const db_username = 'admin';
-  const db_password = 'admin12345';
-  const port = 'admin12345';
-
-  
-?>

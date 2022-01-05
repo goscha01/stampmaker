@@ -12,12 +12,12 @@ class Database
     public function dbConnection()
     {
     
-        function consoleLog($msg) {
-            echo '<script type="text/javascript">' .
-              'console.log(' . $msg . ');</script>';
-        }
+        // function consoleLog($msg) {
+        //     echo '<script type="text/javascript">' .
+        //       'console.log(' . $msg . ');</script>';
+        // }
         
-        consoleLog('classes Database php');
+        // consoleLog('classes Database php');
 
         try {
             $conn = new PDO('mysql:host=' . $this->db_host . ';port=' . $this->port . ';dbname=' . $this->db_name, $this->db_username, $this->db_password);
