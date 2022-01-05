@@ -1,175 +1,163 @@
+<!-- Include Document Header -->
 <?php
 session_start();
 
 include_once('inc/header.php');
 
 ?>
-<header class="container-fluid header">
-    <div class="container-fluid" style="margin: 0px; padding: 0px;">
-        <div class="row" style="margin: 0px; padding: 0px;">
-            <div class="col-md-2 col-2 text-center" style="align-items:center">
-                <button type="button" onclick='toggle_about()' class="about_btn btn btn-outline-warning text-white btn-sm mt-5 pl-3 pr-3" data-toggle="modal" data-target="#aboutus">About</button>
-                <div class='suggest' id='about_div' style="display:none">
-                    <div class="card">
-                    <div class="about_title">About My Dev Stamp Maker</div>
-                        <div class="card-body">
-                            
-                            Change Content
-                        </div>
-                    </div>
+<!-- Loader -->
+<span class="loader_wrapper">
+    <img src="assets/img/site_logo.svg" alt="MyStampMaker Logo">
+    <div class="loader"></div>
+</span>
+
+<main>
+    <!-- Header -->
+    <header class="header">
+        <!-- About Sections -->
+        <div class="about_section header_side left">
+            <!-- Open Button -->
+            <button type="button" onclick='toggle_ins("#about_div")' class="button about_btn" data-toggle="modal" data-target="#aboutus">About</button>
+            <!-- Hidden Content -->
+            <div class='suggest' id='about_div'>
+                <h6>About MyStampMaker</h6>
+                <?php
+                if (isset($_SESSION["uid"])) {
+                    $d = $_SESSION["uid"];
+                    echo "<div><div>Hi, " . $d['username'] . "</div><div>Welcome to MyStampMaker, an online tool that helps you create Custom Stamp Designs for FREE!</div></div>";
+                } else {
+                    echo "<div><div>Welcome to MyStampMaker, an online tool that helps you create Custom Stamp Designs for FREE!</div><div><a data-toggle='modal' data-target='#myModal' class='about_cta'>Sign Up</a> Now to Get Started!</div></div>";
+                }
+                ?>
+            </div>
+        </div>
+        <!-- Logo and Title -->
+        <div class="branding">
+            <img class="site_logo" src="assets/img/site_logo.svg" alt="MyStampMaker Official Logo" />
+            <h1 class="site_title">My Stamp Maker</h1>
+        </div>
+        <!-- Login/Signup/Dashboard/Logout Buttons Logic -->
+        <div class="nav_container header_side right">
+            <?php
+            if (isset($_SESSION["uid"])) {
+                $d = $_SESSION["uid"];
+                echo "<h6 class='welcome_text'>Welcome, <br>" . $d['username'] . "  </h6><button class='button logout_btn' onclick='logout()'>Log Out</button>";
+                if ($d['role'] == "admin") {
+                    echo "<a class='button dashboard_link' href='admin'>Dashboard</a>";
+                }
+            } else {
+                echo "<button type='button' class='sign_up button' data-toggle='modal' data-target='#myModal'>Sign Up</button><button type='button' class='login_btn button' data-toggle='modal' data-target='#myModalLogin' onclick='reset()'>Log In</button>";
+            }
+            ?>
+        </div>
+    </header>
+    <!-- Mobile Layers and Properties Sections -->
+    <div class="mobile_btns">
+        <div class="mobile mobile_layers">
+            <div class='suggest scroll' id='layers_mobile'></div>
+            <button type="button" onclick='toggle_section("#layers_mobile")' class="layers_btn" data-toggle="modal" data-target="#layers"></button>
+        </div>
+        <div class="mobile mobile_properties">
+            <div class='suggest' id='properties_mobile'></div>
+            <button type="button" onclick='toggle_section("#properties_mobile")' class="properties_btn" data-toggle="modal" data-target="#mobile_props"></button>
+        </div>
+    </div>
+    <!-- Banner Side - Left -->
+    <div class="left banner banner_side">
+        <img src="assets/img/banners/banner_left.png" alt="MyStampMaker Banner" />
+    </div>
+
+    <!-- StampMaker Interface -->
+    <div class="work_area">
+        <!-- Desktop Layers Section -->
+        <div class="layers_tab side_card scroll">
+            <h5>Layers</h5>
+            <div id="labels">
+
+            </div>
+        </div>
+        <!-- Canvas and Toolbar -->
+        <div class="canvas_tab" style="border:none;">
+
+            <div class="toolbar">
+                <div class="tool" id="addroundtext">
+                    <img class="iconimg" src="assets/img/icons/text_round.svg" alt="Add Round Text to Stamp" />
+                    <div style="max-width: 5ch;">Round Text</div>
+                </div>
+                <div class="tool" id="addlinetext">
+                    <img class="iconimg" src="assets/img/icons/text_line.svg" alt="Add Inline Text to Stamp" />
+                    <div style="max-width: 5ch;">Inline Text</div>
+                </div>
+                <div class="tool" id="addcircle">
+                    <img class="iconimg" src="assets/img/icons/shape.svg" alt="Add Shape Text to Stamp">
+                    <div style="max-width: 5ch;">Add Shape</div>
+                </div>
+                <div class="tool" id="addimage">
+                    <img class="iconimg" src="assets/img/icons/image.svg" alt="Add Image Text to Stamp">
+                    <div style="max-width: 5ch;">Add Image</div>
                 </div>
             </div>
-            <div class="col-md-7 col-7 text-center text-white">
-                <img class="d-inline site_logo" src="assets/img/Logo.svg" width="120px" />
-                <h1 class="d-inline site_title" style="font-family:Arial;">My Stamp Maker Dev</h1>
-                <!-- <a href="pageMaker/index.html">Second Page</a> -->
+            <div class="canvas text-center">
 
             </div>
-            <div class="col-md-3 col-3" style="display: flex; align-items:center">
-                <div class="d-flex">
-                    <!-- <p class="mt-4">
-                        <a href="pageMaker/" class="text-white" style="text-decoration: none;">Create Page</a>
-                    </p> -->
-                    <?php
-                    getNav();
-                    function getNav()
-                    {
-                        if (isset($_SESSION["uid"])) {
+            <?php $session = (isset($_SESSION['uid'])) ? $_SESSION['sessionid'] : 'null'; ?>
+            <button class="button" id="downloads" onclick="down('<?php echo $session ?>')">Download</button>
 
-                            $d = $_SESSION["uid"];
-                            echo "<h6 style='margin-top:20px; margin-right:10px; color:white'>Welcome, <br>" . $d['username'] . "</h6><button class='btn btn-outline-warning' onclick='logout()' style='margin-top:20px;'>Log Out</button>";
-                            if ($d['role'] == "admin") {
-                                // echo "<button class='btn btn-outline-warning' onclick='Dashboard()' style='height:40px;margin:20px;'>Dashboard</button>";
-                                echo "<a class='btn btn-outline-white' href='admin' style='height:40px;margin:20px;'>Dashboard</a>";
-                            }
-                        } else {
-                            echo "<button type='button' class='sign_up btn btn-outline-warning text-white btn-sm m-2 pl-3 pr-3' data-toggle='modal' data-target='#myModal' style='margin-top:20px;'>Sign Up</button>
-                            <button type='button' class='login_btn btn btn-outline-warning text-white btn-sm m-2 pl-3 pr-3' data-toggle='modal' data-target='#myModalLogin' style='margin-top:20px;' onclick='reset()'>Log In</button>";
-                        }
-                    }
-                    ?>
+        </div>
+
+        <!-- Properties Section -->
+        <div id="properties_container" class="side_card">
+            <h5>Properties</h5>
+            <div id="properties">
+            </div>
+        </div>
+    </div>
+
+    <!-- Banner Side - Right -->
+    <div class="right banner banner_side">
+        <img src="assets/img/banners/banner_left.png" alt="MyStampMaker Banner" />
+    </div>
+    <!-- Banner Bottom - Left -->
+    <div class="banner_bottom left banner">
+        <img src="assets/img/banners/banner_bottom.png" alt="MyStampMaker Banner" />
+    </div>
+    <!-- Banner Bottom - Right -->
+    <div class="banner_bottom right banner">
+        <img src="assets/img/banners/banner_bottom.png" alt="MyStampMaker Banner" />
+    </div>
+
+    <!-- Instructions and Suggestions Buttons -->
+    <div class="bottom_btns">
+        <!-- Instructions -->
+        <div class='instructions_section'>
+            <!-- Open Button -->
+            <div id='toggle' onclick='toggle_ins("#suggestIns")'>
+                View Instructions
+            </div>
+            <!-- Hidden Content -->
+            <div class='suggest instructions' id='suggestIns'>
+                <div>
+                    <h5>Instructions</h5>
+                    <!-- Close Button -->
+                    <div class="insclose" onclick='toggle_ins("#suggestIns")'>Close <i class='fas fa-times' style="color: #ffffff;"></i></div>
                 </div>
+                <!-- Content -->
+                <p>
+                    ★ Select <b>Circle</b> element to add a stamp circle<br>
+                    ★ Edit the circle, change its radius and stroke width<br>
+                    ★ Select <b>Round</b> Text element to add a text around the circle<br>
+                    ★ Enter and edit the text, change spacing and rotate it clockwise<br>
+                    ★ Select <b>Line</b> Text element to add a text in the center<br>
+                    ★ Enter and edit the text, move or rotate it<br>
+                    ★ Select <b>Image</b> element to add an image<br>
+                    ★ Upload the image, change its size and position<br>
+                    ★ Add any numbers of elements<br>
+                    ★ Delete elements clicking on <b>delete x</b> <br>
+                    ★ <b>Download</b> your stamp
+                </p>
             </div>
         </div>
-    </div>
-</header>
-<div class="container-fluid mt-2 p-0 work_area">
-    <div class="col-lg-2 text-center banner_left">
-        <img src="assets/img/banner_120.jpg" class="m-2" alt="" style="width:150px; height:500px;" />
-    </div>
-    <div class="col-lg-2 col-md-12 col-sm-12 layers_tab">
-        <div class="card left-side m-2">
-            <h5 class="text-center p-1 text-secondary" style="border-bottom:2px solid silver;">Layers</h5>
-            <div class="card-body p-0" id="labels">
-
-            </div>
-        </div>
-    </div>
-    <div class="col-lg-4 col-md-6 canvas_tab">
-        <div class="canvis-area m-2">
-            <div class="canvas-col">
-                <center>
-                    <div id="stageparent" class="canvas-stageparent" style="border:none;">
-                        <div id="parent_sub">
-                              <div class="" style="padding:0px;margin-top: -20px;">
-                                <div class="row m-2 selection_row" >
-                                    <div class="col-md-3 selection_box" id="addroundtext">
-                                        <img class="iconimg" src="assets/img/IconRound.svg" alt="" />
-                                        <span class="selection_text">Round<br>Text</span>
-
-                                    </div>
-                                    <div class="col-md-3 selection_box"  id="addlinetext">
-                                        <img class="iconimg" src="assets/img/IconLine.svg" alt=""/>
-                                        <span class="selection_text">Inline<br>Text</span>
-
-                                    </div>
-                                    <div class="col-md-3 selection_box" id="addcircle">
-                                        <img class="iconimg" src="assets/img/IconShape.svg" alt="" >
-                                        <span class="selection_text">Add<br>Shape</span>
-                                    </div>
-                                    <div class="col-md-3 selection_box" id="addimage">
-                                        <img class="iconimg" src="assets/img/IconSquare.svg" alt="" >
-                                        <span class="selection_text">Add<br>Image</span>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="canvas text-center">
-
-                            </div>
-                        </div>
-                        <center class="">
-                            <?php $session = (isset($_SESSION['uid'])) ? $_SESSION['sessionid'] : 'null'; ?>
-                            <button class="btn btn-sm" id="downloads" onclick="down('<?php echo $session ?>')">Download
-                            </button>
-
-                        </center>
-                    </div>
-                </center>
-            </div>
-        </div>
-    </div>
-    <div class="col-lg-2">
-        <div class="m-2" id="properties">
-            <div id='Circle" + (Circles.length) + "' class='property myclass'>
-                <div class=''>
-                    <div class='text-center'>
-                        <div class='card properties-wrapper'>
-                            <h5 class='property-heading'>Properties</h5> 
-
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-        </div>
-    </div>
-    <div class="col-lg-2 col-md-12 col-sm-12 banner_right text-center">
-        <img src="assets/img/banner_120.jpg" class="m-2" alt="" style="width:150px; height:500px;" />
-    </div>
-</div>
-
-<div class="container-fluid mt-5">
-    <div class="row banner_row">
-        <div class="col-lg-2 col-md-3 text-center ">
-            <div class='demo bottomleft seggestions-section'>
-                <div class=" p-1" id='howto' onclick='toggleinstruction()'>
-                    <p class="px" style="">To view Instructions or 'How to'.Click Here</p>
-                </div>
-                <div class='suggest' id='suggestIns'>
-                    <div class="card">
-                        <div class="card-body">
-                            <h5>Instructions</h5>
-                            Select <b>Circle</b> element to add a stamp circle<br>
-                            Edit the circle, change its radius and stroke width<br>
-                            Select <b>Round</b> Text element to add a text around the circle<br>
-                            Enter and edit the text, change spacing and rotate it clockwise<br>
-                            Select <b>Line</b> Text element to add a text in the center<br>
-                            Enter and edit the text, move or rotate it<br>
-                            Select <b>Image</b> element to add an image<br>
-                            Upload the image, change its size and position<br>
-                            Add any numbers of elements<br>
-                            Delete elements clicking on <b>delete x</b> <br>
-                            <b>Download</b> your stamp
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-       
-        <div class="col-md-4 banner_1" style="text-align: left;">
-            <img src="assets/img/banner_bottom.png" class="mt-5" alt="" style="width:100%; height:auto;" />
-        </div>
-        <div class="col-md-4 text-center banner_2">
-            <img src="assets/img/banner_bottom.png" class="mt-5" alt="" style="width:100%; height:auto;" />
-        </div>
-        <div class="col-lg-2 col-md-1 text-center">
-
-        </div>
-
-    </div>
-</div>
-
-<?php include 'inc/signup_modal.php'; ?>
-<?php include 'inc/login_modal.php'; ?>
-
-<?php include 'inc/suggestion.php'; ?>
+        <!-- Including Sign Up, Login and Suggestion Modals -->
+        <?php include 'inc/suggestion.php'; ?>
+        <?php include 'inc/signup_modal.php'; ?>
+        <?php include 'inc/login_modal.php'; ?>

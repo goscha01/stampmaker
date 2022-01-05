@@ -5,15 +5,13 @@ if (session_status() === PHP_SESSION_NONE) {
 include "dbconfig.php";
 
 
-if(isset($_SESSION['uid'])){
-	$data = $_SESSION['uid'];
-	if($data['role']=='admin'){
-		//  header( 'Location:https://admin.mystampmaker.com/index.php');
-		 header( 'Location:index.php');
-	}else{
-		//  header('Location:https://test.mystampmaker.com/' );
-        header( 'Location:index.php');
-	}
+if (isset($_SESSION['uid'])) {
+    $data = $_SESSION['uid'];
+    if ($data['role'] == 'admin') {
+        header('Location:index.php');
+    } else {
+        header('Location:index.php');
+    }
 }
 ?>
 
@@ -24,28 +22,28 @@ if(isset($_SESSION['uid'])){
 <title>Admin Login</title>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="stylesheet" href="assets/css/my.css">
+<link rel="stylesheet" href="assets/admin.min.css">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
 
-<script src="assets/js/jquery-3.5.1.js"></script>
+<script src="../assets/js/jquery-3.5.1.js"></script>
 <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 <style>
-body,
-h1 {
-    font-family: "Raleway", sans-serif
-}
+    body,
+    h1 {
+        font-family: "Raleway", sans-serif
+    }
 
-body,
-html {
-    height: 100%
-}
+    body,
+    html {
+        height: 100%
+    }
 
-.bgimg {
-    background-image: url('assets/img/bg.jpg');
-    min-height: 100%;
-    background-position: center;
-    background-size: cover;
-}
+    .bgimg {
+        background-image: url('assets/img/bg.min.jpg');
+        min-height: 100%;
+        background-position: center;
+        background-size: cover;
+    }
 </style>
 
 <body>
@@ -60,90 +58,82 @@ html {
         </div>
         <div class="my-display-middle">
 
-            <form class=" my-container" action="javascript:login()" method="POST" id="loginForm" <div
-                class="my-section">
+            <form class=" my-container" action="javascript:login()" method="POST" id="loginForm" <div class="my-section">
                 <label><b>Username</b></label>
-                <input class="my-input signup my-border my-margin-bottom" type="text" id="usernameLogin"
-                    placeholder="Username" required=""
-                    value="<?php if(isset($_COOKIE["usernameLogin"])) { echo $_COOKIE["usernameLogin"]; } ?>">
+                <input class="my-input signup my-border my-margin-bottom" type="text" id="usernameLogin" placeholder="Username" required="" value="<?php if (isset($_COOKIE["usernameLogin"])) {
+                                                                                                                                                        echo $_COOKIE["usernameLogin"];
+                                                                                                                                                    } ?>">
                 <label><b>Password</b></label>
-                <input type="password" class="signup my-input signup my-border my-margin-bottom" id="passLogin"
-                    placeholder="Password" required=""
-                    value="<?php if(isset($_COOKIE["passLogin"])) { echo $_COOKIE["passLogin"]; } ?>">
+                <input type="password" class="signup my-input signup my-border my-margin-bottom" id="passLogin" placeholder="Password" required="" value="<?php if (isset($_COOKIE["passLogin"])) {
+                                                                                                                                                                echo $_COOKIE["passLogin"];
+                                                                                                                                                            } ?>">
                 <div class="field-group">
-                    <div><input type="checkbox" name="remember" id="remember"
-                            <?php if(isset($_COOKIE["usernameLogin"])) { ?> checked <?php } ?> />
+                    <div><input type="checkbox" name="remember" id="remember" <?php if (isset($_COOKIE["usernameLogin"])) { ?> checked <?php } ?> />
                         <label for="remember-me">Remember me</label>
                     </div>
                 </div>
                 <button class="my-button btn my-block my-green my-section my-padding" id="login">Login</button>
         </div>
         </form>
-
-        <!-- <h1 class="my-jumbo my-animate-top">COMING SOON</h1>
-            <hr class="my-border-grey" style="margin:auto;width:40%">
-            <p class="my-large my-center">35 days left</p> -->
     </div>
 
     </div>
 
 </body>
 <script type="text/javascript">
-base_url = window.location.origin + '/' + window.location.pathname.split('/')[1] + '/';
+    base_url = window.location.origin + '/' + window.location.pathname.split('/')[1] + '/';
 
-function login() {
+    function login() {
 
 
-    var txtusername = $("#usernameLogin").val();
-    var txtpassword = $("#passLogin").val();
-    var remember = $("#remember").is(":checked");
-    //validate login form
-    if (txtusername.trim() == "") {
-        $("#usernameLogin").css("border", "1px solid red");
-        swal("Username Required", "", "warning");
-    }
-    if (txtpassword.trim() == "") {
-        $("#passLogin").css("border", "1px solid red");
-        swal("Password Required", "", "warning");
-    }
-    if (txtpassword.length < 5) {
-        $("#passLogin").css("border", "1px solid red");
-        swal("Password Minimum 5 characher", "", "warning");
-    } else $.ajax({
-        url: "checkauth.php", //the page containing php script
-        type: "post", //request type,
-        dataType: 'json',
-        data: JSON.stringify({
-            username: txtusername,
-            password: txtpassword,
-            remember: remember,
-        }),
-        success: function(response) {
-            console.log(response);
-            if (response.status == 422) {
-                $("#usernameLogin").css("border", "1px solid red");
-                $("#passLogin").css("border", "1px solid red");
-                swal(response.message, '', 'warning');
-            }
-            if (response.status == 200) {
-                $("#usernameLogin").css("border", "1px solid green");
-                $("#passLogin").css("border", "1px solid green");
-
-                swal("Welcome!", response.message, "success").then(function() {
-                    //Checking if the user turn from the  download
-                    window.location.reload();
-                });
-
-            }
-
-        },
-        error: function(jqXHR, textStatus, errorThrown) {
-
-            console.log(JSON.stringify(jqXHR));
-            console.log("AJAX error: " + textStatus + ' : ' + errorThrown);
+        var txtusername = $("#usernameLogin").val();
+        var txtpassword = $("#passLogin").val();
+        var remember = $("#remember").is(":checked");
+        if (txtusername.trim() == "") {
+            $("#usernameLogin").css("border", "1px solid red");
+            swal("Username Required", "", "warning");
         }
-    });
-}
+        if (txtpassword.trim() == "") {
+            $("#passLogin").css("border", "1px solid red");
+            swal("Password Required", "", "warning");
+        }
+        if (txtpassword.length < 5) {
+            $("#passLogin").css("border", "1px solid red");
+            swal("Password Minimum 5 characher", "", "warning");
+        } else $.ajax({
+            url: "checkauth.php",
+            type: "post",
+            dataType: 'json',
+            data: JSON.stringify({
+                username: txtusername,
+                password: txtpassword,
+                remember: remember,
+            }),
+            success: function(response) {
+                console.log(response);
+                if (response.status == 422) {
+                    $("#usernameLogin").css("border", "1px solid red");
+                    $("#passLogin").css("border", "1px solid red");
+                    swal(response.message, '', 'warning');
+                }
+                if (response.status == 200) {
+                    $("#usernameLogin").css("border", "1px solid green");
+                    $("#passLogin").css("border", "1px solid green");
+
+                    swal("Welcome!", response.message, "success").then(function() {
+                        window.location.reload();
+                    });
+
+                }
+
+            },
+            error: function(jqXHR, textStatus, errorThrown) {
+
+                console.log(JSON.stringify(jqXHR));
+                console.log("AJAX error: " + textStatus + ' : ' + errorThrown);
+            }
+        });
+    }
 </script>
 
 </html>

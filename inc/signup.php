@@ -32,7 +32,6 @@ $langS = $_POST["langS"];
 $langT = $_POST["langT"];
 $ip = getUserIpAddr();
 $regdate =  $now->format('Y-m-d H:i:s');
-// $regdate = date("Y-m-d H:i:s");
 $active = 0;
 $stmt->execute();
 
@@ -54,12 +53,6 @@ $stmt2->execute();
 
     }
 
-
-
-
-
-
-//Function of getting user's IP
 function getUserIpAddr(){
     if(!empty($_SERVER['HTTP_CLIENT_IP'])){
         //ip from share internet

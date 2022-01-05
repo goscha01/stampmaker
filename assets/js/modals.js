@@ -73,7 +73,6 @@ function ajaxCall() {
                 },
                 success: function (response) {
                   console.log(response);
-            // location.href = location.href;
                 },
                 error: function (jqXHR, textStatus, errorThrown) {
             console.log(JSON.stringify(jqXHR));
@@ -127,45 +126,6 @@ function logout() {
   });
 }
 
-
-
-// function UpdatePassword(ele) {
-//   if (event.key === 'Enter') {
-//     const pass = ele.value;
-//     const id = ele.id;
-//     var regularExpression = /^[a-zA-Z]$/;
-//     if (pass.trim() == "") {
-//       swal("Password Field Empty", "Password field is required", "warning");
-//     }
-//     if (pass.trim().length < 5) {
-//       swal("Miniumum 5 characters are required", "Password length must be 5 minimum character", "warning");
-//     }
-
-//     $.ajax({
-//       url: "adminActivity.php", //the page containing php script
-//       type: "pust", //request type,
-//       dataType: 'json',
-//       data: {
-//         pass: pass,
-//         id: id,
-//         action: 'updatePass'
-//       },
-//       success: function (response) {
-//         if (response.abc == "done") {
-//           swal("Password Updated", "Password updated Successfully", "success");
-//           location.reload();
-//         }
-//       },
-//       error: function (jqXHR, textStatus, errorThrown) {
-//         console.log(JSON.stringify(jqXHR));
-//         console.log("AJAX error: " + textStatus + ' : ' + errorThrown);
-//       }
-//     });
-
-
-//   }
-// }
-
 function login() {
 
 
@@ -207,9 +167,6 @@ function login() {
         }
         if (response.status == 200) {
           $('#myModalLogin').modal('hide');
-          // $("#usernameLogin").css("border", "1px solid green");
-          // $("#passLogin").css("border", "1px solid green");
-
           swal("Welcome!", response.message, "success").then(function () {
             //Checking if the user turn from the  download
             if ($("#info").html() != "") {
@@ -234,19 +191,14 @@ function download() {
   var canvas = document.getElementsByTagName('canvas')[0];
   if (canvas.msToBlob) { //for IE
     var blob = canvas.msToBlob();
-    window.navigator.msSaveBlob(blob, 'dicomimage.png');
+    window.navigator.msSaveBlob(blob, 'MyStampMaker-Stamp.png');
   } else {
     //other browsers
     var link = document.createElement('a');
     link.href = canvas.toDataURL();
-    link.download = "dicomimage.png";
+    link.download = "MyStampMaker-Stamp.png";
     link.click();
   }
-  //location.reload();
-  //   var link = document.createElement('a');
-  // link.download = 'amazinglogo.png';
-  // link.href = document.getElementById('can').toDataURL();
-  // link.click();
 }
 
 function reset() {
@@ -264,23 +216,25 @@ function notauser() {
 
 };
 
-function togglesuggestions() {
+function toggle_section(e) {
+  let myEle = document.querySelector(e);
+  if (myEle.classList.contains("open")) {
+    $(e).fadeOut();
+    myEle.classList.remove("open")
+  } else {
+    $(e).fadeIn();
+    myEle.classList.add("open")
+  }
+  document.querySelectorAll(".open").forEach(f => {
+    if (`#${f.id}` == e) return;
+    $(f).fadeOut();
+    f.classList.remove("open");
+  })
 
-  $("#suggest").slideToggle();
 }
-
-function toggleinstruction() {
-
-  $("#suggestIns").slideToggle();
-
+function toggle_ins(e) {
+  $(e).slideToggle();
 }
-
-function toggle_about() {
-
-  $("#about_div").slideToggle();
-
-}
-
 function suggestion() {
   var suggestText = $("#suggestText").val();
   var base_url_n = window.location.origin;
