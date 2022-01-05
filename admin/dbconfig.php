@@ -6,7 +6,7 @@ $servername = "localhost";
 $username = "root";
 $password = "";
 $dbname = "stampMaker";
-echo "admin dbconfig php" . $e->getMessage();
+
 $conn = new mysqli("stampmaker.ciyq4ufpar8z.us-east-1.rds.amazonaws.com", "admin", "admin12345", "stampmaker","3306");
  $base_url="http://".$_SERVER['SERVER_NAME'].dirname($_SERVER["REQUEST_URI"].'?').'/';
 
@@ -30,4 +30,14 @@ if($row['isLogin']=='false'){
     header("location:login.php");
 }
 }
+
+
+function consoleLog($msg) {
+    echo '<script type="text/javascript">' .
+      'console.log(' . $msg . ');</script>';
+}
+
+consoleLog('admin dbconfig php');
+
+
 ?>
