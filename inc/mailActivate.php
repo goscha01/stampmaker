@@ -17,7 +17,7 @@ $senderName = 'Stampmaker';
 $recipient = $to; // this is receipient email address.
 
 $usernameSmtp = 'stampmakerapp@gmail.com';   // your smtp gmail adddress.
-$passwordSmtp = 'ppasoxlcdihmznry';   // your smtp password.
+$passwordSmtp = 'sadasegsg3ttt';   // your smtp password.
 
 // The subject line of the email
 $subject = 'Confirm your Stampmaker account';

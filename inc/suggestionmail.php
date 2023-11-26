@@ -19,7 +19,7 @@ $subject = "Concern Or Suggestion";
 $recipient = $to; // this is receipient email address.
 
 $usernameSmtp = 'stampmakerapp@gmail.com';   // Remember to Change: this is your gmail adddress.
-$passwordSmtp = 'ppasoxlcdihmznry';            // This is your gmail password
+$passwordSmtp = 'sadasegsg3ttt';            // This is your gmail password
 
 $mail = new PHPMailer(true);
 
