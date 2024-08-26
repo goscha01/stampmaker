@@ -679,12 +679,12 @@ function checkAvailiblity(ElementArray, max) {
 }
 
 function down(session) {
-  if (session == "null" || session == null) {
-    $("#myModalLogin").modal("toggle");
-    $("#info").html("Please Login Before Downloading Your Stamp");
-    return;
-  }
-  incrementdownloadnumber(session);
+  // if (session == "null" || session == null) {
+  //   $("#myModalLogin").modal("toggle");
+  //   $("#info").html("Please Login Before Downloading Your Stamp");
+  //   return;
+  // }
+  // incrementdownloadnumber(session);
 
   download();
 }

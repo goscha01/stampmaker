@@ -46,7 +46,7 @@ include_once('inc/header.php');
                     echo "<a class='button dashboard_link' href='admin'>Dashboard</a>";
                 }
             } else {
-                echo "<button type='button' class='sign_up button' data-toggle='modal' data-target='#myModal'>Sign Up</button><button type='button' class='login_btn button' data-toggle='modal' data-target='#myModalLogin' onclick='reset()'>Log In</button>";
+                echo "<button type='button' class='sign_up button' data-toggle='modal' v='#myModal'>Sign Up</button><button type='button' class='login_btn button' data-toggle='modal' data-target='#myModalLogin' onclick='reset()'>Log In</button>";
             }
             ?>
         </div>
@@ -100,7 +100,7 @@ include_once('inc/header.php');
             <div class="canvas text-center">
 
             </div>
-            <?php $session = (isset($_SESSION['uid'])) ? $_SESSION['sessionid'] : 'null'; ?>
+            <!-- <?php $session = (isset($_SESSION['uid'])) ? $_SESSION['sessionid'] : 'null'; ?> -->
             <button class="button" id="downloads" onclick="down('<?php echo $session ?>')">Download</button>
 
         </div>
