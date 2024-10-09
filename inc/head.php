@@ -32,7 +32,7 @@ $base_url = "http://" . $_SERVER['SERVER_NAME'] . dirname($_SERVER['REQUEST_URI'
     <link rel="icon" type="image/png" href="assets/img/favicon.png" sizes="32x32">
     <link rel="stylesheet" href="assets/css/overlayScrollbars.min.css">
     <link rel="stylesheet" href="assets/css/bootstrap.min.css">
-    <link rel="stylesheet" href="assets/css/select2.min.css">
+
     <link rel="stylesheet" href="assets/css/global.css">
     <link rel="stylesheet" href="assets/css/loader.css">
     <link rel="stylesheet" href="assets/css/main.css">
@@ -59,13 +59,13 @@ $base_url = "http://" . $_SERVER['SERVER_NAME'] . dirname($_SERVER['REQUEST_URI'
     </script>
     <script src="assets/js/jquery-3.5.1.js"></script>
     <script src="assets/js/jquery.overlayScrollbars.min.js"></script>
-    <script src="assets/js/bootstrap.min.js"></script>
+    <!-- <script src="assets/js/bootstrap.min.js"></script> -->
     <script src="http://hongru.github.io/proj/canvas2image/canvas2image.js"></script>
     <script src="assets/js/customCircularLibrary.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/spectrum/1.8.0/spectrum.min.js"></script>
     <script src="assets/js/main.js"></script>
     <script src="assets/js/modals.js"></script>
-    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+    <!-- <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script> -->
     <script src="assets/js/select2.min.js"></script>
 </head>
 
