@@ -678,14 +678,7 @@ function checkAvailiblity(ElementArray, max) {
   return 1;
 }
 
-function down(session) {
-  // if (session == "null" || session == null) {
-  //   $("#myModalLogin").modal("toggle");
-  //   $("#info").html("Please Login Before Downloading Your Stamp");
-  //   return;
-  // }
-  // incrementdownloadnumber(session);
-
+function down() {
   download();
 }
 
@@ -705,48 +698,13 @@ function incrementdownloadnumber(s) {
 document.addEventListener("DOMContentLoaded", function () {
   OverlayScrollbars(document.querySelectorAll(".scroll"), {});
 });
-// Signup Modals
+
 $(document).ready(function () {
   // Loader Fades out
   $(".loader_wrapper").delay(300).fadeOut("slow");
   // Interface Fades in
   $("main").hide().delay(800).fadeIn("slow");
-
-  var customLang = false;
-  var notTranslator = false;
-  var customLang2 = false;
   $(".suggest").hide();
-  $("#lang2").slideToggle();
-  $("#lang3").slideToggle();
-  $("#reason").slideToggle();
-  $("#source").click(function () {
-    // Opening the custom lang
-    $("#langS").slideToggle();
-    $("#lang2").slideToggle();
-    customLang = !customLang;
-    CheckValidation(customLang, "#lang2");
-    CheckValidation(!customLang, "#langS");
-  });
-  $("#target").click(function () {
-    // Opening the custom lang
-    $("#langTarget").slideToggle();
-    $("#lang3").slideToggle();
-    customLang2 = !customLang2;
-    CheckValidation(customLang2, "#lang3");
-    CheckValidation(!customLang2, "#langTarget");
-  });
-
-  $("#notatranslator").click(function () {
-    notTranslator = !notTranslator;
-    $("#reason").slideToggle();
-    $("#langS").slideToggle();
-    $("#langTarget").slideToggle();
-    $("emp").slideToggle();
-    CheckValidation(notTranslator, "#reason");
-    CheckValidation(!notTranslator, "#langS");
-    CheckValidation(!notTranslator, "#langTarget");
-  });
-  $("#signUp").click(function () {});
 });
 
 function CheckValidation(customLang, id) {

@@ -26,15 +26,7 @@
     </div>
     <!-- Login/Signup/Dashboard/Logout Buttons Logic -->
     <div class="nav_container header_side right">
-        <?php if (isset($_SESSION["uid"])): ?>
-            <h6 class="welcome_text">Welcome, <br><?php echo $_SESSION["username"]; ?></h6>
-            <button class="button logout_btn" onclick="logout()">Log Out</button>
-            <?php if ($_SESSION["role"] === "admin"): ?>
-                <a class="button dashboard_link" href="admin">Dashboard</a>
-            <?php endif; ?>
-        <?php else: ?>
-            <button type="button" class="sign_up button" data-toggle="modal" data-target="#myModal">Sign Up</button>
-            <button type="button" class="login_btn button" data-toggle="modal" data-target="#myModalLogin" onclick="reset()">Log In</button>
-        <?php endif; ?>
+            <button type="button" class="sign_up button">Sign Up</button>
+            <button type="button" class="login_btn button" >Log In</button>
     </div>
 </header>
